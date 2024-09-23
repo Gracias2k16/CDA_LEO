@@ -1,12 +1,12 @@
 body {
-    background-color: powderblue;
+    background-color: rgb(226, 226, 226);
     }
 
     h1, h2 {
-    color: blue;
+    color: rgb(0, 0, 0);
     text-align: center;
-    border: 2px solid slateblue;
-    margin: 50px;
+    border: 2px solid rgb(107, 110, 112);
+    margin: 100px;
     }
 
     p {
@@ -14,7 +14,7 @@ body {
     font-family: courier;
     font-size: 24px;
     }
-    
+
     ul, li {
     color: red;
     font-family: courier;
