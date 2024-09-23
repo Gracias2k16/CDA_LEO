@@ -2,7 +2,7 @@ body {
     background-color: rgb(226, 226, 226);
     }
 
-    h1, h2 {
+    h1, h2{
     color: rgb(0, 0, 0);
     text-align: center;
     border: 2px solid rgb(107, 110, 112);
@@ -10,6 +10,7 @@ body {
     }
 
     p {
+    text-align: center;
     color: chocolate;
     font-family: courier;
     font-size: 24px;
@@ -18,5 +19,12 @@ body {
     ul, li {
     color: red;
     font-family: courier;
+    }
+
+    input {
+        
+        font-size: 18px;
+        color: chocolate;
+
     }
     
