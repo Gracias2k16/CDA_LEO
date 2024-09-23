@@ -1,0 +1,22 @@
+body {
+    background-color: powderblue;
+    }
+
+    h1, h2 {
+    color: blue;
+    text-align: center;
+    border: 2px solid slateblue;
+    margin: 50px;
+    }
+
+    p {
+    color: chocolate;
+    font-family: courier;
+    font-size: 24px;
+    }
+    
+    ul, li {
+    color: red;
+    font-family: courier;
+    }
+    
