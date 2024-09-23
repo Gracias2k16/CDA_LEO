@@ -2,18 +2,18 @@ from flask import render_template, redirect
 from app import app
 from app.forms import ConfigForm
 
-@app.route('/') # decorators
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html')
+    form = ConfigForm(Identifiant= "ZEBI", MDP="123456")
+    if form.validate_on_submit():
+        return redirect('/config')
+    return render_template('form_config.html', form=form)
 
 @app.route('/index')
 def index():
-    strResult = f'Hello Bruz! '
+    strResult = f'Hello Bruz!'
     return strResult
 
-@app.route('/config', methods=['GET', 'POST'])
+@app.route('/config',)
 def config():
-    form = ConfigForm(Identifiant= "ZEBI", MDP="123456")
-    if form.validate_on_submit():
-        return redirect('/')
-    return render_template('form_config.html', form=form)
+    return render_template('home.html')
