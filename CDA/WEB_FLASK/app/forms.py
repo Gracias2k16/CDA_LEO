@@ -6,6 +6,6 @@ from wtforms.validators import DataRequired
 
 class ConfigForm(FlaskForm):
     Identifiant = StringField('Identifiant', validators=[DataRequired()])
-    MDP = StringField('MDP', validators=[DataRequired()])
+    MDP  = StringField('Mot de passe', validators=[DataRequired()])
     Connexion = SubmitField('Connexion')
 
