@@ -8,4 +8,4 @@ class ConfigForm(FlaskForm):
     Identifiant = StringField('Identifiant', validators=[DataRequired()])
     MDP = StringField('Mot de passe', validators=[DataRequired()])
     Connexion = SubmitField('Connexion')
-
+    Ajouter = SubmitField('Ajouter')
