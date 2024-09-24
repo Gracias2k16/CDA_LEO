@@ -5,7 +5,7 @@ from app.forms import ConfigForm
 @app.route('/', methods=['GET', 'POST'])
 def home():
     form = ConfigForm()
-    if form.validate_on_submit('Connexion'):
+    if form.validate_on_submit():
         return redirect('/config')
     return render_template('form_config.html', form=form)
 
