@@ -8,7 +8,7 @@
     </head>
     
     <body>
-        <h1>Configuration</h1>
+        <h1>Connexion</h1>
         <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
@@ -16,8 +16,8 @@
         {{ form.Identifiant(size=16) }}<br>
         </p>
         <p>
-        {{ form.MDP.label }}<br>
-        {{ form.MDP(size=4) }}<br>
+        {{ form.Mot de passe.label }}<br>
+        {{ form.MDP(size=16) }}<br>
         </p>
         <p>{{ form.Connexion() }}</p>
         </form>

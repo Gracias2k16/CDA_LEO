@@ -7,7 +7,6 @@ config = {#Infos concernant la base de donnée
     'database': 'CDA'
 }
 
-
 try:
     connexion = mysql.connector.connect(**config)# Connexion à la base de données
 
