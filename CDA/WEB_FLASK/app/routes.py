@@ -8,7 +8,7 @@ from app.forms import ConfigForm
 def home():
     form = ConfigForm(Identifiant= "ZEBI", MDP="123456")
     if form.validate_on_submit('Connexion'):
-        return redirect('/config')
+        return redirect('/home')
     return render_template('form_config.html', form=form)
 
 @app.route('/index')
@@ -16,6 +16,6 @@ def index():
     strResult = f'Hello Bruz!'
     return strResult
 
-@app.route('/config',)
+@app.route('/home',)
 def config():
     return render_template('home.html')

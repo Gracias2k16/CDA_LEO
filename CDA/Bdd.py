@@ -4,60 +4,65 @@ import mysql.connector
 #===================================================================================================
 
 #===================================================================================================
+class IF_BDD:
+
+    def __init__(sefl, user):
+        sefl.connection = None
+        sefl.user = user
+
+    def Connection (sefl, pwd) :
+
+        password = pwd
+
+        config = {
+            'user': sefl.user,
+            'password': password,
+            'host': 'localhost',
+            'database': 'CDA'
+        }
+
+        try:
+            sefl.connexion = mysql.connector.connect(**config)# Connexion à la base de données
+            print(f'Connection réussie')
+            return True
+
+        except : #Détection d'erreurs
+            print(f"Erreur lors de la connection")
+            return False
 
 
-def Connection (pwd) :
-
-    global connexion
-    password = pwd
-
-    config = {
-        'user': 'root',
-        'password': password,
-        'host': 'localhost',
-        'database': 'CDA'
-    }
-
-    try:
-        connexion = mysql.connector.connect(**config)# Connexion à la base de données
-        print(f'Connection réussie')
-
-    except : #Détection d'erreurs
-        print(f"Erreur lors de la connection")
+    #===================================================================================================
 
 
-#===================================================================================================
+    def Identifiants(sefl):
 
-
-def Identifiants():
-
-    try :
+        try :
         
-        mycursor = connexion.cursor()# Création d'un curseur
+            mycursor = sefl.connexion.cursor()# Création d'un curseur
              
-        mycursor.execute("SELECT Identifiant , Mot_de_passe FROM Utilisateurs") # Requette
+            mycursor.execute("SELECT Identifiant , Mot_de_passe FROM Utilisateurs") # Requette
 
-        for x in mycursor : # Ecriture des infos sur chaque lignes
-            print(x)
-        print ("================")
+            for x in mycursor : # Ecriture des infos sur chaque lignes
+                print(x)
+            print ("================")
 
-    except : #Détection d'erreurs
-        print(f"Erreur lors de la récupérationd le données")
-
-
-#===================================================================================================
+        except : #Détection d'erreurs
+            print(f"Erreur lors de la récupérationd le données")
 
 
-def Deconnection():
+    #===================================================================================================
 
-    try :
+
+    def Deconnection(sefl):
+
+        try :
         
-        if connexion:  # Controle si la connexion est créée avant de la fermer
-            connexion.close()
-        print(f'Déconnection réussie')
+            if sefl.connexion:  # Controle si la connexion est créée avant de la fermer
+                sefl.connexion.close()
+            print(f'Déconnection réussie')
 
-    except : #Détection d'erreurs
-        print(f"Erreur lors de la déconnection")
+        except : #Détection d'erreurs
+            print(f"Erreur lors de la déconnection")
 
 
 #===================================================================================================
@@ -65,11 +70,12 @@ def Deconnection():
 if __name__ == '__main__':
 
     pwd = input("Entrez le mot de passe de la  BDD :")
+    ifbdd = IF_BDD('root')
     
     try :
-        Connection(pwd)
-        Identifiants()
-        Deconnection()
+        ifbdd.Connection(pwd) 
+        ifbdd.Identifiants()
+        ifbdd.Deconnection()
 
     except :
         print(f'erreur')
