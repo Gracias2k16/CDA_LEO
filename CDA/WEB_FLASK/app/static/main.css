@@ -9,7 +9,7 @@ body {
     margin: 100px;
     }
 
-    p {
+    p, label {
     text-align: center;
     color: chocolate;
     font-family: courier;
@@ -21,7 +21,7 @@ body {
     font-family: courier;
     }
 
-    .Input {
+    .Input, input {
         display: flex;
         text-align: center;
         font-size: 18px;
