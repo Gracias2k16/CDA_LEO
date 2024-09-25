@@ -1,4 +1,6 @@
-from flask import render_template, redirect
+from flask import Flask, request, render_template, redirect, url_for
+import mysql.connector
+import bcrypt
 from app import app
 from app.forms import ConfigForm
 

@@ -3,9 +3,11 @@ import mysql.connector
 
 #===================================================================================================
 
+#===================================================================================================
+
 
 def Connection (pwd) :
-    
+
     global connexion
     password = pwd
 
@@ -33,7 +35,7 @@ def Identifiants():
         
         mycursor = connexion.cursor()# Création d'un curseur
              
-        mycursor.execute("SELECT Identifiant FROM Utilisateurs") # Requette
+        mycursor.execute("SELECT Identifiant , Mot_de_passe FROM Utilisateurs") # Requette
 
         for x in mycursor : # Ecriture des infos sur chaque lignes
             print(x)
