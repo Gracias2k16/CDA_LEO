@@ -6,10 +6,13 @@ from app.forms import ConfigForm
 
 #===================================================================================================
 
+
+
+#===================================================================================================
 def connect_db():
     config = {
         'user': 'root',
-        'password': 'uimm',  # Utilise le bon mot de passe ici
+        'password': 'uimm', 
         'host': 'localhost',
         'database': 'CDA'
     }
@@ -17,49 +20,73 @@ def connect_db():
 
 #===================================================================================================
 
-@app.route('/', methods=['GET', 'POST'])
-def login_form():
-    connexion = None  # Initialisation de la variable connexion
 
-    if request.method == 'POST':
-        # Récupérer les données du formulaire
-        identifiant = request.form['identifiant']
-        password = request.form['password']
+
+def fetch_user_data(identifiant): #Récupère les données de l'utilisateur à partir de la base de données
+    connexion = connect_db()
+    mycursor = connexion.cursor()
 
     try:
-            # Connexion à la base de données
-            connexion = connect_db()
-            mycursor = connexion.cursor()
+        query = "SELECT Identifiant, Mot_de_passe FROM Utilisateurs WHERE Identifiant = %s"
+        mycursor.execute(query, (identifiant,))
+        
+        return mycursor.fetchone()  # Renvoie les données de l'utilisateur
+    
 
-            # Requête SQL pour récupérer l'utilisateur avec cet identifiant
-            query = "SELECT Identifiant, Mot_de_passe FROM Utilisateurs WHERE Identifiant = %s"
-            mycursor.execute(query, (identifiant,))
-            user_data = mycursor.fetchone()
-
-            if user_data:
-                identifiant_bdd, password_bdd = user_data  # Récupérer l'identifiant et le mot de passe
-
-                # Comparer le mot de passe saisi avec celui stocké dans la base
-                if password == password_bdd:
-                    return redirect(url_for('home'))  # Redirection si le mot de passe est correct
-                else:
-                    flash("Mot de passe incorrect.")
-            else:
-                flash("Identifiant incorrect.")
-
-    except:
-            flash(f"Erreur lors de la connexion ")
+    except :
+        print("Erreur lors de la récupération des données")
+        return None
+    
 
     finally:
-        if connexion:
-            connexion.close()
-    return render_template('form_config.html')
+        mycursor.close()
+        connexion.close()
 
+
+#===================================================================================================
+
+
+def validate_user(identifiant, password):#Valide l'identifiant et le mot de passe de l'utilisateur
+    
+    user_data = fetch_user_data(identifiant)
+    if user_data:
+
+        identifiant, password_bdd = user_data  # Récupérer l'identifiant et le mot de passe
+
+        if password == password_bdd:# Comparer le mot de passe saisi avec celui stocké dans la base
+            return redirect(url_for('home'))  # Redirection si le mot de passe est correct
+        
+        else:
+            flash("Mot de passe incorrect.")
+
+    else:
+        flash("Identifiant incorrect.")
+
+    return False  # Validation échouée
+
+
+#===================================================================================================
+
+@app.route('/', methods=['GET', 'POST'])
+def login_form():
+
+    if request.method == 'POST':
+        
+        identifiant = request.form['identifiant']# Récupérer les données du formulaire
+        password = request.form['password']# Récupérer les données du formulaire
+
+        if validate_user(identifiant, password):
+            return redirect(url_for('home'))  # Redirection si le mot de passe est correct
+        
+        else:
+            flash("Identifiant ou mot de passe incorrect.")
+
+    return render_template('form_config.html')
 
 
 #===================================================================================================
 
 @app.route('/home')
 def home():
-    return "<h1>Bienvenue à la maison !</h1>"
+    return render_template('home.html')
 
