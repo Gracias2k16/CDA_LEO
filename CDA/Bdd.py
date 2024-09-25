@@ -12,11 +12,9 @@ class IF_BDD:
 
     def Connection (sefl, pwd) :
 
-        password = pwd
-
         config = {
             'user': sefl.user,
-            'password': password,
+            'password': pwd,
             'host': 'localhost',
             'database': 'CDA'
         }
