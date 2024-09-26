@@ -7,8 +7,6 @@ from app.forms import ConfigForm
 #===================================================================================================
 
 
-
-#===================================================================================================
 def connect_db():
     config = {
         'user': 'root',
@@ -67,7 +65,7 @@ def validate_user(identifiant, password):#Valide l'identifiant et le mot de pass
 
 #===================================================================================================
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/connexion', methods=['GET', 'POST'])
 def login_form():
 
     if request.method == 'POST':
@@ -86,7 +84,7 @@ def login_form():
 
 #===================================================================================================
 
-@app.route('/home')
+@app.route('/')
 def home():
     return render_template('home.html')
 
