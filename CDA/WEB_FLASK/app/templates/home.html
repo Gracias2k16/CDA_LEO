@@ -4,17 +4,42 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-        <title>UIMM</title>
+        <title>PBimportation</title>
     </head>
 
     <body>
-        <img src="{{url_for('static', filename='Bmw_fond.PNG')}}" alt="bmw_fond" style="width:1600px;height:948px;">
-        <h1>
-            Usine du futur : Ligne 4.0
-        <p> Ligne Production Vitré </p>
-        </h1>   
+        <header>
+            <div class="Bandeau haut">
+                <div id="Bandeau_haut_gauche">
+                    <div class="Bandeau_ecriture">
+                        <a href="/">
+                            <img src="{{url_for('static', filename='Logo.PNG')}}" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div id="Bandeau_haut_droit">
+                    <div id="Bandeau_haut_droit_premier">
+                        <a id="Txt_menu">Menu</a>
+                        <div class="Menu_icon">
+                            <input aria-label="Navigation" class="Menu-icon__cheeckbox" type="checkbox">
+                            <div>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Bandeau_haut_droit_second">
+                        <a id="Faire_demande"> Faire une demande</a>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-        <p> Bienvenue</p>
-        
+        <main>
+            <img src="{{url_for('static', filename='Bmw_fond.png')}}" alt="bmw_fond" class="Image_fond">
+
+            
+
+        </main>
     </body>
 </html>

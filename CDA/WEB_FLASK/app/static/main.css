@@ -2,44 +2,131 @@ body {
     background-color: rgb(0, 0, 0);
     }
 
+    .Image_fond {
+    width: 100%;
+    height: auto;
+    }
 
 
+    .Bandeau{
+    height: 68px;
+    width: 100Vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 3;
+    position: fixed;
+    border-bottom: solid 1px #949494;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+    top: 0;
+    }
+
+    .Bandeau #Bandeau_haut_gauche{
+    width: 50%;
+    height: 100%; 
+    }
+
+    .Bandeau #Bandeau_haut_gauche .Bandeau_ecriture {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    }
+
+    .Bandeau #Bandeau_haut_gauche .Bandeau_ecriture a {
+    cursor: pointer;
+    }
+
+    .Bandeau #Bandeau_haut_gauche .Bandeau_ecriture img {
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 25px;
+    cursor: pointer;
+    }
+
+    .Bandeau #Bandeau_haut_droit{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    }
+
+    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30px;
+    }
+
+    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier a {
+    color: aliceblue;
+    font-size: 20px;
+    cursor: pointer;
+    }
+
+    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu_icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    }
+
+    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu-icon__cheeckbox {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+    opacity: 0;
+    }
+
+    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu_icon div {
+    margin: auto;
+    position: absolute;
+    top: 4.5px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 22px;
+    height: 12px;
+    transform: scale(1.1);
+    opacity: .8;
+    }
     
-    h1, h2{
-    color: rgb(0, 0, 0);
-    text-align: center;
-    border: 2px solid rgb(0, 0, 0);
-    margin: 100px;
+    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu_icon div span:first-of-type {
+    top: 0;
+    }
+    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu_icon div span:last-of-type {
+    bottom: 0;
     }
 
-    p  {
-    text-align: center;
-    color: chocolate;
-    font-family: courier;
-    font-size: 24px;
+    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu_icon div span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 1px;
+    border-radius: 1px;
+    transition: all .2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+    background-color: #fff;
     }
 
-    ul, li {
-    color: red;
-    font-family: courier;
+    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_second {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30px;
+    }    
+
+    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_second a {
+    color: aliceblue;
+    font-size: 20px;
+    cursor: pointer;
     }
 
-    .Input, input  {
-        display: flex;
-        text-align: center;
-        font-size: 18px;
-        color: rgb(0, 0, 0);
-        margin-left: 50%;
-        transform: translate(-50%, -50%)
-
-    }
-
-    label {
-    display: grid;
-    place-items: center;
-    color: chocolate;
-    font-family: courier;
-    font-size: 24px;
-
-    }
-    
