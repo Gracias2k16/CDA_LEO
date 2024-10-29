@@ -3,12 +3,6 @@
         margin: 0%;
     }
 
-    .Image_fond {
-        width: 100%;
-        height: auto;
-    }
-
-
     .Bandeau {
         height: 68px;
         width: 100Vw;
@@ -136,6 +130,16 @@
         overflow: hidden;
     }
 
+    .Image_fond {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+        z-index: -4;
+    }
+
     .homepage .homepage_premiere_partie {
         height: 100vh;
         width: 100vw;
@@ -155,7 +159,3 @@
     .homepage #homepage_premiere_partie #homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu p:nth-child(1) {
         padding: 1.5rem;
     }
-
-    
-    
-    
