@@ -184,10 +184,23 @@
 
     .homepage .homepage_premiere_partie .homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu p:nth-child(1) {
         width: 100%;
-        font-size: 5rem;
+        font-size: 4rem;
         line-height: 100%;
         margin-bottom: 1rem;
         font-family: "GT-Flexa-Standard-Light";
+    }
+
+    @media screen and (max-width: 1200px) {
+        #homepage .homepage_premiere_partie .homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu p:nth-child(2) {
+            padding: 1.2rem;
+        }
+    }
+
+    .homepage .homepage_premiere_partie .homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu p:nth-child(2) {
+        font-weight: 100;
+        font-family: "WorkSans-Light";
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
     }
 
     p {
