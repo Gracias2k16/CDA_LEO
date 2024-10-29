@@ -203,6 +203,19 @@
         margin-bottom: 1.5rem;
     }
 
+    @media screen and (max-width: 1200px) {
+        #homepage .homepage_premiere_partie .homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu p:nth-child(3) {
+            padding: 1.2rem;
+        }
+    }
+
+    .homepage .homepage_premiere_partie .homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu p:nth-child(3) {
+        font-weight: 100;
+        font-family: "WorkSans-Light";
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
     p {
         display: block;
         margin-block-start: 1em;
