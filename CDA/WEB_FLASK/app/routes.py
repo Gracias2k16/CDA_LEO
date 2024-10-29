@@ -88,3 +88,8 @@ def login_form():
 def home():
     return render_template('home.html')
 
+#===================================================================================================
+
+@app.route('/Demande')
+def Demande():
+    return render_template('Demande.html')
