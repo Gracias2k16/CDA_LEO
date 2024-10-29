@@ -213,13 +213,12 @@
         font-weight: 100;
         font-family: "WorkSans-Light";
         font-size: 1.3rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
     }
 
     p {
         display: block;
         margin-block-start: 1em;
-        margin-block-end: 1em;
         margin-inline-start: 0px;
         margin-inline-end: 0px;
         unicode-bidi: isolate;
