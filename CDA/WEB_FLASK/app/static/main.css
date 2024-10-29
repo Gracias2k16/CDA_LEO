@@ -148,14 +148,60 @@
         background-color: rgba(0, 0, 0, .3215686275);
     }
 
-    .homepage #homepage_premiere_partie .homepage_premiere_partie_gauche {
+    @media screen and (max-width: 1200px) {
+        #homepage .homepage_premiere_partie .homepage_premiere_partie_gauche {
+            width: 100%;
+        }
+    }
+
+    .homepage .homepage_premiere_partie .homepage_premiere_partie_gauche {
+        width: 50%;
+        height: 100%;
+    }
+
+    @media screen and (max-width: 1200px) {
+        #homepage .homepage_premiere_partie .homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu {
+            padding: 5rem 5rem 5rem 5rem;
+        }
+    }
+
+    .homepage .homepage_premiere_partie .homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu {
         width: 100%;
+        height: 100%;
+        color: #fbfbfb;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: "GT-Flexa-Standard-Regular";
+        padding: 0 0rem 0 5rem;
     }
 
-    .homepage #homepage_premiere_partie #homepage_premiere_partie_gauche #homepage_premiere_partie_gauche_contenu {
-        padding: 5rem 5rem 5rem 5rem;
+    @media screen and (max-width: 1200px) {
+        #homepage .homepage_premiere_partie .homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu p:nth-child(1) {
+            padding: 3rem;
+        }
     }
 
-    .homepage #homepage_premiere_partie #homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu p:nth-child(1) {
-        padding: 1.5rem;
+    .homepage .homepage_premiere_partie .homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu p:nth-child(1) {
+        width: 100%;
+        font-size: 5rem;
+        line-height: 100%;
+        margin-bottom: 1rem;
+        font-family: "GT-Flexa-Standard-Light";
+    }
+
+    p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        unicode-bidi: isolate;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
     }
