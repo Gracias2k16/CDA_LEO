@@ -147,5 +147,12 @@ body {
     width: 100%;
     }
 
+    #homepage .homepage_premiere_partie .homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu {
+    padding: 5rem;
+    }
+
+    #homepage .homepage_premiere_partie .homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu p:nth-child(1) {
+    padding: 1,5rem
+    }
 
 

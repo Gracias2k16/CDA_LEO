@@ -1,54 +1,56 @@
 <!doctype html>
 
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-        <title>PBimportation</title>
-    </head>
 
-    <body>
-        <header>
-            <div class="Bandeau haut">
-                <div id="Bandeau_haut_gauche">
-                    <div class="Bandeau_ecriture">
-                        <a href="/">
-                            <img src="{{url_for('static', filename='Logo.PNG')}}" alt="Logo">
-                        </a>
-                    </div>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <title>PBimportation</title>
+</head>
+
+<body>
+    <header>
+        <div class="Bandeau haut">
+            <div id="Bandeau_haut_gauche">
+                <div class="Bandeau_ecriture">
+                    <a href="/">
+                        <img src="{{url_for('static', filename='Logo.PNG')}}" alt="Logo">
+                    </a>
                 </div>
-                <div id="Bandeau_haut_droit">
-                    <div id="Bandeau_haut_droit_premier">
-                        <a id="Txt_menu">Menu</a>
-                        <div class="Menu_icon">
-                            <input aria-label="Navigation" class="Menu-icon__cheeckbox" type="checkbox">
-                            <div>
-                                <span></span>
-                                <span></span>
-                            </div>
+            </div>
+            <div id="Bandeau_haut_droit">
+                <div id="Bandeau_haut_droit_premier">
+                    <a id="Txt_menu">Menu</a>
+                    <div class="Menu_icon">
+                        <input aria-label="Navigation" class="Menu-icon__cheeckbox" type="checkbox">
+                        <div>
+                            <span></span>
+                            <span></span>
                         </div>
                     </div>
-                    <div id="Bandeau_haut_droit_second">
-                        <a id="Faire_demande"> Faire une demande</a>
-                    </div>
+                </div>
+                <div id="Bandeau_haut_droit_second">
+                    <a id="Faire_demande"> Faire une demande</a>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <main class="homepage">
-            
-            <div class="homepage_premiere_partie">
-                <img src="{{url_for('static', filename='Bmw_fond.png')}}" alt="bmw_fond" class="Image_fond">
+    <main class="homepage">
+        <div class="homepage_premiere_partie">
+            <img src="{{url_for('static', filename='Bmw_fond.png')}}" alt="bmw_fond" class="Image_fond">
 
-                <div class="homepage_premiere_partie_gauche">
-                    <div class="homepage_premiere_partie_gauche_contenu">
-                        <p> Surclassez-vous</p>
-                        
-                    </div>
+            <div class="homepage_premiere_partie_gauche">
+                <div class="homepage_premiere_partie_gauche_contenu">
+                    <p> Élevez votre expérience </p>
+                    <p>Profitez de l'occasion pour vous offrir l'unique et l'exceptionnelles, sans effort ni compromis. Transformez votre expérience d'achat en un moment privilégié</p>
+                    <p></p>
                 </div>
             </div>
-            
+        </div>
 
-        </main>
-    </body>
+
+    </main>
+</body>
+
 </html>
