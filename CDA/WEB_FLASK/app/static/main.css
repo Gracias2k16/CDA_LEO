@@ -200,7 +200,6 @@
         font-weight: 100;
         font-family: "WorkSans-Light";
         font-size: 1.3rem;
-        margin-bottom: 1.5rem;
     }
 
     @media screen and (max-width: 1200px) {
@@ -213,7 +212,22 @@
         font-weight: 100;
         font-family: "WorkSans-Light";
         font-size: 1.3rem;
-        margin-bottom: 1.5rem;
+    }
+
+    .homepage .homepage_premiere_partie .homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu p:nth-child(4) {
+        display: flex;
+        align-items: center;
+    }
+
+    .homepage .homepage_premiere_partie .homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu p:nth-child(4) a {
+        border: solid 1px #fff;
+        border-radius: 150px;
+        padding: 12px 60px;
+        color: #fbfbfb;
+        font-family: "GT-Flexa-Standard-Light";
+        width: auto;
+        transition: .3s ease-in-out;
+        font-size: 1em;
     }
 
     p {
