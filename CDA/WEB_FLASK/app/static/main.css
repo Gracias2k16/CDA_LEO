@@ -136,7 +136,7 @@
         overflow: hidden;
     }
 
-    .homepage #homepage_premiere_partie {
+    .homepage .homepage_premiere_partie {
         height: 100vh;
         width: 100vw;
         display: flex;
@@ -149,7 +149,7 @@
     }
 
     .homepage #homepage_premiere_partie #homepage_premiere_partie_gauche #homepage_premiere_partie_gauche_contenu {
-        padding: 5rem;
+        padding: 5rem 5rem 5rem 5rem;
     }
 
     .homepage #homepage_premiere_partie #homepage_premiere_partie_gauche .homepage_premiere_partie_gauche_contenu p:nth-child(1) {
