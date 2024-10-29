@@ -148,7 +148,7 @@
         background-color: rgba(0, 0, 0, .3215686275);
     }
 
-    .homepage #homepage_premiere_partie #homepage_premiere_partie_gauche {
+    .homepage #homepage_premiere_partie .homepage_premiere_partie_gauche {
         width: 100%;
     }
 
