@@ -257,7 +257,7 @@
         unicode-bidi: isolate;
     }
 
-    #homepage .homepage_premiere_partie .homepage_texte_anime h1 {
+    #homepage .homepage_premiere_partie .homepage_text_anime h1 {
         color: #d9d9d9;
         font-family: "GT-Flexa-Standard-Light";
         font-size: 4.125em;
@@ -270,10 +270,10 @@
         margin: 8px 0;
     }
 
-    #homepage .homepage_premiere_partie .homepage_texte_anime {
+    #homepage .homepage_premiere_partie .homepage_text_anime {
         height: auto;
         width: auto;
-        position: absolute;
+        position:relative ;
         display: flex;
         bottom: 0;
         white-space: nowrap;
