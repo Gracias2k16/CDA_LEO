@@ -250,3 +250,32 @@
         display: block;
         unicode-bidi: isolate;
     }
+
+    .homepage .homepage_premiere_partie .homepage_texte_anime {
+        height: auto;
+        width: auto;
+        position: absolute;
+        display: flex;
+        bottom: 0%;
+        width: 75%;
+        white-space: nowrap;
+        border-top: solid 1px rgba(251, 251, 251, .5019607843);
+        overflow: hidden;
+        -webkit-box-shadow: inset 0px 0px 42px 5px rgba(255, 255, 255, .24);
+        box-shadow: inset 0px 0px 42px 5px rgba(255, 255, 255, .24);
+    }
+
+    .homepage .homepage_premiere_partie .homepage_texte_anime h1 {
+        color: #d9d9d9;
+        font-family: "GT-Flexa-Standard-Light";
+        height: 7vh;
+        width: 100%;
+        font-size: 4.125em;
+        width: auto;
+        white-space: nowrap;
+        animation: scrollTxtHomepage 30s linear infinite;
+        height: auto;
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
+    }
