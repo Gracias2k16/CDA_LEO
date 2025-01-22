@@ -308,60 +308,59 @@ body {
 ////////////////////////    Deuxième partie     ////////////////////////
 //////////////////////////////////////////////////////////////////////*/
 
-#homepage .homepage_deuxieme_partie {
+    .homepage .homepage_deuxieme_partie {
+        height: auto;
+        width: 100%;
+        display: flex;
+        color: #fbfbfb;
+        padding: 0 5rem;
+     margin-top: 10rem;
+    }   
 
-    height: auto;
-    width: 100%;
-    color: #fbfbfb;
-    padding: 0 5rem;
-    margin-top: 10rem;
-}
+    @media screen and (max-width:1300px) { 
+        .homepage .homepage_deuxieme_partie {
+            display: flex;
+            flex-direction: column;
+            min-height: auto;
+            justify-content: space-around;
+            gap: 2.5rem;
+        }    
+    }   
 
-@media screen and (max-width:1300px) { 
-    #homepage .homepage_deuxieme_partie {
+    .homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche {
+        align-items: center;
+    }
+
+    @media screen and (max-width: 1300px) {
+        .homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            margin: 0px auto;
+        }
+    }
+
+    .homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche .homepage_deuxieme_partie_gauche_contenu {
+        width: 100%;
+        color: #fff;
         display: flex;
         flex-direction: column;
-        min-height: auto;
         justify-content: space-around;
-        gap: 2.5rem;
-    }    
-}
-
-#homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche {
-    align-items: center;
-}
-
-@media screen and (max-width: 1300px) {
-    #homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche {
-        width: 100%;
         height: auto;
-        display: flex;
-        justify-content: center;
-        margin: 0px auto;
+        text-align: left;
     }
-}
 
-#homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche .homepage_deuxieme_partie_gauche_contenu {
-    width: 100%;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: auto;
-    text-align: left;
-
-}
-
-#homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche .homepage_deuxieme_partie_gauche_contenu h2 {
-    font-family: "GT-Flexa-Standard-Light";
-    color: #d9d9d9;
-    opacity: 1;
-    font-size: 4em;
-    margin-bottom: 2rem;
-}
-
-@media screen and (max-width: 1300px){
-    #homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche .homepage_deuxieme_partie_gauche_contenu h2 {
-        width: 100%;
+    .homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche .homepage_deuxieme_partie_gauche_contenu h2 {
+        font-family: "GT-Flexa-Standard-Light";
+        color: #d9d9d9;
+        opacity: 1;
+        font-size: 4em;
+        margin-bottom: 2rem;
     }
-}
+
+    @media screen and (max-width: 1300px){
+        .homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche .homepage_deuxieme_partie_gauche_contenu h2 {
+            width: 100%;
+        }
+    }
