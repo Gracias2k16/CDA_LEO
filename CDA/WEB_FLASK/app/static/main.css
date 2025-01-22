@@ -418,7 +418,7 @@ body {
 /////////////-/////    Deuxième partie coté droite    //////////////////
 //////////////////////////////////////////////////////////////////////*/
 
-    .homepage_deuxieme_partie_droite {
+    #homepage_deuxieme_partie_droite {
         height: 100%;
         display: flex;
         padding-left: 24px;
@@ -427,7 +427,7 @@ body {
     }
 
     @media screen and (max-width: 1300px) {
-        .homepage_deuxieme_partie_droite {
+        #homepage_deuxieme_partie_droite {
             width: 100%;
             padding-top: 0px;
             flex-direction: column;
@@ -436,11 +436,11 @@ body {
         }
     }
 
-    .homepage_deuxieme_partie_droite .Procedure div div:nth-child(2) h3 {
+    #homepage_deuxieme_partie_droite div div:nth-child(1) h3 {
         cursor: pointer;
     }
 
-    .homepage_deuxieme_partie_droite .Procedure div h3 {
+    #homepage_deuxieme_partie_droite div h3 {
         display: flex;
         flex-direction: column;
         margin-bottom: 30px;
