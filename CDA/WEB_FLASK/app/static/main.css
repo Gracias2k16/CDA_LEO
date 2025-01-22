@@ -308,17 +308,17 @@ body {
 ////////////////////////    Deuxième partie     ////////////////////////
 //////////////////////////////////////////////////////////////////////*/
 
-    .homepage .homepage_deuxieme_partie {
+    #homepage_dexuieme_partie {
         height: auto;
         width: 100%;
         display: flex;
-        color: #fbfbfb;
         padding: 0 5rem;
-     margin-top: 10rem;
+        margin-top: 10rem;
+
     }   
 
     @media screen and (max-width:1300px) { 
-        .homepage .homepage_deuxieme_partie {
+        #homepage_deuxieme_partie {
             display: flex;
             flex-direction: column;
             min-height: auto;
@@ -327,12 +327,16 @@ body {
         }    
     }   
 
-    .homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche {
-        align-items: center;
+/*//////////////////////////////////////////////////////////////////////
+/////////////-/////    Deuxième partie coté gauche    //////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+    #homepage_deuxieme_partie_gauche {
+        align-items:center;
     }
 
     @media screen and (max-width: 1300px) {
-        .homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche {
+        #homepage_deuxieme_partie_gauche #homepage_deuxieme_partie_gauche_contenu {
             width: 100%;
             height: auto;
             display: flex;
@@ -341,9 +345,8 @@ body {
         }
     }
 
-    .homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche .homepage_deuxieme_partie_gauche_contenu {
+    #homepage_deuxieme_partie_gauche #homepage_deuxieme_partie_gauche_contenu {
         width: 100%;
-        color: #fff;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -351,7 +354,7 @@ body {
         text-align: left;
     }
 
-    .homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche .homepage_deuxieme_partie_gauche_contenu h2 {
+    #homepage_deuxieme_partie_gauche #homepage_deuxieme_partie_gauche_contenu h2 {
         font-family: "GT-Flexa-Standard-Light";
         color: #d9d9d9;
         opacity: 1;
@@ -360,7 +363,57 @@ body {
     }
 
     @media screen and (max-width: 1300px){
-        .homepage .homepage_deuxieme_partie .homepage_deuxieme_partie_gauche .homepage_deuxieme_partie_gauche_contenu h2 {
+        #homepage_deuxieme_partie_gauche #homepage_deuxieme_partie_gauche_contenu h2 {
             width: 100%;
         }
     }
+
+    #homepage_deuxieme_partie_gauche #homepage_deuxieme_partie_gauche_contenu p:nth-child(2) {
+        font-weight: 100;
+        font-family: "WorkSans-Light";
+        font-size: 1.5em;
+        margin-bottom: 2rem;
+        color: #d9d9d9;
+    }
+    
+    @media screen and (max-width: 1300px) {
+        #homepage_deuxieme_partie_gauche #homepage_deuxieme_partie_gauche_contenu p:nth-child(2) {
+            width: 100%;
+        }
+    }
+
+    #homepage_deuxieme_partie_gauche #homepage_deuxieme_partie_gauche_contenu p:nth-child(3) {
+        font-weight: 100;
+        font-family: "WorkSans-Light";
+        font-size: 1.5em;
+        margin-bottom: 2rem;
+        color: #d9d9d9;
+    }
+    
+    @media screen and (max-width: 1300px) {
+        #homepage_deuxieme_partie_gauche #homepage_deuxieme_partie_gauche_contenu p:nth-child(3) {
+            width: 100%;
+        }
+    }
+
+    #homepage_deuxieme_partie_gauche #homepage_deuxieme_partie_gauche_contenu p:nth-child(4) {
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        color: #d9d9d9;
+    }
+    
+    #homepage_deuxieme_partie_gauche #homepage_deuxieme_partie_gauche_contenu a {
+        border: solid 1px #fff;
+        border-radius: 150px;
+        padding: 12px 60px;
+        color: #fbfbfb;
+        font-family: "GT-Flexa-Standard-Light";
+        width: auto;
+        transition: .3s ease-in-out;
+        font-size: 1em;
+    }
+
+/*//////////////////////////////////////////////////////////////////////
+/////////////-/////    Deuxième partie coté droite    //////////////////
+//////////////////////////////////////////////////////////////////////*/
