@@ -333,6 +333,7 @@ body {
 
     #homepage_deuxieme_partie_gauche {
         align-items:center;
+        margin-right: 10%;
     }
 
     @media screen and (max-width: 1300px) {
@@ -483,6 +484,7 @@ body {
         margin-bottom: 20px;
         margin-left: 14px;
         list-style: disc;
+        color: #d9d9d9
     }
 
     ul li::marker {
