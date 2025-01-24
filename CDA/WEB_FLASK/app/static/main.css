@@ -440,7 +440,13 @@ body {
         cursor: pointer;
     }
 
-    #homepage_deuxieme_partie_droite div h3 {
+    #homepage_deuxieme_partie_droite div:nth-child(1) h3::before {
+        content: "01";
+        font-size: 30px;
+    }
+
+    h3 {
+        font-weight: bold;
         display: flex;
         flex-direction: column;
         margin-bottom: 30px;
@@ -449,23 +455,41 @@ body {
         font-size: 23px;
     }
 
-    #homepage_deuxieme_partie_droite div:nth-child(1) h3::before {
-        content: "01";
-        font-size: 40px;
-    }
-
-    #homepage_deuxieme_partie_droite div h3::before {
-        margin-bottom: 20px;
-    }
-
-    h3 {
-        font-weight: bold;
-    }
-
     #homepage_deuxieme_partie_droite div p {
         font-family: "WorkSans-Light";
         font-size: 1.2rem;
         margin-bottom: 30px;
         display: none;
         color: #d9d9d9;
+    }
+/*
+    #homepage_deuxieme_partie_droite div:nth-child(2) h3 {
+        cursor: pointer;
+    }
+
+    #homepage_deuxieme_partie_droite div:nth-child(2) h3::before {
+        content: "02";
+        font-size: 30px;
+    }
+
+
+    #homepage_deuxieme_partie_droite div lu li {
+        margin-bottom: 20px;
+        margin-left: 14px;
+        list-style: disc;
+    }
+
+    #homepage_deuxieme_partie_droite div lu {
+        font-family: "WorkSans-Light";
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+
+
+    ::marker {
+        unicode-bidi: isolate;
+        font-variant-numeric: tabular-nums;
+        text-transform: none;
+        text-indent: 0px !important;
+        text-align: start !important;
     }
