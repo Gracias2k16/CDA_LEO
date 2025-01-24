@@ -333,7 +333,7 @@ body {
 
     #homepage_deuxieme_partie_gauche {
         align-items:center;
-        margin-right: 10%;
+        margin-right: 5%;
     }
 
     @media screen and (max-width: 1300px) {
@@ -454,6 +454,7 @@ body {
         font-family: "GT-Flexa-Standard-Light";
         color: #d9d9d9;
         font-size: 23px;
+        width: 450px;
     }
 
     #homepage_deuxieme_partie_droite div p {
@@ -490,5 +491,16 @@ body {
     ul li::marker {
         color: #d9d9d9;
         font-size: 20px;
+    }
+    
+    #homepage_deuxieme_partie_droite div span {
+        border-bottom: 2px solid rgba(255, 255, 255, .488);
+        position: relative;
+    }
+
+    @media screen and (max-width: 1300px) {
+        #homepage_deuxieme_partie_droite div span {
+            width: 100%;
+        }
 
     }
