@@ -501,6 +501,7 @@ body {
         border-radius: 1px;
         transition: all .2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
         background-color: #fff;
+        margin-bottom: 20px;
     }
 
     #homepage_deuxieme_partie_droite_texte div:nth-child(2) h3 {
