@@ -422,7 +422,7 @@ body {
     #homepage_deuxieme_partie_droite {
         height: 100%;
         display: flex;
-        padding-left: 24px;
+        padding-left: 50px;
         padding-top: 90px;
         position: relative;
     }
@@ -454,7 +454,7 @@ body {
         font-family: "GT-Flexa-Standard-Light";
         color: #d9d9d9;
         font-size: 23px;
-        width: 450px;
+        width: 500px;
     }
 
     #homepage_deuxieme_partie_droite_texte div p {
@@ -522,3 +522,20 @@ body {
         font-size: 30px;
     }
 
+    #homepage_deuxieme_partie_droite_texte #Texte_n°4 h3 {
+        cursor: pointer;
+    }
+
+    #homepage_deuxieme_partie_droite_texte #Texte_n°4 h3::before {
+        content: "04";
+        font-size: 30px;
+    }
+
+    #homepage_deuxieme_partie_droite_texte #Texte_n°5 h3 {
+        cursor: pointer;
+    }
+
+    #homepage_deuxieme_partie_droite_texte #Texte_n°5 h3::before {
+        content: "05";
+        font-size: 30px;
+    }

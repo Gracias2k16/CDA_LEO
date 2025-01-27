@@ -76,3 +76,50 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+/*//////////////////////////////////////////////////////////////////////
+/////////////-/////    Fonction affichage texte 4   //////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+document.addEventListener("DOMContentLoaded", function() {
+    const h3Element = document.getElementById('Formalités'); // Sélection par ID
+    const pElement = document.querySelector('.Formalités_texte'); // Sélection par la classe
+
+    console.log('Le script est bien chargé et exécuté');
+
+    h3Element.addEventListener('click', () => {
+        console.log('Clic sur le h3 détecté');
+        
+        if (pElement.style.display === 'none' || pElement.style.display === '') {
+            pElement.style.display = 'block'; // Affiche le texte
+            console.log('Le texte a été affiché');
+
+        } else {
+            pElement.style.display = 'none'; // Cache le texte
+            console.log('Le texte a été caché');
+        }
+    });
+});
+
+/*//////////////////////////////////////////////////////////////////////
+/////////////-/////    Fonction affichage texte 5   //////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+document.addEventListener("DOMContentLoaded", function() {
+    const h3Element = document.getElementById('Livraison'); // Sélection par ID
+    const pElement = document.querySelector('.Livraison_texte'); // Sélection par la classe
+
+    console.log('Le script est bien chargé et exécuté');
+
+    h3Element.addEventListener('click', () => {
+        console.log('Clic sur le h3 détecté');
+        
+        if (pElement.style.display === 'none' || pElement.style.display === '') {
+            pElement.style.display = 'block'; // Affiche le texte
+            console.log('Le texte a été affiché');
+
+        } else {
+            pElement.style.display = 'none'; // Cache le texte
+            console.log('Le texte a été caché');
+        }
+    });
+});
