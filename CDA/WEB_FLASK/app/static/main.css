@@ -673,7 +673,23 @@ body {
         width: 200px;
         height: auto;
     }
+
     #Navigation .Bt_gauche {
+        background-color: rgba(0, 0, 0, 0);
+        border: 0px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 18px;
+        transition: .6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 11;
+    }
+
+    #Navigation .Bt_droit {
         background-color: rgba(0, 0, 0, 0);
         border: 0px;
         cursor: pointer;
@@ -694,7 +710,7 @@ body {
         justify-content: center;
         margin: auto;
     }
-    
+
     #Navigation div .PageNo {
         font-size: 25px;
         padding: 8px 0px;
