@@ -52,3 +52,27 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+/*//////////////////////////////////////////////////////////////////////
+/////////////-/////    Fonction affichage texte 3   //////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+document.addEventListener("DOMContentLoaded", function() {
+    const h3Element = document.getElementById('Commande_paiement'); // Sélection par ID
+    const pElement = document.querySelector('.Commande_paiement_texte'); // Sélection par la classe
+
+    console.log('Le script est bien chargé et exécuté');
+
+    h3Element.addEventListener('click', () => {
+        console.log('Clic sur le h3 détecté');
+        
+        if (pElement.style.display === 'none' || pElement.style.display === '') {
+            pElement.style.display = 'block'; // Affiche le texte
+            console.log('Le texte a été affiché');
+
+        } else {
+            pElement.style.display = 'none'; // Cache le texte
+            console.log('Le texte a été caché');
+        }
+    });
+});
+
