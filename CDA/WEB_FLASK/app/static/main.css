@@ -437,11 +437,11 @@ body {
         }
     }
 
-    #homepage_deuxieme_partie_droite div:nth-child(1) h3 {
+    #homepage_deuxieme_partie_droite_texte div:nth-child(1) h3 {
         cursor: pointer;
     }
 
-    #homepage_deuxieme_partie_droite div:nth-child(1) h3::before {
+    #homepage_deuxieme_partie_droite_texte div:nth-child(1) h3::before {
         content: "01";
         font-size: 30px;
     }
@@ -457,7 +457,7 @@ body {
         width: 450px;
     }
 
-    #homepage_deuxieme_partie_droite div p {
+    #homepage_deuxieme_partie_droite_texte div p {
         font-family: "WorkSans-Light";
         font-size: 1.2rem;
         margin-bottom: 30px;
@@ -465,7 +465,7 @@ body {
         color: #d9d9d9;
     }
 
-    #homepage_deuxieme_partie_droite div ul {
+    #homepage_deuxieme_partie_droite_texte div ul {
         font-family: "WorkSans-Light";
         font-size: 1.2rem;
         margin-bottom: 30px;
@@ -481,7 +481,7 @@ body {
         unicode-bidi: isolate;
     }
 
-    #homepage_deuxieme_partie_droite div ul li {
+    #homepage_deuxieme_partie_droite_texte div ul li {
         margin-bottom: 20px;
         margin-left: 14px;
         list-style: disc;
@@ -492,33 +492,22 @@ body {
         color: #d9d9d9;
         font-size: 20px;
     }
-   /* 
-    #homepage_deuxieme_partie_droite span {
-        border-bottom: 2px solid rgba(255, 255, 255, .488);
-        position: relative;
-    }
-
-    @media screen and (max-width: 1300px) {
-        #homepage_deuxieme_partie_droite span {
-            width: 100%;
-        }
-
-    }
-*/
-    #homepage_deuxieme_partie_droite  span:first-of-type {
-        top: 0;
-    }
-
-    #homepage_deuxieme_partie_droite  span:last-of-type {
-        bottom: 0;
-    }
 
     #homepage_deuxieme_partie_droite div span {
-        position: absolute;
+        position: relative;
         display: block;
         width: 100%;
-        height: 1px;
+        height: 2px;
         border-radius: 1px;
         transition: all .2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
         background-color: #fff;
+    }
+
+    #homepage_deuxieme_partie_droite_texte div:nth-child(2) h3 {
+        cursor: pointer;
+    }
+
+    #homepage_deuxieme_partie_droite_texte div:nth-child(2) h3::before {
+        content: "02";
+        font-size: 30px;
     }
