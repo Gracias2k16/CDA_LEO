@@ -2,7 +2,7 @@
 /////////////-/////    Fonction affichage texte 1   //////////////////
 //////////////////////////////////////////////////////////////////////*/
 
-document.addEventListener("Fonction_texte_1", function() {
+document.addEventListener("DOMContentLoaded", function() {
     const h3Element = document.getElementById('Recherche_véhicule'); // Sélection par ID
     const pElement1 = document.querySelector('.Recherche_véhicule_texte'); // Sélection par la classe
     const pElement2 = document.querySelector('.Recherche_véhicule_texte_2'); // Sélection par la classe
@@ -32,7 +32,7 @@ document.addEventListener("Fonction_texte_1", function() {
 /////////////-/////    Fonction affichage texte 2   //////////////////
 //////////////////////////////////////////////////////////////////////*/
 
-document.addEventListener("Fonction_texte_2", function() {
+document.addEventListener("DOMContentLoaded", function() {
     const h3Element = document.getElementById('controle_rapport'); // Sélection par ID
     const pElement = document.querySelector('.controle_rapport_texte'); // Sélection par la classe
 
