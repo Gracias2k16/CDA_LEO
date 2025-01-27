@@ -504,11 +504,11 @@ body {
         margin-bottom: 20px;
     }
 
-    #homepage_deuxieme_partie_droite_texte div:nth-child(2) h3 {
+    #controle_rapport h3 {
         cursor: pointer;
     }
 
-    #homepage_deuxieme_partie_droite_texte div:nth-child(2) h3::before {
+    #controle_rapport  h3::before {
         content: "02";
         font-size: 30px;
     }
