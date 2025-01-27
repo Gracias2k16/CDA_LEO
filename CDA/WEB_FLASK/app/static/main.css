@@ -539,3 +539,24 @@ body {
         content: "05";
         font-size: 30px;
     }
+
+/*//////////////////////////////////////////////////////////////////////
+/////////////////////////    Troisième partie     //////////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+    #homepage_troisieme_partie {
+        width: 100vw;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10rem;
+        position: relative;
+    }
+
+    #homepage_troisieme_partie div h2 {
+        font-family: "GT-Flexa-Standard-Light";
+        color: #d9d9d9;
+        opacity: 1;
+        font-size: 4em;
+        padding: 0 5rem 0 5rem;
+    }
