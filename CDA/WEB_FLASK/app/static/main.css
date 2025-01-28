@@ -732,7 +732,7 @@ body {
         transform: rotate(90deg)
     }
 
-    #Vitrine .slide {
+    #Vitrine .Slide {
         display: none;
         width: 100%;
         height: 100%;
@@ -744,6 +744,6 @@ body {
         transition: transform 0.5s ease-in-out; 
     }
 
-    .slide.show {
+    .Slide.active {
         display: block;
     }

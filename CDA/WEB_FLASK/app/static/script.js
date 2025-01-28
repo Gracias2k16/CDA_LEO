@@ -156,7 +156,7 @@ function showPreviousPage() {
 }
 
 // Ajouter les événements de clic sur les boutons
-document.getElementById('Bt_gauche').addEventListener('click', showNextPage);
-document.getElementById('Bt_droit').addEventListener('click', showPreviousPage);
+document.getElementsByClassName('Bt_gauche').addEventListener('click', showNextPage);
+document.getElementsByClassName('Bt_droit').addEventListener('click', showPreviousPage);
 
 pages[currentPage].classList.add('active');
