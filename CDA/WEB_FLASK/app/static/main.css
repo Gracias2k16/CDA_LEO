@@ -561,13 +561,6 @@ body {
         padding: 0 5rem 0 5rem;
     }
 
-    #Vitrine {
-        width: 100vw;
-        height: -webkit-fill-available;
-        position: relative;
-        margin: auto;
-    }
-
     #Slide_contenu {
         height: 100%;
         display: flex;
@@ -724,7 +717,6 @@ body {
     }
 
     #Navigation hr{
-      
         height: 20px;
         margin: 10px;
         border-bottom: 1px;
@@ -732,18 +724,22 @@ body {
         transform: rotate(90deg)
     }
 
-    #Vitrine .Slide {
-        display: none;
-        width: 100%;
-        height: 100%;
-        background-color: lightgray;
-        text-align: center;
-        line-height: 300px; /* Centrer le texte */
-        border: 1px solid #ccc;
-        margin-bottom: 10px;
-        transition: transform 0.5s ease-in-out; 
-    }
 
     .Slide.active {
         display: block;
+    }
+
+    #Vitrine {
+        width: 100vw;
+        height: -webkit-fill-available;
+        position: relative;
+        margin: auto;
+    }
+
+    .Slide {
+        display: none; /* Par défaut, toutes les pages sont cachées */
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+        transition: transform 0.5s ease-in-out;
     }

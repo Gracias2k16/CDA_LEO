@@ -128,35 +128,59 @@ document.addEventListener("DOMContentLoaded", function() {
 /////////////-/////    Fonction tableau slide  //////////////////
 //////////////////////////////////////////////////////////////////////*/
 
-let currentPage = 0; // L'index de la page actuelle (0 = page1, 1 = page2, etc.)
+document.addEventListener("DOMContentLoaded", () => {
+    const pages = document.querySelectorAll('.Slide'); // Toutes les pages
+    let currentPage = 0; // Page actuelle (commence à 0)
 
-// Tableau pour accéder aux pages
-const pages = document.querySelectorAll('.Slide');
-
-// Fonction pour afficher la page suivante
-function showNextPage() {
-    if (currentPage < pages.length - 1) {
-        // Masquer la page actuelle
-        pages[currentPage].classList.remove('active');
-        currentPage++;
-        // Afficher la nouvelle page
-        pages[currentPage].classList.add('active');
+    // Vérifier si des pages existent
+    if (pages.length === 0) {
+        console.error("Aucune page trouvée !");
+        return;
     }
-}
 
-// Fonction pour afficher la page précédente
-function showPreviousPage() {
-    if (currentPage > 0) {
-        // Masquer la page actuelle
-        pages[currentPage].classList.remove('active');
-        currentPage--;
-        // Afficher la nouvelle page
-        pages[currentPage].classList.add('active');
+    // Masquer toutes les pages sauf la première
+    pages.forEach((page, index) => {
+        page.style.display = index === currentPage ? 'block' : 'none';
+    });
+
+    // Fonction pour afficher la page suivante
+    function showNextPage() {
+        if (currentPage < pages.length - 1) {
+            pages[currentPage].classList.remove('active');
+            pages[currentPage].style.display = 'none'; // Masquer la page actuelle
+            currentPage++;
+            pages[currentPage].classList.add('active');
+            pages[currentPage].style.display = 'block'; // Afficher la nouvelle page
+        } else {
+            console.warn("Fin des pages atteinte.");
+        }
     }
-}
 
-// Ajouter les événements de clic sur les boutons
-document.getElementsByClassName('Bt_gauche').addEventListener('click', showNextPage);
-document.getElementsByClassName('Bt_droit').addEventListener('click', showPreviousPage);
+    // Fonction pour afficher la page précédente
+    function showPreviousPage() {
+        if (currentPage > 0) {
+            pages[currentPage].classList.remove('active');
+            pages[currentPage].style.display = 'none'; // Masquer la page actuelle
+            currentPage--;
+            pages[currentPage].classList.add('active');
+            pages[currentPage].style.display = 'block'; // Afficher la nouvelle page
+        } else {
+            console.warn("Début des pages atteint.");
+        }
+    }
 
-pages[currentPage].classList.add('active');
+    // Ajouter les événements de clic sur les boutons
+    const leftButton = document.querySelector('.Bt_gauche'); // Bouton gauche
+    const rightButton = document.querySelector('.Bt_droit'); // Bouton droit
+
+    if (leftButton && rightButton) {
+        leftButton.addEventListener('click', showPreviousPage);
+        rightButton.addEventListener('click', showNextPage);
+    } else {
+        console.error("Boutons non trouvés !");
+    }
+
+    // Afficher uniquement la première page au démarrage
+    pages[currentPage].classList.add('active');
+    pages[currentPage].style.display = 'block';
+});
