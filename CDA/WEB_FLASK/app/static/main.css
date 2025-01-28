@@ -711,7 +711,7 @@ body {
         margin: auto;
     }
 
-    #Navigation div .PageNo {
+    #Navigation  .PageNo {
         font-size: 25px;
         padding: 8px 0px;
         display: flex;
@@ -723,9 +723,12 @@ body {
         margin-right: 10px;
     }
 
-    #Navigation div hr{
-        width: 25px;
-        height: 0;
+    #Navigation hr{
+        margin-left: 50px;
+        margin-right: 50px;
+        height: 25px;
         margin: auto;
         border-bottom: 1px;
+        color: #fff;
+        transform: rotate(90deg)
     }
