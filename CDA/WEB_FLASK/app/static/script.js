@@ -129,58 +129,47 @@ document.addEventListener("DOMContentLoaded", function() {
 //////////////////////////////////////////////////////////////////////*/
 
 document.addEventListener("DOMContentLoaded", () => {
-    const pages = document.querySelectorAll('.Slide'); // Toutes les pages
+    const pages = document.querySelectorAll('.Slide'); // Toutes les slides
     let currentPage = 0; // Page actuelle (commence à 0)
 
-    // Vérifier si des pages existent
-    if (pages.length === 0) {
-        console.error("Aucune page trouvée !");
-        return;
+    // Initialisation : afficher uniquement la première page
+    function updateSlides() {
+        pages.forEach((page, index) => {
+            page.style.display = index === currentPage ? 'block' : 'none';
+        });
     }
+    updateSlides();
 
-    // Masquer toutes les pages sauf la première
-    pages.forEach((page, index) => {
-        page.style.display = index === currentPage ? 'block' : 'none';
-    });
+    // Gestion des boutons dynamiquement
+    function attachButtonEvents() {
+        const currentSlide = pages[currentPage];
 
-    // Fonction pour afficher la page suivante
-    function showNextPage() {
-        if (currentPage < pages.length - 1) {
-            pages[currentPage].classList.remove('active');
-            pages[currentPage].style.display = 'none'; // Masquer la page actuelle
-            currentPage++;
-            pages[currentPage].classList.add('active');
-            pages[currentPage].style.display = 'block'; // Afficher la nouvelle page
-        } else {
-            console.warn("Fin des pages atteinte.");
+        // Sélection des boutons dans la slide active
+        const prevButton = currentSlide.querySelector('.Bt_gauche');
+        const nextButton = currentSlide.querySelector('.Bt_droit');
+
+        // Ajouter les gestionnaires d'événements
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                if (currentPage > 0) {
+                    currentPage--;
+                    updateSlides();
+                    attachButtonEvents(); // Réattacher les événements pour la nouvelle page
+                }
+            });
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                if (currentPage < pages.length - 1) {
+                    currentPage++;
+                    updateSlides();
+                    attachButtonEvents(); // Réattacher les événements pour la nouvelle page
+                }
+            });
         }
     }
 
-    // Fonction pour afficher la page précédente
-    function showPreviousPage() {
-        if (currentPage > 0) {
-            pages[currentPage].classList.remove('active');
-            pages[currentPage].style.display = 'none'; // Masquer la page actuelle
-            currentPage--;
-            pages[currentPage].classList.add('active');
-            pages[currentPage].style.display = 'block'; // Afficher la nouvelle page
-        } else {
-            console.warn("Début des pages atteint.");
-        }
-    }
-
-    // Ajouter les événements de clic sur les boutons
-    const leftButton = document.querySelector('.Bt_gauche'); // Bouton gauche
-    const rightButton = document.querySelector('.Bt_droit'); // Bouton droit
-
-    if (leftButton && rightButton) {
-        leftButton.addEventListener('click', showPreviousPage);
-        rightButton.addEventListener('click', showNextPage);
-    } else {
-        console.error("Boutons non trouvés !");
-    }
-
-    // Afficher uniquement la première page au démarrage
-    pages[currentPage].classList.add('active');
-    pages[currentPage].style.display = 'block';
+    // Attacher les événements pour la première fois
+    attachButtonEvents();
 });

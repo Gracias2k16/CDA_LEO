@@ -743,3 +743,8 @@ body {
         margin-bottom: 10px;
         transition: transform 0.5s ease-in-out;
     }
+
+    #Slide_2 img {
+        width: 50%;
+        height: 50%;
+    }
