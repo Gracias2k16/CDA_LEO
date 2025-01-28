@@ -123,3 +123,40 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+/*//////////////////////////////////////////////////////////////////////
+/////////////-/////    Fonction tableau slide  //////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+let currentPage = 0; // L'index de la page actuelle (0 = page1, 1 = page2, etc.)
+
+// Tableau pour accéder aux pages
+const pages = document.querySelectorAll('.Slide');
+
+// Fonction pour afficher la page suivante
+function showNextPage() {
+    if (currentPage < pages.length - 1) {
+        // Masquer la page actuelle
+        pages[currentPage].classList.remove('active');
+        currentPage++;
+        // Afficher la nouvelle page
+        pages[currentPage].classList.add('active');
+    }
+}
+
+// Fonction pour afficher la page précédente
+function showPreviousPage() {
+    if (currentPage > 0) {
+        // Masquer la page actuelle
+        pages[currentPage].classList.remove('active');
+        currentPage--;
+        // Afficher la nouvelle page
+        pages[currentPage].classList.add('active');
+    }
+}
+
+// Ajouter les événements de clic sur les boutons
+document.getElementById('Bt_gauche').addEventListener('click', showNextPage);
+document.getElementById('Bt_droit').addEventListener('click', showPreviousPage);
+
+pages[currentPage].classList.add('active');

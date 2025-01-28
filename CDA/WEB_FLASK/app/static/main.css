@@ -724,11 +724,26 @@ body {
     }
 
     #Navigation hr{
-        margin-left: 50px;
-        margin-right: 50px;
-        height: 25px;
-        margin: auto;
+      
+        height: 20px;
+        margin: 10px;
         border-bottom: 1px;
         color: #fff;
         transform: rotate(90deg)
+    }
+
+    #Vitrine .slide {
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: lightgray;
+        text-align: center;
+        line-height: 300px; /* Centrer le texte */
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        transition: transform 0.5s ease-in-out; 
+    }
+
+    .slide.show {
+        display: block;
     }
