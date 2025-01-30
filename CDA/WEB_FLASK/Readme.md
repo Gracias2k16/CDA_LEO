@@ -44,3 +44,9 @@ resultats = cur.fetchall()
 
 for ligne in resultats:
     print(ligne)
+
+
+
+    extend mot clé qui permet d'aller a une fonction depuis une fonction
+    include
+    Je ne peux faire XXX si je n'ai pas xxxx
