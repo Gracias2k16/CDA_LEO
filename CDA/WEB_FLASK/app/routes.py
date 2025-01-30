@@ -65,21 +65,21 @@ def validate_user(identifiant, password):#Valide l'identifiant et le mot de pass
 
 #===================================================================================================
 
-@app.route('/connexion', methods=['GET', 'POST'])
+@app.route('/Connexion', methods=['GET', 'POST'])
 def login_form():
 
-    if request.method == 'POST':
+#    if request.method == 'POST':
         
-        identifiant = request.form['identifiant']# Récupérer les données du formulaire
-        password = request.form['password']# Récupérer les données du formulaire
+ #       identifiant = request.form['identifiant']# Récupérer les données du formulaire
+  #      password = request.form['password']# Récupérer les données du formulaire
 
-        if validate_user(identifiant, password):
-            return redirect(url_for('home'))  # Redirection si le mot de passe est correct
+   #     if validate_user(identifiant, password):
+    #        return redirect(url_for('home'))  # Redirection si le mot de passe est correct
         
-        else:
-            flash("Identifiant ou mot de passe incorrect.")
+     #   else:
+      #      flash("Identifiant ou mot de passe incorrect.")
 
-    return render_template('form_config.html')
+    return render_template('Connexion.html')
 
 
 #===================================================================================================
