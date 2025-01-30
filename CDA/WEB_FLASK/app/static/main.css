@@ -724,7 +724,6 @@ body {
         transform: rotate(90deg)
     }
 
-
     .Slide.active {
         display: block;
     }
