@@ -6,53 +6,6 @@ from app.forms import ConfigForm
 
 #===================================================================================================
 
-
-
-#def fetch_user_data(identifiant): #Récupère les données de l'utilisateur à partir de la base de données
- #   connexion = connect_db()
-  #  mycursor = connexion.cursor()
-
-   # try:
-    #    query = "SELECT Identifiant, Mot_de_passe FROM Utilisateurs WHERE Identifiant = %s"
-     #   mycursor.execute(query, (identifiant,))
-        
-      #  return mycursor.fetchone()  # Renvoie les données de l'utilisateur
-    
-
-    #except :
-     #   print("Erreur lors de la récupération des données")
-      #  return None
-    
-
-    #finally:
-     #   mycursor.close()
-      #  connexion.close()
-
-
-#===================================================================================================
-
-
-#def validate_user(identifiant, password):#Valide l'identifiant et le mot de passe de l'utilisateur
-    
- #   user_data = fetch_user_data(identifiant)
-  #  if user_data:
-
-   #     identifiant, password_bdd = user_data  # Récupérer l'identifiant et le mot de passe
-
-    #    if password == password_bdd:# Comparer le mot de passe saisi avec celui stocké dans la base
-     #       return redirect(url_for('home'))  # Redirection si le mot de passe est correct
-        
-      #  else:
-       #     flash("Mot de passe incorrect.")
-
-    #else:
-     #   flash("Identifiant incorrect.")
-
-    #return False  # Validation échouée
-
-
-#===================================================================================================
-
 @app.route('/Connexion', methods=['GET', 'POST'])
 def login_form():
 
