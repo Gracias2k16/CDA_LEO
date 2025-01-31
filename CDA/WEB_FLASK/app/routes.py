@@ -9,19 +9,8 @@ from app.forms import ConfigForm
 @app.route('/Connexion', methods=['GET', 'POST'])
 def login_form():
 
-#    if request.method == 'POST':
-        
- #       identifiant = request.form['identifiant']# Récupérer les données du formulaire
-  #      password = request.form['password']# Récupérer les données du formulaire
-
-   #     if validate_user(identifiant, password):
-    #        return redirect(url_for('home'))  # Redirection si le mot de passe est correct
-        
-     #   else:
-      #      flash("Identifiant ou mot de passe incorrect.")
-       #     return redirect(url_for('home.html'))
-
-    return render_template('Connexion.html')
+    if request.method == 'POST':
+        return render_template('home.html')
 
 
 #===================================================================================================
