@@ -85,10 +85,12 @@ body {
         padding-right: 30px;
     }
 
-    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier a {
+    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier button {
         color: aliceblue;
         font-size: 20px;
         cursor: pointer;
+        background: none;
+        border: none;
     }
 
     .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu_icon {
@@ -98,16 +100,6 @@ body {
         cursor: pointer;
     }
 
-    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu-icon__cheeckbox {
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: relative;
-        cursor: pointer;
-        z-index: 2;
-        position: absolute;
-        opacity: 0;
-    }
 
     .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu_icon div {
         margin: auto;
@@ -120,24 +112,6 @@ body {
         height: 12px;
         transform: scale(1.1);
         opacity: .8;
-    }
-
-    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu_icon div span:first-of-type {
-        top: 0;
-    }
-
-    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu_icon div span:last-of-type {
-        bottom: 0;
-    }
-
-    .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu_icon div span {
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 1px;
-        border-radius: 1px;
-        transition: all .2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
-        background-color: #fff;
     }
 
     .Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_second {
@@ -154,6 +128,61 @@ body {
         font-size: 20px;
         cursor: pointer;
     }
+
+/*//////////////////////////////////////////////////////////////////////
+////////////////////////    MENU glisaant     ////////////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+    /* Conteneur du menu latéral */
+    #menuOverlay {
+        position: fixed;
+        top: 0;
+        right: -300px; /* Caché par défaut (hors de l'écran) */
+        width: 300px;
+        height: 100%;
+        background: #949494;
+        box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+        transition: right 0.3s ease-in-out;
+        padding-top: 60px;
+        z-index: 1000;
+    }
+
+    /* Affichage du menu quand il est actif */
+    #menuOverlay.active {
+        right: 0;
+    }
+
+    /* Style du bouton de fermeture */
+    #closeMenu {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: red;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    /* Style du menu */
+    #menuOverlay ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    #menuOverlay li {
+        margin: 20px 0;
+    }
+
+    #menuOverlay a {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        font-size: 18px;
+    }
+
+
 
 /*//////////////////////////////////////////////////////////////////////
 ////////////////////////    Premiere partie     ////////////////////////

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Demande.css') }}">
     <title>PBimportation</title>
 </head>
 
@@ -20,22 +20,26 @@
             </div>
             <div id="Bandeau_haut_droit">
                 <div id="Bandeau_haut_droit_premier">
-                    <a id="Txt_menu">Menu</a>
-                    <div class="Menu_icon">
-                        <input aria-label="Navigation" class="Menu-icon__cheeckbox" type="checkbox">
-                        <div>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
+                    <button id="Txt_menu">Menu ☰</button>
                 </div>
                 <div id="Bandeau_haut_droit_second">
                     <a id="Faire_demande" href="Demande"> Faire une demande</a>
                 </div>
             </div>
         </div>
+        
     </header>
     <main class="homepage">
+        <div id="menuOverlay">
+            <button id="closeMenu">Fermer ✖</button>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/Connexion">Connexion</a></li>
+                    <li><a href="/Demande">Faire une demande</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+        </div>
         <div class="homepage_premiere_partie">
             <img src="{{url_for('static', filename='Bmw_fond.png')}}" alt="Bmw_fond" class="Image_fond">
             <div class="homepage_premiere_partie_gauche">
