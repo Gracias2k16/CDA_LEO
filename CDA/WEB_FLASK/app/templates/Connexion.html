@@ -7,8 +7,8 @@
         <title>Connexion</title>
     </head>
     
-    <body>
-        <header>
+<body>
+    <header>
             <div class="Bandeau haut">
                 <div id="Bandeau_haut_gauche">
                     <div class="Bandeau_ecriture">
@@ -26,7 +26,18 @@
                     </div>
                 </div>
             </div>
-        </header>
+    </header>
+    <main>
+        <div id="menuOverlay">
+             <button id="closeMenu">Fermer ✖</button>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/Connexion">Connexion</a></li>
+                    <li><a href="/Demande">Faire une demande</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+        </div>
         <div id='Bloc_connexion'>   
             <form action="/" method="POST">
                 <label for="identifiant">Identifiant:</label><br>
@@ -38,8 +49,8 @@
                 <input type="submit" value="Se connecter">
             </form>
         </div>
-
-    <script src="{{ url_for('static', filename='JS/Conenxion.js') }}"></script>
+    </main>
+    <script src="{{ url_for('static', filename='JS/Connexion.js') }}"></script>
     </body>
 </html>
         
