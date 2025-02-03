@@ -39,15 +39,19 @@
                 </ul>
         </div>
         <div id='Bloc_connexion'>   
-            <form action="/" method="POST">
-                <label for="identifiant">Identifiant:</label><br>
-                <input type="text" id="identifiant" name="identifiant"><br><br>
+            <div id="Bloc_droit"></div>
+            <div id="Bloc_milieu">
+                <form action="/" method="POST">
+                    <label id='Identifiant'for="identifiant">Identifiant:</label><br>
+                    <input type="text" id="identifiant" name="identifiant"><br><br>
     
-                <label for="password">Mot de passe:</label><br>
-                <input type="password" id="password" name="password"><br><br>
+                    <label for="password">Mot de passe:</label><br>
+                    <input type="password" id="password" name="password"><br><br>
     
-                <input type="submit" value="Se connecter">
-            </form>
+                    <input type="submit" value="Se connecter">
+                </form>
+            </div>
+            <div id="Bloc_gauche"></div>
         </div>
     </main>
     <script src="{{ url_for('static', filename='JS/Connexion.js') }}"></script>

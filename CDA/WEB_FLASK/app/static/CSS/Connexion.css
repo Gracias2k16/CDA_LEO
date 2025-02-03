@@ -179,11 +179,25 @@ div {
 }
 
 /*//////////////////////////////////////////////////////////////////////
-////////////////////////    Corp     ////////////////////////
+/////////////////////////////    Corp     //////////////////////////////
 //////////////////////////////////////////////////////////////////////*/
 
-#Bloc_connexion{
+#Bloc_droit {
+    width: 33%;
+}
+
+#Bloc_milieu {
     align-items: center;
     text-align: center;
     margin-top: 100px;
+    color: #fff;
+    background: #949494;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease-in-out;
+    width: 33%;
 }
+
+#Bloc_gauche {
+    width: 33%;
+}
+
