@@ -50,5 +50,5 @@ def Deconnexion(conn, cur):
         print(" Déconnexion OK")
 
 #===================================================================================================
-Deconnexion(conn, cur)
+conncexion_à_BDD()
 
