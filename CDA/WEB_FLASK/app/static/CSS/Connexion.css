@@ -204,7 +204,7 @@ div {
     box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
     transition: right 0.3s ease-in-out;
     border-bottom: solid 1px #949494;
-    height: 200px;
+    height: auto;
     width: 20%;
     border-radius:  15px;
 }
@@ -215,7 +215,9 @@ div {
 
 #Bloc_milieu_texte {
     margin-top: 20px;
+    margin-bottom: 20px;
     font-family: "WorkSans-Light";
+    font-size: 22px;
 }
 
 #Se_connecter {
@@ -232,4 +234,26 @@ div {
 
 #Se_connecter:hover {
     background-color: #0056b3; /* Changement de couleur au survol */
+}
+
+#identifiant {
+    margin-top: 5px;
+    width: 275px; /* Largeur */
+    height: 25px; /* Hauteur */
+    font-size: 20px; /* Taille du texte */
+    padding: 10px; /* Espacement interne */
+    border-radius: 8px; /* Coins arrondis */
+    border: none;
+    text-align: center;
+}
+
+#password{
+    margin-top: 5px;
+    width: 275px; /* Largeur */
+    height: 25px; /* Hauteur */
+    font-size: 20px; /* Taille du texte */
+    padding: 10px; /* Espacement interne */
+    border-radius: 8px; /* Coins arrondis */
+    border: none;
+    text-align: center;
 }
