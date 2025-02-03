@@ -266,3 +266,8 @@ div {
     border: none;
     text-align: center;
 }
+
+#Creation_compte {
+    font-family: "WorkSans-Light";
+    font-size: 12px;
+}
