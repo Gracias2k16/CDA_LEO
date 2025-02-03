@@ -170,7 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Attacher les événements pour la première fois
     attachButtonEvents();
 });
 
