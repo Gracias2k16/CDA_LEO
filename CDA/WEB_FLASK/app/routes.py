@@ -8,9 +8,7 @@ from app.forms import ConfigForm
 
 @app.route('/Connexion', methods=['GET', 'POST'])
 def login_form():
-
-    if request.method == 'POST':
-        return render_template('home.html')
+    return render_template('Connexion.html')
 
 
 #===================================================================================================
