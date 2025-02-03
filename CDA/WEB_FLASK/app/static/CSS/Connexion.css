@@ -224,7 +224,7 @@ div {
 
 #Bloc_milieu_texte {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-family: "WorkSans-Light";
     font-size: 22px;
 }
@@ -269,5 +269,5 @@ div {
 
 #Creation_compte {
     font-family: "WorkSans-Light";
-    font-size: 12px;
+    font-size: 15px;
 }
