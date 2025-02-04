@@ -1,5 +1,5 @@
 import mysql.connector
-from Setting import DB_DATABASE, DB_HOST, DB_PASSWORD, DB_USERNAME
+from app.Setting import DB_DATABASE, DB_HOST, DB_PASSWORD, DB_USERNAME
 
 #===================================================================================================
 
