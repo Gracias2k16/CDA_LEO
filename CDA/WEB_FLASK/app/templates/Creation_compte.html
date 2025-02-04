@@ -8,15 +8,17 @@
     </head>
     
 <body>
-    {% with messages = get_flashed_messages() %}
+    <!--Permet d'afficher les messages flash (début)-->
+    {% with messages = get_flashed_messages(with_categories=True) %}
     {% if messages %}
-        <ul>
-        {% for message in messages %}
-            <li>{{ message }}</li>
+        <ul class="flash_message">
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
         {% endfor %}
         </ul>
     {% endif %}
     {% endwith %}
+    <!--Permet d'afficher les messages flash (fin)-->
     <header>
             <div class="Bandeau haut">
                 <div id="Bandeau_haut_gauche">

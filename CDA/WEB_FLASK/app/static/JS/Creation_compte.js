@@ -30,11 +30,11 @@
 //////////////////////////////////////////////////////////////////////*/
 
 document.addEventListener("DOMContentLoaded", function() {
-    const messages = document.querySelectorAll("ul");
+    const messages = document.querySelectorAll(".flash_message");
     messages.forEach(function(message) {
         setTimeout(function() {
             message.style.display = "none"; // Masquer le message après 3 secondes
-        }, 3000);
+        }, 4000);
     });
 });
 

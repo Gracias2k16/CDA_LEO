@@ -62,7 +62,7 @@ def Creation_compte():
         cur.execute(sql, (nom, prenom, societe, mail, hashed_password, num, 'USER'))
         conn.commit()
 
-        flash("Compte créé avec succès !")
+        flash("Compte créé avec succès !", 'success')
         return redirect(url_for('Creation_compte'))
 
     except mysql.connector.Error as e:
