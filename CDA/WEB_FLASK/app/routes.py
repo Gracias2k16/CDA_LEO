@@ -4,7 +4,7 @@ from app import app
 #===================================================================================================
 
 @app.route('/Connexion', methods=["GET", "POST"])
-def login_form():
+def Connexion():
     return render_template('Connexion.html')
 
 #===================================================================================================
@@ -21,6 +21,6 @@ def Demande():
 
 #===================================================================================================
 
-@app.route('/Creation de Compte')
-def Demande():
+@app.route('/Creation_compte')
+def Creation_compte():
     return render_template('Creation_compte.html')

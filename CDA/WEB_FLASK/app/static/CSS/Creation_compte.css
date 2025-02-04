@@ -229,45 +229,34 @@ div {
     font-size: 22px;
 }
 
-#Se_connecter {
+#Creation {
     width: 200px; 
     height: 50px; 
     font-size: 18px; 
-    padding: 10px; /* Espacement interne */
+    padding: 10px; 
     border-radius: 8px; /* Coins arrondis */
     background-color: #007BFF;
     color: white; 
-    border: none; /* Supprime la bordure */
-    cursor: pointer; /* Curseur interactif */
+    border: none; 
+    cursor: pointer;
 }
 
-#Se_connecter:hover {
+#Creation:hover {
     background-color: #0056b3; /* Changement de couleur au survol */
 }
 
-#identifiant {
+#Nom_champ {
     margin-top: 5px;
-    width: 275px; /* Largeur */
-    height: 25px; /* Hauteur */
-    font-size: 20px; /* Taille du texte */
-    padding: 10px; /* Espacement interne */
+    width: 275px;
+    height: 25px; 
+    font-size: 20px; 
+    padding: 10px;
     border-radius: 8px; /* Coins arrondis */
     border: none;
     text-align: center;
 }
 
-#password{
+h5 {
+    font-size:  15px;
     margin-top: 5px;
-    width: 275px; /* Largeur */
-    height: 25px; /* Hauteur */
-    font-size: 20px; /* Taille du texte */
-    padding: 10px; /* Espacement interne */
-    border-radius: 8px; /* Coins arrondis */
-    border: none;
-    text-align: center;
-}
-
-#Creation_compte {
-    font-family: "WorkSans-Light";
-    font-size: 15px;
 }
