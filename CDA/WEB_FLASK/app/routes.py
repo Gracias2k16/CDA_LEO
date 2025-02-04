@@ -1,4 +1,4 @@
-from flask import request, render_template, jsonify
+from flask import request, render_template, jsonify, flash, redirect, url_for
 import mysql.connector
 from app import app
 from app.Fonctions_BDD import connexion_à_BDD
@@ -35,7 +35,8 @@ def Creation_compte():
 
     required_fields = ["Nom", "Mail","Mdp", "Num"] # Champs requis
     if not all(field in data and data[field] for field in required_fields):
-        return jsonify({"error": "Certains champs obligatoires sont manquants"}), 400 #Erreur si tous els champs ne sont pas compéltés
+        flash("Certains champs obligatoires sont manquants.")
+        return redirect(url_for('Creation_compte')) #Erreur si tous els champs ne sont pas compéltés
 
     nom = data["Nom"]
     prenom = data.get("Prenom", "")  # Optionnel
@@ -48,24 +49,27 @@ def Creation_compte():
 
     conn, cur = connexion_à_BDD()  # Connexion à la BDD
     if conn is None or cur is None:
-        return jsonify({"error": "Impossible de se connecter à la base de données"}), 500
+        flash("Impossible de se connecter à la base de données.")
+        return redirect(url_for('Creation_compte'))
     
     try:
         cur.execute("SELECT * FROM Compte WHERE id_Mail = %s", (mail,))# Vérifier si l'email existe déjà
         if cur.fetchone():
-            return jsonify({"error": "Cet email est déjà utilisé"}), 400
+            flash("Cet email est déjà utilisé.")
+            return redirect(url_for('Creation_compte'))
 
         sql = "INSERT INTO Compte (id_Nom, id_Prenom, id_Nom_societee, id_Mail, id_Mdp, Num_tel, id_Type) VALUES (%s, %s, %s, %s, %s, %s, %s)" #requete sql pour inseré le compte
         cur.execute(sql, (nom, prenom, societe, mail, hashed_password, num, 'USER'))
         conn.commit()
 
-        return jsonify({"message": "Compte créé avec succès !"}), 201
+        flash("Compte créé avec succès !")
+        return redirect(url_for('Creation_compte'))
 
     except mysql.connector.Error as e:
         conn.rollback()
-        return jsonify({"error": str(e)}), 500
+        flash(f"Erreur lors de la création du compte : {str(e)}")
+        return redirect(url_for('Creation_compte'))
 
     finally:
         cur.close()
         conn.close()
-        print(data)
