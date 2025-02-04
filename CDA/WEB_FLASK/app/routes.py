@@ -54,7 +54,7 @@ def Creation_compte():
         if cur.fetchone():
             return jsonify({"error": "Cet email est déjà utilisé"}), 400
 
-        sql = "INSERT INTO Compte (id_Nom, Prenom, Sociétée, Mail, Mdp, Num) VALUES (%s, %s, %s, %s, %s, %s)" #requete sql pour inseré le compte
+        sql = "INSERT INTO Compte (id_Nom, id_Prenom, id_Nom_societee, id_Mail, id_Mdp, Num_tel) VALUES (%s, %s, %s, %s, %s, %s)" #requete sql pour inseré le compte
         cur.execute(sql, (nom, prenom, societe, mail, hashed_password, num))
         conn.commit()
 
