@@ -209,7 +209,7 @@ div {
     align-items: center;
     text-align: center;
     color: #fff;
-    background: #949494;
+    background-color: rgba(148, 148, 148, 0.7);
     box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
     transition: right 0.3s ease-in-out;
     border-bottom: solid 1px #949494;
