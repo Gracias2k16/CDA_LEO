@@ -23,19 +23,28 @@ def connexion_à_BDD():
 
 #===================================================================================================
 
-def Recupération_de_comptes():
-    conn, cur = connexion_à_BDD()
+def Recupération_des_utilisateurs():
+    conn, cur = connexion_à_BDD() 
     if conn is None or cur is None:
-        return
-    
-    try:
-        cur.execute("SELECT * FROM Compte") 
-        resultats = cur.fetchall()
+        return None  
 
-        for ligne in resultats:
-            print(ligne)  
+    try:
+        # Préparez la requête SQL pour récupérer l'utilisateur par son email
+        query = "SELECT id_Utilisateur, id_Mail, id_Mdp FROM Compte WHERE id_Mail = %s" 
+        cur.execute(query, ('id_Mail'))
+
+        user = cur.fetchall()  # Récupère la première ligne du résultat
+
+        if user:
+            return {'id_Utilisateur': user[0], 'id_Mail': user[1], 'id_Mdp': user[2]}  # Retournez un dictionnaire avec les informations
+        return None
     except mysql.connector.Error as err:
-        print(f" Erreur lors de la récupération : {err}")
+        print(f"Erreur lors de la récupération : {err}")
+        return None
+    finally:
+        cur.close()
+        conn.close()
+        
 
 
 #===================================================================================================

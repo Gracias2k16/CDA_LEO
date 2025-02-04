@@ -1,7 +1,7 @@
-from flask import request, render_template, jsonify, flash, redirect, url_for
+from flask import request, render_template, flash, redirect, url_for, session
 import mysql.connector
 from app import app
-from app.Fonctions_BDD import connexion_à_BDD
+from app.Fonctions_BDD import connexion_à_BDD, Recupération_des_utilisateurs
 from app.__init__ import bcrypt
 import mysql
 
@@ -9,6 +9,20 @@ import mysql
 
 @app.route('/Connexion', methods=["GET", "POST"])
 def Connexion():
+    if request.method == 'POST':
+        email = request.form['identifiant']
+        password = request.form['password']
+        
+        # Récupérer l'utilisateur de la base de données par email
+        user = Recupération_des_utilisateurs()
+        
+        if user and bcrypt.check_password_hash(user['password'], password):  # Vérifiez le mot de passe
+            session['user_id'] = user['id']  # Stockez l'ID de l'utilisateur dans la session
+            flash('Connexion réussie !', 'success')
+            return redirect(url_for('home'))  # Redirigez vers la page d'accueil ou une autre page
+        else:
+            flash('Email ou mot de passe incorrect.', 'error')
+
     return render_template('Connexion.html')
 
 #===================================================================================================

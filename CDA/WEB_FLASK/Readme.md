@@ -24,6 +24,8 @@ conn.commit()
 
 print(f"{cur.rowcount} enregistrement inséré.")
 
+
+
 Afficher une table :
 cur.execute("SELECT * FROM utilisateurs")
 resultats = cur.fetchall()
