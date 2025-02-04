@@ -332,3 +332,12 @@ h5 {
     border: none;
     text-align: center;
 }
+
+ul {
+    list-style-type: none;
+    padding: 10px;
+    background-color: #f8d7da; /* Couleur de fond pour les messages d'erreur */
+    color: #721c24; /* Couleur du texte */
+    border: 1px solid #f5c6cb; /* Bordure */
+    margin: 10px 0;
+}

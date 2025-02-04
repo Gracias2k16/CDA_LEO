@@ -24,3 +24,17 @@
      }
  });
 
+
+ /*//////////////////////////////////////////////////////////////////////
+///////////////////////    Message FLash   //////////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+document.addEventListener("DOMContentLoaded", function() {
+    const messages = document.querySelectorAll("ul");
+    messages.forEach(function(message) {
+        setTimeout(function() {
+            message.style.display = "none"; // Masquer le message après 3 secondes
+        }, 3000);
+    });
+});
+
