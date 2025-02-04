@@ -18,3 +18,9 @@ def home():
 @app.route('/Demande')
 def Demande():
     return render_template('Demande.html')
+
+#===================================================================================================
+
+@app.route('/Creation de Compte')
+def Demande():
+    return render_template('Creation_compte.html')

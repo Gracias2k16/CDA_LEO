@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Creation_compte.css') }}">
+        <title>Connexion</title>
+    </head>
+    
+<body>
+    <header>
+            <div class="Bandeau haut">
+                <div id="Bandeau_haut_gauche">
+                    <div class="Bandeau_ecriture">
+                        <a href="/">
+                            <img src="{{url_for('static', filename='Logo.PNG')}}" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div id="Bandeau_haut_droit">
+                    <div id="Bandeau_haut_droit_premier">
+                        <button id="Txt_menu">Menu ☰</button>
+                    </div>
+                    <div id="Bandeau_haut_droit_second">
+                        <a id="Faire_demande" href="Demande"> Faire une demande</a>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <main>
+        <div id="menuOverlay">
+             <button id="closeMenu">Fermer ✖</button>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/Connexion">Connexion</a></li>
+                    <li><a href="/Demande">Faire une demande</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+        </div>
+        <img src="{{url_for('static', filename='Fond_connexion.jpeg')}}" alt="Porsche_fond" id="Image_fond_connexion">
+        <div id='Bloc_connexion'>   
+            <div id="Bloc_droit"></div>
+            <div id="Bloc_milieu">
+                <div id="Bloc_milieu_texte">
+                    <form action="/Connexion" method="POST">
+ 
+                    </form>
+                </div>
+            </div>
+            <div id="Bloc_gauche"></div>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='JS/Connexion.js') }}"></script>
+    </body>
+</html>
+        
