@@ -209,12 +209,12 @@ div {
     align-items: center;
     text-align: center;
     color: #fff;
-    background: #949494;
+    background-color: rgba(148, 148, 148 1);
     box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
     transition: right 0.3s ease-in-out;
-    border-bottom: solid 1px #949494;
+    border-bottom: solid 1px rgb(148, 148, 148);
     height: auto;
-    width: 20%;
+    width: 400px;
     border-radius:  15px;
 }
 
@@ -259,4 +259,71 @@ div {
 h5 {
     font-size:  15px;
     margin-top: 5px;
+}
+
+#Prenom_champ {
+    margin-top: 5px;
+    width: 275px;
+    height: 25px; 
+    font-size: 20px; 
+    padding: 10px;
+    border-radius: 8px; /* Coins arrondis */
+    border: none;
+    text-align: center;
+}
+
+
+#Sociétée_champ{
+    margin-top: 5px;
+    width: 275px;
+    height: 25px; 
+    font-size: 20px; 
+    padding: 10px;
+    border-radius: 8px; /* Coins arrondis */
+    border: none;
+    text-align: center;
+}
+
+#Mail_champ{
+    margin-top: 5px;
+    width: 275px;
+    height: 25px; 
+    font-size: 20px; 
+    padding: 10px;
+    border-radius: 8px; /* Coins arrondis */
+    border: none;
+    text-align: center;
+}
+
+#Mdp_champ{
+    margin-top: 5px;
+    width: 275px;
+    height: 25px; 
+    font-size: 20px; 
+    padding: 10px;
+    border-radius: 8px; /* Coins arrondis */
+    border: none;
+    text-align: center;
+}
+
+#Mdp_champ_2{
+    margin-top: 5px;
+    width: 275px;
+    height: 25px; 
+    font-size: 20px; 
+    padding: 10px;
+    border-radius: 8px; /* Coins arrondis */
+    border: none;
+    text-align: center;
+}
+
+#Num{
+    margin-top: 5px;
+    width: 275px;
+    height: 25px; 
+    font-size: 20px; 
+    padding: 10px;
+    border-radius: 8px; /* Coins arrondis */
+    border: none;
+    text-align: center;
 }
