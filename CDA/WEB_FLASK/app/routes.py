@@ -4,7 +4,7 @@ from app import app
 from app.Fonctions_BDD import connexion_à_BDD, Recupération_des_utilisateurs
 from app.__init__ import bcrypt
 import mysql
-import time
+from flask import jsonify
 
 #===================================================================================================
 
@@ -25,7 +25,6 @@ def Connexion():
             flash("Identifiant ou mot de passe incorrect.", 'danger')
 
     return render_template ('Connexion.html')
-
 
 #===================================================================================================
 
@@ -89,3 +88,10 @@ def Creation_compte():
     finally:
         cur.close()
         conn.close()
+
+
+#===================================================================================================
+
+@app.route('/session-data')
+def session_data():
+    return jsonify(dict(session))

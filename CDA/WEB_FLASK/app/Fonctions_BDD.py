@@ -1,5 +1,6 @@
 import mysql.connector
 from app.Setting import DB_DATABASE, DB_HOST, DB_PASSWORD, DB_USERNAME
+from flask import flash, redirect, url_for, session
 
 #===================================================================================================
 
@@ -86,4 +87,9 @@ def Ecriture_adresse():
             conn.close()
 
 #===================================================================================================
+
+def Déconnexion():
+    session.clear()
+    flash("Déconnexion réussie.", "info")
+    return redirect(url_for('Connexion'))
 

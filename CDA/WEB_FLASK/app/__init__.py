@@ -2,8 +2,11 @@ from flask import Flask, session
 from flask_bcrypt import Bcrypt
 import os
 
+from flask_wtf import CSRFProtect
+
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
+csrf = CSRFProtect(app)
 
 # Configuration de la clé secrète
 app.secret_key = os.urandom(24)

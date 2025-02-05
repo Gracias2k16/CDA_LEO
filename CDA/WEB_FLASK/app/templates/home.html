@@ -32,13 +32,17 @@
     <main class="homepage">
         <div id="menuOverlay">
             <button id="closeMenu">Fermer ✖</button>
-                <ul>
-                    <li><a href="/">Accueil</a></li>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                {% if 'user_id' not in session %}
                     <li><a href="/Connexion">Connexion</a></li>
+                {% else %}
                     <li><a href="/Demande">Faire une demande</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Contact</a></li>
-                </ul>
+                    <li><a href="/logout" id="logoutButton">Déconnexion</a></li>
+                {% endif %}
+            </ul>
         </div>
         <div class="homepage_premiere_partie">
             <img src="{{url_for('static', filename='Bmw_fond.png')}}" alt="Bmw_fond" class="Image_fond">
