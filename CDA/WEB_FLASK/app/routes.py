@@ -1,10 +1,11 @@
 from flask import request, render_template, flash, redirect, url_for, session
 import mysql.connector
 from app import app
-from app.Fonctions_BDD import connexion_à_BDD, Recupération_des_utilisateurs
+from app.Fonctions_BDD import connexion_à_BDD, Recupération_des_utilisateurs, Envoie_mail_confirmation
 from app.__init__ import bcrypt
 import mysql
 from flask import jsonify
+
 
 #===================================================================================================
 
@@ -84,6 +85,7 @@ def Creation_compte():
         conn.commit()
 
         flash("Compte créé avec succès !", 'success')
+        Envoie_mail_confirmation(mail)
         return redirect(url_for('Creation_compte'))
 
     except mysql.connector.Error as e:

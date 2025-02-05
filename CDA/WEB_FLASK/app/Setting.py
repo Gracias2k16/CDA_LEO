@@ -7,3 +7,6 @@ DB_HOST = os.getenv("DB_HOST")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_DATABASE = os.getenv("DB_DATABASE")
 DB_USERNAME = os.getenv("DB_USERNAME")
+
+Email_MDP = os.getenv ("Adressemail_MDP")
+Email = os.getenv ("Adressemail")

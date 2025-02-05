@@ -1,8 +1,7 @@
 import mysql.connector
-from app.Setting import DB_DATABASE, DB_HOST, DB_PASSWORD, DB_USERNAME
-from flask_mail import Message
-from app.__init__ import mail
+from app.Setting import DB_DATABASE, DB_HOST, DB_PASSWORD, DB_USERNAME, Email_MDP, Email
 import smtplib
+from email.message import EmailMessage
 
 #===================================================================================================
 
@@ -90,23 +89,26 @@ def Ecriture_adresse():
 
 #===================================================================================================
 
-def Envoie_mail_confirmation (to):
-    msg = Message('Confirmation de votre compte',
-                  recipients=[to])
-    msg.body = 'Merci de votre confiance. Votre compte a été créé avec succès !'
-    mail.send(msg)
-
-#===================================================================================================
-
-def testemail():
+def Envoie_mail_confirmation (mail):
     try:
-        server = smtplib.SMTP_SSL('smtp.gmail.com', 467)
-        server.starttls()  # Démarre la connexion sécurisée
-        server.login('pb.importation@gmail.com', 'PB.Import')  # Remplacez par vos informations
-        print("Connexion réussie")
-    except Exception as e:
-        print(f"Erreur de connexion : {e}")
-    finally:
-        server.quit()
 
+        msg = EmailMessage()
+        msg['Subject'] = 'Confirmation de création de compte'  # Sujet de l'e-mail
+        msg['From'] = Email  # Adresse e-mail de l'expéditeur
+        msg['To'] = mail
+    
+        # Corps du message
+        msg.set_content("Votre compte a été créé avec succès.\n\nMerci de nous avoir rejoints !\n\nCordialement,\nL'équipe.")
+
+
+        server = smtplib.SMTP('smtp.gmail.com', 587)  
+        server.starttls()
+        server.login(Email, Email_MDP)
+        #erver.sendmail(Email, mail, "Votre compte a ete cree avec succes")
+        server.send_message(msg)  # Envoie le message
+        server.quit()
+        print("Email envoyé avec succès")
+    except Exception as e:
+        print(f"Erreur : {e}")
 #===================================================================================================
+
