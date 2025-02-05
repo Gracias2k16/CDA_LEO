@@ -13,7 +13,7 @@ mail = Mail(app)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Utilisez le serveur SMTP de votre choix
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'Adressemail_client'  # Remplacez par votre adresse e-mail
+app.config['MAIL_USERNAME'] = 'Adressemail'  # Remplacez par votre adresse e-mail
 app.config['MAIL_PASSWORD'] = 'Adressemail_MDP'  # Remplacez par votre mot de passe
 app.config['MAIL_DEFAULT_SENDER'] = 'Adressemail'  # Adresse d'envoi
 
