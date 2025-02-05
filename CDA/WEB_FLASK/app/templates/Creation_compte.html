@@ -59,6 +59,9 @@
             <div id="Bloc_milieu">
                 <div id="Bloc_milieu_texte">
                     <form action="/Creation_compte" method="POST">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}" />
+                        {% if error %}
+                        
                         <label id='Nom_texte' for="Nom">Nom* :</label><br>
                         <input type="text" id="Nom_champ" name="Nom"><br><br>
 

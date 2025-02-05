@@ -41,17 +41,17 @@
     <main>
         <div id="menuOverlay">
              <button id="closeMenu">Fermer ✖</button>
-             <ul>
-                <li><a href="/">Accueil</a></li>
-                {% if 'user_id' not in session %}
-                    <li><a href="/Connexion">Connexion</a></li>
-                {% else %}
-                    <li><a href="/Demande">Faire une demande</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="/logout" id="logoutButton">Déconnexion</a></li>
-                {% endif %}
-            </ul>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    {% if 'user_id' not in session %}
+                        <li><a href="/Connexion">Connexion</a></li>
+                    {% else %}
+                        <li><a href="/Demande">Faire une demande</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="/logout" id="logoutButton">Déconnexion</a></li>
+                    {% endif %}
+                </ul>
         </div>
         <img src="{{url_for('static', filename='Fond_connexion.jpeg')}}" alt="Porsche_fond" id="Image_fond_connexion">
         <div id='Bloc_connexion'>   
@@ -59,6 +59,9 @@
             <div id="Bloc_milieu">
                 <div id="Bloc_milieu_texte">
                     <form action="/Connexion" method="POST">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}" />
+                        {% if error %}
+
                         <label id='Label_Identifiant'for="identifiant">Identifiant :</label><br>
                         <input type="text" id="identifiant" name="identifiant"><br><br>
     
