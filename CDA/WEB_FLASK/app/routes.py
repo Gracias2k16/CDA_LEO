@@ -50,7 +50,7 @@ def Creation_compte():
 
     required_fields = ["Nom", "Mail","Mdp", "Num"] # Champs requis
     if not all(field in data and data[field] for field in required_fields):
-        flash("Certains champs obligatoires sont manquants.")
+        flash("Certains champs obligatoires sont manquants.", 'danger')
         return redirect(url_for('Creation_compte')) #Erreur si tous els champs ne sont pas compéltés
 
     nom = data["Nom"]
@@ -89,9 +89,16 @@ def Creation_compte():
         cur.close()
         conn.close()
 
-
 #===================================================================================================
 
 @app.route('/session-data')
 def session_data():
     return jsonify(dict(session))
+
+#===================================================================================================
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash("Déconnexion réussie.", "success")
+    return redirect(url_for('Connexion'))

@@ -289,4 +289,7 @@ div {
     border: 1px solid #c3e6cb; /* Bordure verte */
     padding: 10px;
     border-radius: 5px; /* Coins arrondis */
+    margin-top: 100px;
+    text-align: center;
+    z-index: 2;
 }
