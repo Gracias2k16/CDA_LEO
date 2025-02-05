@@ -100,7 +100,7 @@ def Envoie_mail_confirmation (to):
 
 def testemail():
     try:
-        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server = smtplib.SMTP_SSL('smtp.gmail.com', 467)
         server.starttls()  # Démarre la connexion sécurisée
         server.login('pb.importation@gmail.com', 'PB.Import')  # Remplacez par vos informations
         print("Connexion réussie")
