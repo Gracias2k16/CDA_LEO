@@ -2,6 +2,7 @@ import mysql.connector
 from app.Setting import DB_DATABASE, DB_HOST, DB_PASSWORD, DB_USERNAME
 from flask_mail import Message
 from app.__init__ import mail
+import smtplib
 
 #===================================================================================================
 
@@ -95,3 +96,17 @@ def Envoie_mail_confirmation (to):
     msg.body = 'Merci de votre confiance. Votre compte a été créé avec succès !'
     mail.send(msg)
 
+#===================================================================================================
+
+def testemail():
+    try:
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()  # Démarre la connexion sécurisée
+        server.login('pb.importation@gmail.com', 'PB.Import')  # Remplacez par vos informations
+        print("Connexion réussie")
+    except Exception as e:
+        print(f"Erreur de connexion : {e}")
+    finally:
+        server.quit()
+
+#===================================================================================================

@@ -1,7 +1,7 @@
 from flask import request, render_template, flash, redirect, url_for, session
 import mysql.connector
 from app import app
-from app.Fonctions_BDD import connexion_à_BDD, Recupération_des_utilisateurs,Envoie_mail_confirmation
+from app.Fonctions_BDD import connexion_à_BDD, Recupération_des_utilisateurs,Envoie_mail_confirmation,testemail
 from app.__init__ import bcrypt
 import mysql
 from flask import jsonify
@@ -104,3 +104,5 @@ def logout():
     session.clear()
     flash("Déconnexion réussie.", "success")
     return redirect(url_for('Connexion'))
+
+#===================================================================================================
