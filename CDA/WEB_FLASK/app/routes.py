@@ -4,6 +4,7 @@ from app import app
 from app.Fonctions_BDD import connexion_à_BDD, Recupération_des_utilisateurs
 from app.__init__ import bcrypt
 import mysql
+import time
 
 #===================================================================================================
 
@@ -12,18 +13,19 @@ def Connexion():
     if request.method == 'POST':
         email = request.form['identifiant']
         password = request.form['password']
-        
-        # Récupérer l'utilisateur de la base de données par email
-        user = Recupération_des_utilisateurs()
-        
-        if user and bcrypt.check_password_hash(user['password'], password):  # Vérifiez le mot de passe
-            session['user_id'] = user['id']  # Stockez l'ID de l'utilisateur dans la session
-            flash('Connexion réussie !', 'success')
-            return redirect(url_for('home'))  # Redirigez vers la page d'accueil ou une autre page
-        else:
-            flash('Email ou mot de passe incorrect.', 'error')
 
-    return render_template('Connexion.html')
+        user = Recupération_des_utilisateurs(email)  # Récupère l'utilisateur en BDD
+
+        if user and bcrypt.check_password_hash(user['id_Mdp'], password):  # Vérifie le mot de passe
+            session['user_id'] = user['id_Utilisateur']
+            session['email'] = user['id_Mail']
+            flash(f"Bienvenue, {user['id_Mail']} !", 'success')
+            return redirect(url_for('home'))
+        else:
+            flash("Identifiant ou mot de passe incorrect.", 'danger')
+
+    return render_template ('Connexion.html')
+
 
 #===================================================================================================
 
@@ -63,13 +65,13 @@ def Creation_compte():
 
     conn, cur = connexion_à_BDD()  # Connexion à la BDD
     if conn is None or cur is None:
-        flash("Impossible de se connecter à la base de données.")
+        flash("Impossible de se connecter à la base de données.", 'danger')
         return redirect(url_for('Creation_compte'))
     
     try:
         cur.execute("SELECT * FROM Compte WHERE id_Mail = %s", (mail,))# Vérifier si l'email existe déjà
         if cur.fetchone():
-            flash("Cet email est déjà utilisé.")
+            flash("Cet email est déjà utilisé.", 'danger')
             return redirect(url_for('Creation_compte'))
 
         sql = "INSERT INTO Compte (id_Nom, id_Prenom, id_Nom_societee, id_Mail, id_Mdp, Num_tel, id_Type) VALUES (%s, %s, %s, %s, %s, %s, %s)" #requete sql pour inseré le compte
@@ -81,7 +83,7 @@ def Creation_compte():
 
     except mysql.connector.Error as e:
         conn.rollback()
-        flash(f"Erreur lors de la création du compte : {str(e)}")
+        flash(f"Erreur lors de la création du compte : {str(e)}", 'danger')
         return redirect(url_for('Creation_compte'))
 
     finally:

@@ -333,7 +333,7 @@ h5 {
     text-align: center;
 }
 
-.flash_message {
+.flash_message .danger{
     list-style-type: none;
     padding: 10px;
     background-color: #f8d7da; /* Couleur de fond pour les messages d'erreur */
