@@ -48,7 +48,7 @@ def Creation_compte():
     elif request.method == 'POST':
         data = request.form  # Récupère les données envoyées par le formulaire
 
-    required_fields = ["Nom", "Mail","Mdp", "Mdp_2" "Num"] # Champs requis
+    required_fields = ["Nom", "Mail","Mdp", "Mdp_2","Num"] # Champs requis
     if not all(field in data and data[field] for field in required_fields):
         flash("Certains champs obligatoires sont manquants.", 'danger')
         return redirect(url_for('Creation_compte')) #Erreur si tous els champs ne sont pas compéltés
