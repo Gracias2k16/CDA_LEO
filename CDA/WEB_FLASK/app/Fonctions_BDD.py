@@ -1,6 +1,7 @@
 import mysql.connector
 from app.Setting import DB_DATABASE, DB_HOST, DB_PASSWORD, DB_USERNAME
-from flask import flash, redirect, url_for, session
+from flask_mail import Message
+from app.__init__ import mail
 
 #===================================================================================================
 
@@ -88,8 +89,9 @@ def Ecriture_adresse():
 
 #===================================================================================================
 
-def Déconnexion():
-    session.clear()
-    flash("Déconnexion réussie.", "info")
-    return redirect(url_for('Connexion'))
+def Envoie_mail_confirmation (to):
+    msg = Message('Confirmation de votre compte',
+                  recipients=[to])
+    msg.body = 'Merci de votre confiance. Votre compte a été créé avec succès !'
+    mail.send(msg)
 
