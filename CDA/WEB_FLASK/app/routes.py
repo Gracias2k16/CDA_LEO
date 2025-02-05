@@ -1,7 +1,7 @@
 from flask import request, render_template, flash, redirect, url_for, session
 import mysql.connector
 from app import app
-from app.Fonctions_BDD import connexion_à_BDD, Recupération_des_utilisateurs,Envoie_mail_confirmation,testemail
+from app.Fonctions_BDD import connexion_à_BDD, Recupération_des_utilisateurs
 from app.__init__ import bcrypt
 import mysql
 from flask import jsonify
@@ -48,7 +48,7 @@ def Creation_compte():
     elif request.method == 'POST':
         data = request.form  # Récupère les données envoyées par le formulaire
 
-    required_fields = ["Nom", "Mail","Mdp", "Num"] # Champs requis
+    required_fields = ["Nom", "Mail","Mdp", "Mdp_2" "Num"] # Champs requis
     if not all(field in data and data[field] for field in required_fields):
         flash("Certains champs obligatoires sont manquants.", 'danger')
         return redirect(url_for('Creation_compte')) #Erreur si tous els champs ne sont pas compéltés
@@ -58,7 +58,13 @@ def Creation_compte():
     societe = data.get("Sociétée", "")  # Optionnel
     mail = data["Mail"]
     mot_de_passe = data["Mdp"]
+    mot_de_passe_confirmation = data["Mdp_2"]
     num = data["Num"]
+
+    if mot_de_passe != mot_de_passe_confirmation:
+            flash("Les mots de passe ne correspondent pas.", 'danger')
+            return redirect(url_for('Creation_compte'))
+
 
     hashed_password = bcrypt.generate_password_hash(mot_de_passe).decode('utf-8')
 
@@ -78,8 +84,6 @@ def Creation_compte():
         conn.commit()
 
         flash("Compte créé avec succès !", 'success')
-        # Envoyer un e-mail de confirmation
-        Envoie_mail_confirmation(mail)
         return redirect(url_for('Creation_compte'))
 
     except mysql.connector.Error as e:
