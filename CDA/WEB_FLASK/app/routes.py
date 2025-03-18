@@ -20,6 +20,7 @@ def Connexion():
         if user and bcrypt.check_password_hash(user['id_Mdp'], password):  # Vérifie le mot de passe
             session['user_id'] = user['id_Utilisateur']
             session['email'] = user['id_Mail']
+            session['role'] = user['id_Type']
             flash(f"Bienvenue, {user['id_Mail']} !", 'success')
             return redirect(url_for('home'))
         else:
