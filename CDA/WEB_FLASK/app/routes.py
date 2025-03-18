@@ -141,7 +141,7 @@ def Comptes():
 def supprimer_selection():
     selected_users = request.form.getlist('selected_users')
     print(f"Utilisateurs sélectionnés : {selected_users}")
-    
+
     if selected_users:
         conn, cur = connexion_à_BDD()
 
@@ -158,4 +158,31 @@ def supprimer_selection():
             cur.close()
             conn.close()
     
+    return redirect(url_for('Comptes'))
+
+#===================================================================================================
+
+@app.route('/modifier_role', methods=['POST'])
+def modifier_role():
+    conn, cur = connexion_à_BDD()
+
+    try:
+        for user in request.form:
+            if user.startswith('new_role_'):
+                user_email = user.split('_', 2)[-1]
+                new_role = request.form[user]
+                print(f"Modification de {user_email} au rôle {new_role}")
+
+            cur.execute("UPDATE Compte SET id_Type = %s WHERE id_Mail = %s", (new_role, user_email))
+            conn.commit()
+
+        flash("Les rôles ont été modifiés avec succès.", "success")
+
+    except mysql.connector.Error as err:
+        print(f"Erreur lors de la modification des rôles : {err}")
+        flash("Erreur lors de la modification des rôles.", "danger")
+    finally:
+        cur.close()
+        conn.close()
+
     return redirect(url_for('Comptes'))

@@ -50,7 +50,9 @@
             <div id="Bloc_Droite"></div>
             <div id="Bloc_milieu">
                 <h2>Liste des Comptes</h2>
-                <form action="/supprimer_selection" method="POST"></form>
+                <form action="/modifier_role" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
                     <table>
                         <thead>
                             <tr>
@@ -61,15 +63,28 @@
                         </thead>
                         <tbody>
                             {% for user in users %}
-                                <tr>
-                                    <td><input type="checkbox" name="selected_users" value="{{ user[0] }}"></td> 
-                                    <td>{{ user[0] }}</td>
-                                    <td>{{ user[1] }}</td>
-                                </tr>
+                            <tr>
+                                <td><input type="checkbox" name="selected_users" value="{{ user[0] }}"></td>
+                                <td>{{ user[0] }}</td>
+                                <td>{{ user[1] }}</td>
+                            </tr>
                             {% endfor %}
                         </tbody>
                     </table>
-                    <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer ces comptes ?');">Supprimer la sélection</button>
+
+                    <select name="new_role" required>
+                        <option value="Utilisateur">Utilisateur</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                    <button type="submit" name="action" value="modifier" onclick="return confirm('Voulez-vous vraiment modifier les rôles des utilisateurs sélectionnés ?');">Modifier les rôles</button>
+                </form>
+
+                <form action="/supprimer_compte" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                
+                    <button type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les comptes sélectionnés ?');">Supprimer les comptes</button>
+                </form>
+
             </div>
             <div id="Bloc_gauche"></div>
         </div>
