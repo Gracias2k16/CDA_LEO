@@ -135,7 +135,27 @@ def Comptes():
         cur.close()
         conn.close()
 
+#===================================================================================================
+
+@app.route('/supprimer_selection', methods=['POST'])
 def supprimer_selection():
     selected_users = request.form.getlist('selected_users')
+    print(f"Utilisateurs sélectionnés : {selected_users}")
     
+    if selected_users:
+        conn, cur = connexion_à_BDD()
+
+        try:
+            format_strings = ','.join(['%s'] * len(selected_users))  # Création des placeholders SQL
+            query = f"DELETE FROM Compte WHERE id_Mail IN ({format_strings})"
+            cur.execute(query, tuple(selected_users))
+            conn.commit()
+            flash("Utilisateurs supprimés avec succès.", "success")
+        except mysql.connector.Error as err:
+            print(f"Erreur : {err}")
+            flash("Erreur lors de la suppression.", "danger")
+        finally:
+            cur.close()
+            conn.close()
     
+    return redirect(url_for('Comptes'))
