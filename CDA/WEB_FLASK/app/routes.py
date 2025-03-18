@@ -149,7 +149,7 @@ def gerer_comptes():
         print("Action demandée :", action)
 
         if not selected_users:
-            flash("Aucun utilisateur sélectionné.", "warning")
+            flash("Aucun utilisateur sélectionné.", "danger")
             return redirect(url_for('Comptes'))
 
         if action == "modifier":

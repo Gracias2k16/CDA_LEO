@@ -71,6 +71,7 @@
                                 <td>
                                     <select name="new_role_{{ user[0] }}" required>
                                         <option value="USER" {% if user[1] == 'USER' %}selected{% endif %}>Utilisateur</option>
+                                        <option value="EMPLOYEE" {% if user[1] == 'EMPLOYEE' %}selected{% endif %}>Employé</option>
                                         <option value="ADMIN" {% if user[1] == 'ADMIN' %}selected{% endif %}>Admin</option>
                                     </select>
                                 </td>
@@ -87,6 +88,7 @@
                     </button>
                 </form>
             </div>
+            <div id="Bloc_gauche"></div>
     </main>
 
 <script src="{{ url_for('static', filename='JS/Comptes.js') }}"></script>
