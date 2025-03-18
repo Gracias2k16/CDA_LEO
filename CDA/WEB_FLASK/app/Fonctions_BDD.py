@@ -31,13 +31,13 @@ def Recupération_des_utilisateurs(email):
         return None  
 
     try:
-        query = "SELECT id_Utilisateur, id_Mail, id_Mdp FROM Compte WHERE id_Mail = %s" #sql qui permet de récupérer l'email
+        query = "SELECT id_Utilisateur, id_Mail, id_Mdp, id_Type FROM Compte WHERE id_Mail = %s" #sql qui permet de récupérer l'email
         cur.execute(query, (email,)) 
 
         user = cur.fetchone() #Stock l'adersse mail 
 
         if user:
-            return {'id_Utilisateur': user[0], 'id_Mail': user[1], 'id_Mdp': user[2]}  # Retournez un dictionnaire avec les informations
+            return {'id_Utilisateur': user[0], 'id_Mail': user[1], 'id_Mdp': user[2], 'id_Type': user[3]}  # Retournez un dictionnaire avec les informations
         return None
     except mysql.connector.Error as err:
         print(f"Erreur lors de la récupération : {err}")
