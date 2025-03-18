@@ -116,6 +116,15 @@ def logout():
 
 @app.route('/Comptes')
 def Comptes():
+
+    if 'user_id' not in session: # Vérifier si l'utilisateur est connecté
+        flash("Vous devez être connecté pour accéder à cette page.", "warning")
+        return redirect(url_for('Connexion'))
+
+    if session.get('role') != 'ADMIN':  # Vérifier si l'utilisateur est ADMIN
+        flash("Accès refusé : Vous n'avez pas les droits d'administration.", "danger")
+        return redirect(url_for('home'))
+
     conn, cur = connexion_à_BDD() 
     if conn is None or cur is None:
         return render_template('Comptes.html', users=[])
@@ -123,8 +132,6 @@ def Comptes():
     try:
         cur.execute("SELECT id_Mail, id_Type FROM  Compte")
         users = cur.fetchall()
-        #print(f"Récupération OK")
-        print(users)
         return render_template('Comptes.html', users=users)
     
     except mysql.connector.Error as err:
