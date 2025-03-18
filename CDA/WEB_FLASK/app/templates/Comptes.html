@@ -46,34 +46,34 @@
                 {% endif %}
             </ul>
        </div>
-       <div id="Premiere_etape">
-            <div id="Caracéritsiques">
-                <div id="Marque"></div>
-                    <label for="item"> Marque </label>
-                <div id="Serie"></div>
-                    <label for="item"> Série</label>
-                <div id="Moteur"></div>
-                    <label for="item"> Moteur</label>
-                <div id="Boite "></div>
-                <label for="item"> Boite</label>
+       <div id="Bloc_Comptes">
+            <div id="Bloc_Droite"></div>
+            <div id="Bloc_milieu">
+                <h2>Liste des Comptes</h2>
+                <form action="/supprimer_selection" method="POST"></form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Email</th>
+                            <th>Rôle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                            <tr>
+                                <td><input type="checkbox" name="selected_users" value="{{ user[0] }}"></td> 
+                                <td>{{ user[0] }}</td>  <!-- Email -->
+                                <td>{{ user[1] }}</td>  <!-- Rôle -->
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer ces comptes ?');">Supprimer la sélection</button>
             </div>
-            <div id="Caracéritsiques_2">
-                <div id="Annee"></div>
-                <div id="Budget"></div>
-                <div id="KM_max"></div>
-                <div id="Options "></div>
-                <div id="Puissance "></div>
-            </div>
-            <div id="Divers">
-
-            </div>
-            </div>
-            <p id="Aide"> *Si vous n'avez pas d'idée spécifique en tête, vous pouvez laisser les valeurs vides.</p>
-       </div>
-       <div id="Deuxieme_etape">
-
-       </div>
-
+            <div id="Bloc_gauche"></div>
+        </div>
+        <pre>{{ users }}</pre>
     </main>
 
 <script src="{{ url_for('static', filename='JS/Comptes.js') }}"></script>

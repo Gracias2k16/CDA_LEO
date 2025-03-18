@@ -110,5 +110,23 @@ def Envoie_mail_confirmation (mail):
         print("Email envoyé avec succès")
     except Exception as e:
         print(f"Erreur : {e}")
+
 #===================================================================================================
 
+def Recuperation_tous_utilisateurs():
+    conn, cur = connexion_à_BDD() 
+    if conn is None or cur is None:
+        return None  
+
+    try:
+        cursor.execute("SELECT id_Mail, id_Type FROM  Compte")
+        cursor = conn.cursor(mysql.cursors.DictCursor)
+        users = cursor.fetchall()
+        return users
+    
+    except mysql.connector.Error as err:
+        print(f"Erreur lors de la récupération : {err}")
+        return None
+    finally:
+        cur.close()
+        conn.close()

@@ -179,6 +179,55 @@ div {
 }
 
 /*//////////////////////////////////////////////////////////////////////
-////////////////////////    Corp     ////////////////////////
+///////////////////////////////    Corp     ////////////////////////////
 //////////////////////////////////////////////////////////////////////*/
+
+#Bloc_Comptes {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+}
+
+#Bloc_Droite {
+    width: auto;
+}
+
+#Bloc_milieu {
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(148, 148, 148, 0.7);
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease-in-out;
+    border-bottom: solid 1px #949494;
+    height: auto;
+    border-radius:  15px;
+    margin-top: 100px;
+    width: 75%;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: "WorkSans-Light";
+    background-color: #a7a6a6;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+#Bloc_gauche {
+    width: auto;
+}
+
 

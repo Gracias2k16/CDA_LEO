@@ -116,4 +116,26 @@ def logout():
 
 @app.route('/Comptes')
 def Comptes():
-    return render_template('Comptes.html')
+    conn, cur = connexion_à_BDD() 
+    if conn is None or cur is None:
+        return render_template('Comptes.html', users=[])
+
+    try:
+        cur.execute("SELECT id_Mail, id_Type FROM  Compte")
+        users = cur.fetchall()
+        #print(f"Récupération OK")
+        print(users)
+        return render_template('Comptes.html', users=users)
+    
+    except mysql.connector.Error as err:
+        print(f"Erreur lors de la récupération : {err}")
+        return render_template('Comptes.html', users=[])
+    
+    finally:
+        cur.close()
+        conn.close()
+
+def supprimer_selection():
+    selected_users = request.form.getlist('selected_users')
+    
+    
