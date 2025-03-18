@@ -1,0 +1,184 @@
+/*//////////////////////////////////////////////////////////////////////
+////////////////////////    Corp partie     ////////////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+
+body {
+    background-color: rgb(0, 0, 0);
+    margin: 0%;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+/*//////////////////////////////////////////////////////////////////////
+////////////////////////    Bandeau du haut     ////////////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+.Bandeau {
+    height: 68px;
+    width: 100Vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 3;
+    position: fixed;
+    border-bottom: solid 1px #949494;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+    top: 0;
+}
+
+.Bandeau #Bandeau_haut_gauche {
+    width: 50%;
+    height: 100%;
+}
+
+.Bandeau #Bandeau_haut_gauche .Bandeau_ecriture {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.Bandeau #Bandeau_haut_gauche .Bandeau_ecriture a {
+    cursor: pointer;
+}
+
+.Bandeau #Bandeau_haut_gauche .Bandeau_ecriture img {
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.Bandeau #Bandeau_haut_droit {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30px;
+}
+
+.Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier button {
+    color: aliceblue;
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu_icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+
+.Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_premier .Menu_icon div {
+    margin: auto;
+    position: absolute;
+    top: 4.5px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 22px;
+    height: 12px;
+    transform: scale(1.1);
+    opacity: .8;
+}
+
+.Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_second {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30px;
+}
+
+.Bandeau #Bandeau_haut_droit #Bandeau_haut_droit_second a {
+    color: aliceblue;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/*//////////////////////////////////////////////////////////////////////
+////////////////////////    MENU glisaant     ////////////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    right: -300px; 
+    width: 300px;
+    height: 100%;
+    background: #949494;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease-in-out;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+#menuOverlay.active {
+    right: 0;
+}
+
+#closeMenu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#menuOverlay ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+#menuOverlay li {
+    margin: 20px 0;
+}
+
+#menuOverlay a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+/*//////////////////////////////////////////////////////////////////////
+////////////////////////    Corp     ////////////////////////
+//////////////////////////////////////////////////////////////////////*/
+

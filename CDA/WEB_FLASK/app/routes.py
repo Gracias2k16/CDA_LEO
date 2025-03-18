@@ -113,3 +113,7 @@ def logout():
     return redirect(url_for('Connexion'))
 
 #===================================================================================================
+
+@app.route('/Comptes')
+def Comptes():
+    return render_template('Comptes.html')

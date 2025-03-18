@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Comptes.css') }}">
+    <title>PBimportation</title>
+</head>
+
+<body>
+    <header>
+        <div class="Bandeau haut">
+            <div id="Bandeau_haut_gauche">
+                <div class="Bandeau_ecriture">
+                    <a href="/">
+                        <img src="{{url_for('static', filename='Logo.PNG')}}" alt="Logo">
+                    </a>
+                </div>
+            </div>
+            <div id="Bandeau_haut_droit">
+                <div id="Bandeau_haut_droit_premier">
+                    <button id="Txt_menu">Menu ☰</button>
+                </div>
+                <div id="Bandeau_haut_droit_second">
+                    <a id="Faire_demande" href="Demande"> Faire une demande</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="menuOverlay">
+            <button id="closeMenu">Fermer ✖</button>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="/Demande">Faire une demande</a></li>
+                {% if 'user_id' not in session %}
+                    <li><a href="/Connexion">Connexion</a></li>
+                {% else %}
+                    <li><a href="/logout" id="logoutButton">Déconnexion</a></li>
+                    {% if session.get('id_Type') == 'ADMIN' %}
+                        <li><a href="/Comptes">Comptes</a></li>
+                    {% endif %}
+                {% endif %}
+            </ul>
+       </div>
+       <div id="Premiere_etape">
+            <div id="Caracéritsiques">
+                <div id="Marque"></div>
+                    <label for="item"> Marque </label>
+                <div id="Serie"></div>
+                    <label for="item"> Série</label>
+                <div id="Moteur"></div>
+                    <label for="item"> Moteur</label>
+                <div id="Boite "></div>
+                <label for="item"> Boite</label>
+            </div>
+            <div id="Caracéritsiques_2">
+                <div id="Annee"></div>
+                <div id="Budget"></div>
+                <div id="KM_max"></div>
+                <div id="Options "></div>
+                <div id="Puissance "></div>
+            </div>
+            <div id="Divers">
+
+            </div>
+            </div>
+            <p id="Aide"> *Si vous n'avez pas d'idée spécifique en tête, vous pouvez laisser les valeurs vides.</p>
+       </div>
+       <div id="Deuxieme_etape">
+
+       </div>
+
+    </main>
+
+<script src="{{ url_for('static', filename='JS/Comptes.js') }}"></script>
+</body>
+
+</html>
