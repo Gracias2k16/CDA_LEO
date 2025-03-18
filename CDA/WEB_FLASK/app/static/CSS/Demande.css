@@ -182,3 +182,49 @@ div {
 ////////////////////////    Corp     ////////////////////////
 //////////////////////////////////////////////////////////////////////*/
 
+#Premiere_etape {
+    box-shadow: inset 0 0 1px 1px #ffffff4c;
+    width: 55%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 2rem 1rem 1rem;
+    margin-top: 100px;
+}
+
+#Caracéritsiques{
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: 95%;
+    gap: 10px;
+   
+}
+
+#Caracéritsiques_2{
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: 95%;
+    gap: 10px;
+}
+
+#Marque{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+#Caracéritsiques div label[for=item] {
+    text-align: center;
+    background-color: #fff;
+    min-height: 38px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
