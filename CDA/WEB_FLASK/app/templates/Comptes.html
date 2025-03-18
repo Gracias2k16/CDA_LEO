@@ -51,25 +51,25 @@
             <div id="Bloc_milieu">
                 <h2>Liste des Comptes</h2>
                 <form action="/supprimer_selection" method="POST"></form>
-                <table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Email</th>
-                            <th>Rôle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for user in users %}
+                    <table>
+                        <thead>
                             <tr>
-                                <td><input type="checkbox" name="selected_users" value="{{ user[0] }}"></td> 
-                                <td>{{ user[0] }}</td>
-                                <td>{{ user[1] }}</td>
+                                <th></th>
+                                <th>Email</th>
+                                <th>Rôle</th>
                             </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer ces comptes ?');">Supprimer la sélection</button>
+                        </thead>
+                        <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td><input type="checkbox" name="selected_users" value="{{ user[0] }}"></td> 
+                                    <td>{{ user[0] }}</td>
+                                    <td>{{ user[1] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer ces comptes ?');">Supprimer la sélection</button>
             </div>
             <div id="Bloc_gauche"></div>
         </div>
