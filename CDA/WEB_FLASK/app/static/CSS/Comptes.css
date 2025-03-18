@@ -230,4 +230,13 @@ th, td {
     width: auto;
 }
 
-
+.flash_message .danger{
+    list-style-type: none;
+    padding: 10px;
+    background-color: #f8d7da; /* Couleur de fond pour les messages d'erreur */
+    color: #721c24; /* Couleur du texte */
+    border: 1px solid #f5c6cb; /* Bordure */
+    margin-top: 100px;
+    text-align: center;
+    z-index: 2;
+}

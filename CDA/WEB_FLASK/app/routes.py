@@ -137,50 +137,39 @@ def Comptes():
 
 #===================================================================================================
 
-@app.route('/supprimer_selection', methods=['POST'])
-def supprimer_selection():
-    selected_users = request.form.getlist('selected_users')
-    print(f"Utilisateurs sélectionnés : {selected_users}")
-
-    if selected_users:
-        conn, cur = connexion_à_BDD()
-
-        try:
-            format_strings = ','.join(['%s'] * len(selected_users))  # Création des placeholders SQL
-            query = f"DELETE FROM Compte WHERE id_Mail IN ({format_strings})"
-            cur.execute(query, tuple(selected_users))
-            conn.commit()
-            flash("Utilisateurs supprimés avec succès.", "success")
-        except mysql.connector.Error as err:
-            print(f"Erreur : {err}")
-            flash("Erreur lors de la suppression.", "danger")
-        finally:
-            cur.close()
-            conn.close()
-    
-    return redirect(url_for('Comptes'))
-
-#===================================================================================================
-
-@app.route('/modifier_role', methods=['POST'])
-def modifier_role():
+@app.route('/gerer_comptes', methods=['POST'])
+def gerer_comptes():
     conn, cur = connexion_à_BDD()
 
     try:
-        for user in request.form:
-            if user.startswith('new_role_'):
-                user_email = user.split('_', 2)[-1]
-                new_role = request.form[user]
-                print(f"Modification de {user_email} au rôle {new_role}")
+        selected_users = request.form.getlist('selected_users')
+        action = request.form.get('action')
 
-            cur.execute("UPDATE Compte SET id_Type = %s WHERE id_Mail = %s", (new_role, user_email))
+        print("Utilisateurs sélectionnés :", selected_users)
+        print("Action demandée :", action)
+
+        if not selected_users:
+            flash("Aucun utilisateur sélectionné.", "warning")
+            return redirect(url_for('Comptes'))
+
+        if action == "modifier":
+            for user_email in selected_users:
+                new_role = request.form.get(f'new_role_{user_email}')
+                if new_role:
+                    cur.execute("UPDATE Compte SET id_Type = %s WHERE id_Mail = %s", (new_role, user_email))
             conn.commit()
+            flash("Les rôles ont été modifiés avec succès.", "success")
 
-        flash("Les rôles ont été modifiés avec succès.", "success")
+        elif action == "supprimer":
+            for user_email in selected_users:
+                cur.execute("DELETE FROM Compte WHERE id_Mail = %s", (user_email,))
+            conn.commit()
+            flash("Les comptes ont été supprimés avec succès.", "success")
 
     except mysql.connector.Error as err:
-        print(f"Erreur lors de la modification des rôles : {err}")
-        flash("Erreur lors de la modification des rôles.", "danger")
+        print(f"Erreur lors de l'opération : {err}")
+        flash("Une erreur est survenue.", "danger")
+
     finally:
         cur.close()
         conn.close()

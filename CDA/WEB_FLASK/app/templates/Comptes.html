@@ -50,15 +50,16 @@
             <div id="Bloc_Droite"></div>
             <div id="Bloc_milieu">
                 <h2>Liste des Comptes</h2>
-                <form action="/modifier_role" method="POST">
+                <form action="/gerer_comptes" method="POST">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-
+            
                     <table>
                         <thead>
                             <tr>
                                 <th></th>
                                 <th>Email</th>
                                 <th>Rôle</th>
+                                <th>Modifier rôle</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -67,28 +68,25 @@
                                 <td><input type="checkbox" name="selected_users" value="{{ user[0] }}"></td>
                                 <td>{{ user[0] }}</td>
                                 <td>{{ user[1] }}</td>
+                                <td>
+                                    <select name="new_role_{{ user[0] }}" required>
+                                        <option value="USER" {% if user[1] == 'USER' %}selected{% endif %}>Utilisateur</option>
+                                        <option value="ADMIN" {% if user[1] == 'ADMIN' %}selected{% endif %}>Admin</option>
+                                    </select>
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
 
-                    <select name="new_role" required>
-                        <option value="Utilisateur">Utilisateur</option>
-                        <option value="Admin">Admin</option>
-                    </select>
-                    <button type="submit" name="action" value="modifier" onclick="return confirm('Voulez-vous vraiment modifier les rôles des utilisateurs sélectionnés ?');">Modifier les rôles</button>
+                    <button type="submit" name="action" value="modifier" onclick="return confirm('Voulez-vous vraiment modifier les rôles des utilisateurs sélectionnés ?');">
+                        Modifier les rôles
+                    </button>
+                    <button type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les comptes sélectionnés ?');">
+                        Supprimer les comptes
+                    </button>
                 </form>
-
-                <form action="/supprimer_compte" method="POST">
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                
-                    <button type="submit" name="action" value="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer les comptes sélectionnés ?');">Supprimer les comptes</button>
-                </form>
-
             </div>
-            <div id="Bloc_gauche"></div>
-        </div>
-        <pre>{{ users }}</pre>
     </main>
 
 <script src="{{ url_for('static', filename='JS/Comptes.js') }}"></script>
