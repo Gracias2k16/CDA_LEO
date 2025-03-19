@@ -286,19 +286,71 @@ p {
 }
 
 #Choix_Marque {
-    margin-left:  6px;
+    margin-left:  10px;
 }
 
-#Choix_Moteur_Selection {
+#Choix_Serie_input{
+    align-content: center;
     height: 40px;
     width: 180px;
+    border-radius: 5px;
     background-color: black;
+    text-align: center;
+    color: white;
+    font-family: "WorkSans-Light";
+    font-size:  18px;
+}
+
+#Choix_Moteur {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Choix_Moteur_Selection {
+    width: 180px;
+    height: 50px;
+    background-color: #949494;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 20px;
     border-radius: 10px;
+    font-size: 18px;
     transition: background-color 0.3s ease;
+}
+.selected {
+    background-color: green;
+    color: white;
+}
+
+#Choix_Boite {
+    display: flex;
+    flex-direction: column; /* Met les boutons en colonne */
+    gap: 10px;
+    margin-right: 10px;
+}
+
+.Choix_Boite_Selection {
+    width: 180px;
+    height: 50px;
+    background-color: #949494;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.selected2 {
+    background-color: green;
+    color: white;
+}
+
+#Caracéritsiques_2{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 2rem 0rem 2rem ;
 }
