@@ -500,6 +500,7 @@ p {
 input[type="range"] {
     width: 180px
 }
+
 #valeur-affichee_KM {
     font-size: 15px;
     font-weight: bold;

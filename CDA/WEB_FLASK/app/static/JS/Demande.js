@@ -72,11 +72,20 @@ let valeurBoite = 0;
 
 let valeurKM = 1; // Variable qui stocke la valeur du curseur
     const curseur = document.getElementById("curseur_KM");
-    const affichage = document.getElementById("valeur-affichee_KM");
+    const affichage_KM = document.getElementById("valeur-affichee_KM");
 
     curseur.addEventListener("input", function() {
         valeurKM = this.value; // Met à jour la variable avec la valeur du curseur
-        affichage.textContent = "Valeur : " + valeurKM; // Affiche la valeur en temps réel
+        affichage_KM.textContent = "Valeur : " + valeurKM; // Affiche la valeur en temps réel
         console.log("Valeur sélectionnée_KM =", valeurKM); // Affiche la valeur dans la console
     });
 
+let valeurCH = 1; // Variable qui stocke la valeur du curseur
+    const curseur_CH = document.getElementById("curseur_CH");
+    const affichage_CH = document.getElementById("valeur-affichee_CH");
+
+    curseur.addEventListener("input", function() {
+        valeurCH = this.value; // Met à jour la variable avec la valeur du curseur
+        affichage_CH.textContent = "Valeur : " + valeurCH; // Affiche la valeur en temps réel
+        console.log("Valeur sélectionnée_KM =", valeurCH); // Affiche la valeur dans la console
+    });
