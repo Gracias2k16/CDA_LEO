@@ -450,3 +450,71 @@ p {
     font-family: "WorkSans-Light";
     font-size:  20px;
 }
+
+#Caracéritsiques_choix_2{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 2rem 0rem 2rem ;
+}
+
+#Choix_Annee_input{
+    align-content: center;
+    height: 40px;
+    width: 180px;
+    border-radius: 5px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-family: "WorkSans-Light";
+    font-size:  18px;
+}
+
+#Choix_Annee {
+    margin-left:  10px;
+}
+
+#Choix_KM{
+    width: 180px;
+}
+
+#Choix_Budget_input{
+    align-content: center;
+    height: 40px;
+    width: 180px;
+    border-radius: 5px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-family: "WorkSans-Light";
+    font-size:  18px;
+}
+
+#slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 180px;
+}
+
+input[type="range"] {
+    width: 180px
+}
+#valeur-affichee_KM {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    font-family: "WorkSans-Light";
+}
+
+#Choix_Puissance{
+    width: 180px;
+    margin-right: 10px;
+}
+
+#valeur-affichee_CH {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    font-family: "WorkSans-Light";
+}

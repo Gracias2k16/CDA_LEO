@@ -65,3 +65,18 @@ let valeurBoite = 0;
             console.log("Valeur sélectionnée =", valeurBoite);
         });
     });
+
+/*//////////////////////////////////////////////////////////////////////
+////////////////////    Fonction Curseur sélection //////////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+let valeurKM = 1; // Variable qui stocke la valeur du curseur
+    const curseur = document.getElementById("curseur_KM");
+    const affichage = document.getElementById("valeur-affichee_KM");
+
+    curseur.addEventListener("input", function() {
+        valeurKM = this.value; // Met à jour la variable avec la valeur du curseur
+        affichage.textContent = "Valeur : " + valeurKM; // Affiche la valeur en temps réel
+        console.log("Valeur sélectionnée_KM =", valeurKM); // Affiche la valeur dans la console
+    });
+
