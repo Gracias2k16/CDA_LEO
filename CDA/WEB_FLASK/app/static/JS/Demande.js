@@ -23,3 +23,15 @@
          menu.classList.remove("active");
      }
  });
+
+ /*//////////////////////////////////////////////////////////////////////
+////////////////////    Fonction Selection moteur  //////////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+let valeur = 0; // Initialisation de la variable
+
+    document.getElementById("Choix_Moteur_Selection").addEventListener("click", function() {
+        this.style.backgroundColor = "red"; // Changer la couleur
+        valeur = 1; // Mettre la variable à 1
+        console.log("Valeur =", valeur); // Afficher dans la console
+    });

@@ -181,50 +181,124 @@ div {
 /*//////////////////////////////////////////////////////////////////////
 ////////////////////////    Corp     ////////////////////////
 //////////////////////////////////////////////////////////////////////*/
+p {
+    color: #ffffff86;
+    font-family: "WorkSans-Light";
+    font-size:  15px;
+    text-align: center;
+}
 
 #Premiere_etape {
-    box-shadow: inset 0 0 1px 1px #ffffff4c;
+    box-shadow: inset 0 0 2px 2px #ffffff4c;
     width: 55%;
     height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    padding: 2rem 1rem 1rem;
     margin-top: 100px;
+    margin-left: 50px;
 }
 
 #Caracéritsiques{
     display: flex;
-    margin: 0 auto;
     justify-content: space-between;
-    width: 95%;
-    gap: 10px;
-   
+    padding: 2rem 2rem 0rem 2rem ;
 }
 
-#Caracéritsiques_2{
-    display: flex;
-    margin: 0 auto;
-    justify-content: space-between;
-    width: 95%;
-    gap: 10px;
-}
-
-#Marque{
-    height: auto;
-    display: flex;
-    flex-direction: column;
-   
-}
-
-#Caracéritsiques div label[for=item] {
+#Marque {
     text-align: center;
-    background-color: #fff;
-    min-height: 38px;
-    margin-bottom: 25px;
+    align-content: center;
+    background-color: #949494;
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+
+}
+
+#Marque label {
+    color: black;
+    font-family: "WorkSans-Light";
+    font-size:  20px;
+}
+
+#Serie {
+    text-align: center;
+    align-content: center;
+    background-color: #949494;
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+#Serie label {
+    color: black;
+    font-family: "WorkSans-Light";
+    font-size:  20px;
+}
+
+#Moteur {
+    text-align: center;
+    align-content: center;
+    background-color: #949494;
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+#Moteur label {
+    color: black;
+    font-family: "WorkSans-Light";
+    font-size:  20px;
+}
+
+#Boite {
+    text-align: center;
+    align-content: center;
+    background-color: #949494;
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+#Boite label {
+    color: black;
+    font-family: "WorkSans-Light";
+    font-size:  20px;
+}
+
+#Caracéritsiques_choix{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0.5rem 2rem 0rem 2rem ;
+}
+
+#Choix_Marque_input{
+    align-content: center;
+    height: 40px;
+    width: 180px;
+    border-radius: 5px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-family: "WorkSans-Light";
+    font-size:  18px;
+}
+
+#Choix_Marque {
+    margin-left:  6px;
+}
+
+#Choix_Moteur_Selection {
+    height: 40px;
+    width: 180px;
+    background-color: black;
+    cursor: pointer;
+    display: flex;
     align-items: center;
-    text-transform: uppercase;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
 }
