@@ -354,3 +354,99 @@ p {
     justify-content: space-between;
     padding: 2rem 2rem 0rem 2rem ;
 }
+
+#Annee {
+    text-align: center;
+    align-content: center;
+    background-color: #949494;
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+#Annee label {
+    color: black;
+    font-family: "WorkSans-Light";
+    font-size:  20px;
+}
+
+#Budget {
+    text-align: center;
+    align-content: center;
+    background-color: #949494;
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+#Budget label {
+    color: black;
+    font-family: "WorkSans-Light";
+    font-size:  20px;
+}
+
+#KM_max {
+    text-align: center;
+    align-content: center;
+    background-color: #949494;
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+#KM_max label {
+    color: black;
+    font-family: "WorkSans-Light";
+    font-size:  20px;
+}
+
+#KM_max {
+    text-align: center;
+    align-content: center;
+    background-color: #949494;
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+#KM_max label {
+    color: black;
+    font-family: "WorkSans-Light";
+    font-size:  20px;
+}
+
+#Puissance {
+    text-align: center;
+    align-content: center;
+    background-color: #949494;
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+#Puissance label {
+    color: black;
+    font-family: "WorkSans-Light";
+    font-size:  20px;
+}
+
+#Caracéritsiques_3{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 2rem 0rem 2rem ;
+}
+
+#Options {
+    text-align: center;
+    align-content: center;
+    background-color: #949494;
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+#Options label {
+    color: black;
+    font-family: "WorkSans-Light";
+    font-size:  20px;
+}
