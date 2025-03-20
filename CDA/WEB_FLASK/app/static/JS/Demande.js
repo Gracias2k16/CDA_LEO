@@ -70,6 +70,8 @@ let valeurBoite = 0;
 ////////////////////    Fonction Curseur sélection //////////////////////
 //////////////////////////////////////////////////////////////////////*/
 
+////////////////////  Curseur KM MAX //////////////////////
+
 let valeurKM = 1; // Variable qui stocke la valeur du curseur
     const curseur = document.getElementById("curseur_KM");
     const affichage_KM = document.getElementById("valeur-affichee_KM");
@@ -80,12 +82,28 @@ let valeurKM = 1; // Variable qui stocke la valeur du curseur
         console.log("Valeur sélectionnée_KM =", valeurKM); // Affiche la valeur dans la console
     });
 
-let valeurCH = 1; // Variable qui stocke la valeur du curseur
-    const curseur_CH = document.getElementById("curseur_CH");
-    const affichage_CH = document.getElementById("valeur-affichee_CH");
+////////////////////  Curseur PUSSIANCE //////////////////////
 
-    curseur.addEventListener("input", function() {
-        valeurCH = this.value; // Met à jour la variable avec la valeur du curseur
-        affichage_CH.textContent = "Valeur : " + valeurCH; // Affiche la valeur en temps réel
-        console.log("Valeur sélectionnée_KM =", valeurCH); // Affiche la valeur dans la console
+    let minValue = 50000; // Valeur initiale min
+    let maxValue = 150000; // Valeur initiale max
+
+    const minRange = document.getElementById("minRange");
+    const maxRange = document.getElementById("maxRange");
+    const valeursAffichees = document.getElementById("valeurs");
+
+    minRange.addEventListener("input", function() {
+        minValue = Math.min(parseInt(this.value), maxValue - 1); // Empêche min >= max
+        this.value = minValue;
+        updateDisplay();
     });
+
+    maxRange.addEventListener("input", function() {
+        maxValue = Math.max(parseInt(this.value), minValue + 1); // Empêche max <= min
+        this.value = maxValue;
+        updateDisplay();
+    });
+
+    function updateDisplay() {
+        valeursAffichees.textContent = `Min : ${new Intl.NumberFormat().format(minValue)} | Max : ${new Intl.NumberFormat().format(maxValue)}`;
+        console.log("Min =", minValue, "Max =", maxValue);
+    }

@@ -1,27 +1,9 @@
 import mysql.connector
-from app.Setting import DB_DATABASE, DB_HOST, DB_PASSWORD, DB_USERNAME, Email_MDP, Email
+from app.Setting import Email_MDP, Email
+from app.__init__ import connexion_à_BDD
 import smtplib
 from email.message import EmailMessage
-
-#===================================================================================================
-
-def connexion_à_BDD():
-    try:
-        conn = mysql.connector.connect(# Connexion à la base de données
-        host= DB_HOST,
-        user= DB_USERNAME,
-        password= DB_PASSWORD,
-        database= DB_DATABASE
-        )
-
-        if conn.is_connected():
-            print("Connecté à la BDD")
-        cur = conn.cursor()  # Création du curseur
-        return conn, cur
-        
-    except mysql.connector.Error as err:
-        print(f"erreur de connexion : {err}")
-        return None, None 
+from flask import request, flash, redirect, url_for
 
 #===================================================================================================
 
@@ -45,16 +27,6 @@ def Recupération_des_utilisateurs(email):
     finally:
         cur.close()
         conn.close()
-
-#===================================================================================================
-
-def Deconnexion():
-    conn, cur = connexion_à_BDD()
-    if cur:
-        cur.close()
-    if conn and conn.is_connected():
-        conn.close()
-        print(" Déconnexion OK")
 
 #===================================================================================================
 
@@ -130,3 +102,43 @@ def Recuperation_tous_utilisateurs():
     finally:
         cur.close()
         conn.close()
+
+#===================================================================================================
+
+def gerer_comptes_Fonction():
+    conn, cur = connexion_à_BDD()
+
+    try:
+        selected_users = request.form.getlist('selected_users')
+        action = request.form.get('action')
+
+        print("Utilisateurs sélectionnés :", selected_users)
+        print("Action demandée :", action)
+
+        if not selected_users:
+            flash("Aucun utilisateur sélectionné.", "danger")
+            return redirect(url_for('Comptes'))
+
+        if action == "modifier":
+            for user_email in selected_users:
+                new_role = request.form.get(f'new_role_{user_email}')
+                if new_role:
+                    cur.execute("UPDATE Compte SET id_Type = %s WHERE id_Mail = %s", (new_role, user_email))
+            conn.commit()
+            flash("Les rôles ont été modifiés avec succès.", "success")
+
+        elif action == "supprimer":
+            for user_email in selected_users:
+                cur.execute("DELETE FROM Compte WHERE id_Mail = %s", (user_email,))
+            conn.commit()
+            flash("Les comptes ont été supprimés avec succès.", "success")
+
+    except mysql.connector.Error as err:
+        print(f"Erreur lors de l'opération : {err}")
+        flash("Une erreur est survenue.", "danger")
+
+    finally:
+        cur.close()
+        conn.close()
+
+    return redirect(url_for('Comptes'))

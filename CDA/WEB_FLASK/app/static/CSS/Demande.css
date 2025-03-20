@@ -498,7 +498,16 @@ p {
 }
 
 input[type="range"] {
-    width: 180px
+    width: 180px;
+}
+
+.range-container {
+    position: relative;
+    width: 100%;
+}
+
+input[type="range"]:focus {
+    outline: none;
 }
 
 #valeur-affichee_KM {
@@ -513,7 +522,7 @@ input[type="range"] {
     margin-right: 10px;
 }
 
-#valeur-affichee_CH {
+#valeurs {
     font-size: 15px;
     font-weight: bold;
     color: white;

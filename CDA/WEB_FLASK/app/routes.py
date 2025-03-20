@@ -1,7 +1,7 @@
 from flask import request, render_template, flash, redirect, url_for, session
 import mysql.connector
 from app import app
-from app.Fonctions_BDD import connexion_à_BDD, Recupération_des_utilisateurs, Envoie_mail_confirmation
+from CDA.WEB_FLASK.app.Model import connexion_à_BDD, Recupération_des_utilisateurs, Envoie_mail_confirmation, gerer_comptes_Fonction
 from app.__init__ import bcrypt
 import mysql
 from flask import jsonify
@@ -145,40 +145,5 @@ def Comptes():
 #===================================================================================================
 
 @app.route('/gerer_comptes', methods=['POST'])
-def gerer_comptes():
-    conn, cur = connexion_à_BDD()
-
-    try:
-        selected_users = request.form.getlist('selected_users')
-        action = request.form.get('action')
-
-        print("Utilisateurs sélectionnés :", selected_users)
-        print("Action demandée :", action)
-
-        if not selected_users:
-            flash("Aucun utilisateur sélectionné.", "danger")
-            return redirect(url_for('Comptes'))
-
-        if action == "modifier":
-            for user_email in selected_users:
-                new_role = request.form.get(f'new_role_{user_email}')
-                if new_role:
-                    cur.execute("UPDATE Compte SET id_Type = %s WHERE id_Mail = %s", (new_role, user_email))
-            conn.commit()
-            flash("Les rôles ont été modifiés avec succès.", "success")
-
-        elif action == "supprimer":
-            for user_email in selected_users:
-                cur.execute("DELETE FROM Compte WHERE id_Mail = %s", (user_email,))
-            conn.commit()
-            flash("Les comptes ont été supprimés avec succès.", "success")
-
-    except mysql.connector.Error as err:
-        print(f"Erreur lors de l'opération : {err}")
-        flash("Une erreur est survenue.", "danger")
-
-    finally:
-        cur.close()
-        conn.close()
-
-    return redirect(url_for('Comptes'))
+def gestion_compte():
+    return gerer_comptes_Fonction();

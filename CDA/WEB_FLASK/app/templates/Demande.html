@@ -120,8 +120,11 @@
                 </div>
 
                 <div id="Choix_Puissance">
-                    <input type="range" id="curseur_CH" min="1" max="1000" value="1" step="1">
-                    <span id="valeur-affichee_CH">Valeur : 1</span>
+                    <div class="range-container">
+                        <input type="range" id="minRange" min="1" max="500" value="1" step="1">
+                        <input type="range" id="maxRange" min="1" max="1000" value="500" step="1">
+                    </div>
+                    <span id="valeurs">Min : 1| Max : 500</span>
                 </div>
             </div>
 

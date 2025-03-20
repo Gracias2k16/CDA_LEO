@@ -1,8 +1,10 @@
-from flask import Flask, session
+from flask import Flask
 from flask_bcrypt import Bcrypt
 import os
 from flask_mail import Mail
 from flask_wtf import CSRFProtect
+from app.Setting import DB_DATABASE, DB_HOST, DB_PASSWORD, DB_USERNAME
+import mysql.connector
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
@@ -26,3 +28,22 @@ app.config['SESSION_COOKIE_SECURE'] = True  # Assurez-vous que votre site utilis
 
 # Importer les routes après la configuration
 from app import routes
+
+#Connexion a la base de données
+def connexion_à_BDD():
+    try:
+        conn = mysql.connector.connect(# Connexion à la base de données
+        host= DB_HOST,
+        user= DB_USERNAME,
+        password= DB_PASSWORD,
+        database= DB_DATABASE
+        )
+
+        if conn.is_connected():
+            print("Connecté à la BDD")
+        cur = conn.cursor()  # Création du curseur
+        return conn, cur
+        
+    except mysql.connector.Error as err:
+        print(f"erreur de connexion : {err}")
+        return None, None 
