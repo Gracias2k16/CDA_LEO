@@ -69,6 +69,7 @@ def Envoie_mail_confirmation (mail):
         msg['Subject'] = 'Confirmation de création de compte'  # Sujet de l'e-mail
         msg['From'] = Email  # Adresse e-mail de l'expéditeur
         msg['To'] = mail
+        print(mail)
     
         # Corps du message
         msg.set_content("Votre compte a été créé avec succès.\n\nMerci de nous avoir rejoints !\n\nCordialement,\nL'équipe.")
@@ -173,7 +174,7 @@ def Création_Compte():
     required_fields = ["Nom", "Mail","Mdp", "Mdp_2","Num"] # Champs requis
     if not all(field in data and data[field] for field in required_fields):
         flash("Certains champs obligatoires sont manquants.", 'danger')
-        return redirect(url_for('Creation_compte')) #Erreur si tous els champs ne sont pas compéltés
+        return redirect(url_for('Creation_compte_route')) #Erreur si tous els champs ne sont pas compéltés
 
     nom = data["Nom"]
     prenom = data.get("Prenom", "")  # Optionnel
@@ -185,7 +186,7 @@ def Création_Compte():
 
     if mot_de_passe != mot_de_passe_confirmation:
             flash("Les mots de passe ne correspondent pas.", 'danger')
-            return redirect(url_for('Creation_compte'))
+            return redirect(url_for('Creation_compte_route'))
 
 
     hashed_password = bcrypt.generate_password_hash(mot_de_passe).decode('utf-8')
@@ -193,23 +194,47 @@ def Création_Compte():
     conn, cur = connexion_à_BDD()  # Connexion à la BDD
     if conn is None or cur is None:
         flash("Impossible de se connecter à la base de données.", 'danger')
-        return redirect(url_for('Creation_compte'))
+        return redirect(url_for('Creation_compte_route'))
     
     try:
         cur.execute("SELECT * FROM Compte WHERE id_Mail = %s", (mail,))# Vérifier si l'email existe déjà
         if cur.fetchone():
             flash("Cet email est déjà utilisé.", 'danger')
-            return redirect(url_for('Creation_compte'))
+            return redirect(url_for('Creation_compte_route'))
 
         sql = "INSERT INTO Compte (id_Nom, id_Prenom, id_Nom_societee, id_Mail, id_Mdp, Num_tel, id_Type) VALUES (%s, %s, %s, %s, %s, %s, %s)" #requete sql pour inseré le compte
         cur.execute(sql, (nom, prenom, societe, mail, hashed_password, num, 'USER'))
         conn.commit()
 
         flash("Compte créé avec succès !", 'success')
-        Envoie_mail_confirmation(mail)
-        return redirect(url_for('Creation_compte'))
+        Envoie_mail_confirmation(mail) #ENVOIE D'EMAIL AU COMPTE CEE
+        return redirect(url_for('Creation_compte_route'))
 
     except mysql.connector.Error as e:
         conn.rollback()
         flash(f"Erreur lors de la création du compte : {str(e)}", 'danger')
-        return redirect(url_for('Creation_compte'))
+        return redirect(url_for('Creation_compte_route'))
+    
+#===================================================================================================
+
+def acces_comptes():
+    if 'user_id' not in session: # Vérifier si l'utilisateur est connecté
+        flash("Vous devez être connecté pour accéder à cette page.", "warning")
+        return redirect(url_for('Connexion'))
+
+    if session.get('role') != 'ADMIN':  # Vérifier si l'utilisateur est ADMIN
+        flash("Accès refusé : Vous n'avez pas les droits d'administration.", "danger")
+        return redirect(url_for('home'))
+
+    conn, cur = connexion_à_BDD() 
+    if conn is None or cur is None:
+        return render_template('Comptes.html', users=[])
+
+    try:
+        cur.execute("SELECT id_Mail, id_Type FROM  Compte")
+        users = cur.fetchall()
+        return render_template('Comptes.html', users=users)
+    
+    except mysql.connector.Error as err:
+        print(f"Erreur lors de la récupération : {err}")
+        return render_template('Comptes.html', users=[])
