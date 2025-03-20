@@ -105,3 +105,18 @@ function updateRange() {
 
     rangeValues.textContent = `Min : ${minRange.value} | Max : ${maxRange.value}`;
 }
+
+/*//////////////////////////////////////////////////////////////////////
+////////////////////    Fonction selection presta //////////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+const buttons = document.querySelectorAll(".selection-btn");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            // Désactive tous les boutons
+            buttons.forEach(btn => btn.classList.remove("active"));
+            // Active le bouton cliqué
+            button.classList.add("active");
+        });
+    });
