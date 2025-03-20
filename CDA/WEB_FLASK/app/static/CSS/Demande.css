@@ -196,9 +196,8 @@ p {
 }
 
 #Deuxieme_etape {
-    box-shadow: inset 0 0 2px 2px #ffffff4c;
     width: 40%;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     display: flex;
     margin-inline:2%;
@@ -590,3 +589,14 @@ input[type="range"]:focus {
     font-size:  18px;
 }
 
+#Choix_offre{
+    box-shadow: inset 0 0 2px 2px #ffffff4c;
+    color: white;
+    font-family: "WorkSans-Light";
+    font-size:  30px;
+    width: 90%;
+    text-align: center;
+    height: 70px;
+    align-content: center;
+    font-weight: bold;
+}
