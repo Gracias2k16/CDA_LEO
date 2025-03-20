@@ -442,6 +442,12 @@ p {
     padding: 2rem 2rem 0rem 2rem ;
 }
 
+#Caracéritsiques_choix_3{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 2rem 0rem 2rem ;
+}
+
 #Options {
     text-align: center;
     align-content: center;
@@ -449,7 +455,6 @@ p {
     height: 50px;
     width: 200px;
     border-radius: 5px;
-    
 }
 
 #Options label {
@@ -510,6 +515,7 @@ input[type="range"] {
 input[type="range"]:focus {
     outline: none;
 }
+
 .slider {
     position: absolute;
     width: 100%;
@@ -534,3 +540,41 @@ input[type="range"]:focus {
     font-family: "WorkSans-Light";
 }
 
+#Divers {
+    text-align: center;
+    align-content: center;
+    background-color: #949494;
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+#Divers label {
+        color: black;
+        font-family: "WorkSans-Light";
+        font-size:  20px;
+}
+
+#Options_choix_input{
+    align-content: center;
+    min-height: 40px;
+    width: 1000px;
+    border-radius: 5px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-family: "WorkSans-Light";
+    font-size:  18px;
+}
+
+#Description_Choix_input{
+    align-content: center;
+    min-height: 40px;
+    width: 1000px;
+    border-radius: 5px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-family: "WorkSans-Light";
+    font-size:  18px;
+}
