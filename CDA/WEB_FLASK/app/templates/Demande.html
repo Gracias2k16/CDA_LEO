@@ -67,11 +67,11 @@
 
             <div id="Caracéritsiques_choix">
                     <div id="Choix_Marque">
-                        <input id="Choix_Marque_input">
+                        <input id="Choix_Marque_input" placeholder="BMW">
                     </div>
 
                     <div id="Choix_Serie">
-                        <input id="Choix_Serie_input">
+                        <input id="Choix_Serie_input" placeholder=" SERIE 1">
                     </div>
 
                     <div id="Choix_Moteur">
@@ -107,11 +107,11 @@
 
             <div id="Caracéritsiques_choix_2">
                 <div id="Choix_Annee">
-                    <input id="Choix_Annee_input">
+                    <input id="Choix_Annee_input" placeholder="2006-2012">
                 </div>
 
                 <div id="Choix_Budget">
-                    <input id="Choix_Budget_input">
+                    <input id="Choix_Budget_input" placeholder="20 000€">
                 </div>
 
                 <div id="Choix_KM">
@@ -121,10 +121,12 @@
 
                 <div id="Choix_Puissance">
                     <div class="range-container">
-                        <input type="range" id="minRange" min="1" max="500" value="1" step="1">
-                        <input type="range" id="maxRange" min="1" max="1000" value="500" step="1">
+                        <!-- Premier curseur (min) -->
+                        <input type="range" id="minRange" min="1" max="1000" value="250" step="1">
+                        <!-- Deuxième curseur (max) -->
+                        <input type="range" id="maxRange" min="1" max="1000" value="750" step="1">
                     </div>
-                    <span id="valeurs">Min : 1| Max : 500</span>
+                    <p id="range-values">Min : 250 | Max : 750</p>
                 </div>
             </div>
 
@@ -132,11 +134,12 @@
                 <div id="Options">
                     <label for="item"> Options </label>
                 </div>
+            </div>
 
+            <div id="Caracéritsiques_3">
                 <div id="Divers">
                     <label for="item"> Divers </label>
                 </div>
-
             </div>
             <p id="Aide"> *Si vous n'avez pas d'idée spécifique en tête, vous pouvez laisser les valeurs vides.</p>
        </div>

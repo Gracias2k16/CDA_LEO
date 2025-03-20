@@ -84,26 +84,24 @@ let valeurKM = 1; // Variable qui stocke la valeur du curseur
 
 ////////////////////  Curseur PUSSIANCE //////////////////////
 
-    let minValue = 50000; // Valeur initiale min
-    let maxValue = 150000; // Valeur initiale max
+const minRange = document.getElementById("minRange");
+const maxRange = document.getElementById("maxRange");
+const rangeValues = document.getElementById("range-values");
 
-    const minRange = document.getElementById("minRange");
-    const maxRange = document.getElementById("maxRange");
-    const valeursAffichees = document.getElementById("valeurs");
+minRange.addEventListener("input", updateRange);
+maxRange.addEventListener("input", updateRange);
 
-    minRange.addEventListener("input", function() {
-        minValue = Math.min(parseInt(this.value), maxValue - 1); // Empêche min >= max
-        this.value = minValue;
-        updateDisplay();
-    });
+function updateRange() {
+    let minValue = parseInt(minRange.value);
+    let maxValue = parseInt(maxRange.value);
 
-    maxRange.addEventListener("input", function() {
-        maxValue = Math.max(parseInt(this.value), minValue + 1); // Empêche max <= min
-        this.value = maxValue;
-        updateDisplay();
-    });
-
-    function updateDisplay() {
-        valeursAffichees.textContent = `Min : ${new Intl.NumberFormat().format(minValue)} | Max : ${new Intl.NumberFormat().format(maxValue)}`;
-        console.log("Min =", minValue, "Max =", maxValue);
+    // Empêcher min d'aller au-dessus de max et vice versa
+    if (minValue >= maxValue) {
+        minRange.value = maxValue - 1;
     }
+    if (maxValue <= minValue) {
+        maxRange.value = minValue + 1;
+    }
+
+    rangeValues.textContent = `Min : ${minRange.value} | Max : ${maxRange.value}`;
+}

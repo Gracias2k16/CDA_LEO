@@ -355,6 +355,12 @@ p {
     padding: 2rem 2rem 0rem 2rem ;
 }
 
+#Caracéritsiques_choix_2{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 2rem 0rem 2rem ;
+}
+
 #Annee {
     text-align: center;
     align-content: center;
@@ -443,18 +449,17 @@ p {
     height: 50px;
     width: 200px;
     border-radius: 5px;
+    
 }
 
 #Options label {
-    color: black;
-    font-family: "WorkSans-Light";
-    font-size:  20px;
+        color: black;
+        font-family: "WorkSans-Light";
+        font-size:  20px;
 }
 
-#Caracéritsiques_choix_2{
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 2rem 0rem 2rem ;
+#Choix_Annee {
+    margin-left:  10px;
 }
 
 #Choix_Annee_input{
@@ -467,10 +472,6 @@ p {
     color: white;
     font-family: "WorkSans-Light";
     font-size:  18px;
-}
-
-#Choix_Annee {
-    margin-left:  10px;
 }
 
 #Choix_KM{
@@ -509,6 +510,10 @@ input[type="range"] {
 input[type="range"]:focus {
     outline: none;
 }
+.slider {
+    position: absolute;
+    width: 100%;
+}
 
 #valeur-affichee_KM {
     font-size: 15px;
@@ -522,9 +527,10 @@ input[type="range"]:focus {
     margin-right: 10px;
 }
 
-#valeurs {
-    font-size: 15px;
+#range-values {
+    font-size: 14px;
     font-weight: bold;
     color: white;
     font-family: "WorkSans-Light";
 }
+
