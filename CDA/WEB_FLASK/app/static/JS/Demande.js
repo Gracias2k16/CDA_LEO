@@ -125,22 +125,23 @@ const buttons = document.querySelectorAll(".selection-btn");
 /////////////-/////    Fonction affichage Presta1   //////////////////
 //////////////////////////////////////////////////////////////////////*/
 
-document.addEventListener("DOMContentLoaded", function() {
-    const buttonElement = document.getElementById('Offre_WW'); // Sélection par ID
-    const pElement = document.querySelector('.Offre_WW_texte'); // Sélection par la classe
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll('.selection-btn');
+    let dernierAffiche = null;
 
-    console.log('Le script est bien chargé et exécuté');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const id = button.getAttribute("data-id");
+            const pElement = document.querySelector(`.Offre_WW_texte[data-id="${id}"]`);
 
-    buttonElement.addEventListener('click', () => {
-        console.log('Clic sur le h3 détecté');
-        
-        if (pElement.style.display === 'none' || pElement.style.display === '') {
-            pElement.style.display = 'block'; // Affiche le texte
-            console.log('Le texte a été affiché');
+            if (dernierAffiche && dernierAffiche !== pElement) {
+                dernierAffiche.style.display = 'none'; // Cache l'ancien texte
+            }
 
-        } else {
-            pElement.style.display = 'none'; // Cache le texte
-            console.log('Le texte a été caché');
-        }
+            if (pElement.style.display === 'none' || pElement.style.display === '') {
+                pElement.style.display = 'block'; // Affiche le texte du bouton cliqué
+                dernierAffiche = pElement;
+            }
+        });
     });
 });

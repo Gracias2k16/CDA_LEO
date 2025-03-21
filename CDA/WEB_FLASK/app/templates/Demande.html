@@ -164,10 +164,21 @@
                     <label for="item">Choissifez votre offre</label>
                 </div>
                 <div class="Choix_Presta">
-                    <button class="selection-btn" id="Offre_WW" data-value="WW">Offre WW provisoire</button>
-                        <p class="Offre_WW_texte">Nos experts vous accompagnent dans votre achat, et vous récupérez le véhicule vous-même au garage en Allemagne (livraison non incluse).</p>
-                    <button class="selection-btn" data-value="WW+CG">Offre gestion administrative</button>
-                    <button class="selection-btn" data-value="ImportComplet">Offre gestion complète</button>
+                    <button class="selection-btn" data-id="1" id="Offre_WW">Offre WW provisoire</button>
+                        <p class="Offre_WW_texte" data-id="1" style="display: none;">
+                            Nos experts vous accompagnent dans votre achat, et vous récupérez le véhicule vous-même au garage en Allemagne (livraison non incluse).
+                        </p>
+
+                    <button class="selection-btn" data-id="2" id="Offre_WW_CG">Offre gestion administrative</button>
+                        <p class="Offre_WW_texte" data-id="2" style="display: none;">
+                            Nous nous occupons de toute la partie administrative pour faciliter votre acquisition.
+                        </p>
+
+                    <button class="selection-btn" data-id="3" id="Offre_complete">Offre gestion complète</button>
+                        <p class="Offre_WW_texte" data-id="3" style="display: none;">
+                            Un accompagnement total : achat, transport et immatriculation en France.
+                        </p>
+
                     <button id="Continuer">Continuer</button>
                 </div>
             </div>
