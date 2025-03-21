@@ -120,3 +120,27 @@ const buttons = document.querySelectorAll(".selection-btn");
             button.classList.add("active");
         });
     });
+
+/*//////////////////////////////////////////////////////////////////////
+/////////////-/////    Fonction affichage Presta1   //////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+document.addEventListener("DOMContentLoaded", function() {
+    const buttonElement = document.getElementById('Offre_WW'); // Sélection par ID
+    const pElement = document.querySelector('.Offre_WW_texte'); // Sélection par la classe
+
+    console.log('Le script est bien chargé et exécuté');
+
+    buttonElement.addEventListener('click', () => {
+        console.log('Clic sur le h3 détecté');
+        
+        if (pElement.style.display === 'none' || pElement.style.display === '') {
+            pElement.style.display = 'block'; // Affiche le texte
+            console.log('Le texte a été affiché');
+
+        } else {
+            pElement.style.display = 'none'; // Cache le texte
+            console.log('Le texte a été caché');
+        }
+    });
+});

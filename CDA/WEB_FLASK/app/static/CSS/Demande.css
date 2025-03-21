@@ -10,7 +10,6 @@ body {
 
 p {
     display: block;
-    margin-block-start: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;
@@ -628,4 +627,18 @@ button.active {
     background-color: white;
     color: black;
     border-color: white;
+}
+
+.Offre_WW_texte {
+    width: 90%;
+    padding: 10px;
+    font-size: 20px;
+    border: 2px solid #ffffff4c;
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+    border-radius: 5px;
+    font-family: "WorkSans-Light";
+    height: auto;
+    display: none;
 }
