@@ -145,3 +145,22 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+/*//////////////////////////////////////////////////////////////////////
+/////////////-/////    Fonction affichage CONTINUER   //////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+
+const buttons2 = document.querySelectorAll(".Continuer");
+    const suiteDiv = document.querySelector(".SUITE");
+
+    buttons2.forEach(button => {
+        button.addEventListener("click", () => {
+
+            // Affiche ou masque la div .SUITE
+            if (suiteDiv.style.display === "none") {
+                suiteDiv.style.display = "block"; // Affiche
+            } else {
+                suiteDiv.style.display = "none"; // Masque
+            }
+        });
+    });
