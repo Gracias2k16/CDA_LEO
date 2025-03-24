@@ -589,6 +589,14 @@ input[type="range"]:focus {
     font-size:  18px;
 }
 
+#Aide {
+    display: block;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+    margin-block: 0.5rem;
+}
+
 #Choix_offre{
     box-shadow: inset 0 0 2px 2px #ffffff4c;
     color: white;
@@ -641,4 +649,25 @@ button.active {
     font-family: "WorkSans-Light";
     height: auto;
     display: none;
+}
+
+.SUITE{
+    align-items: center;
+}
+
+span {
+    position: relative;
+    display: block;
+    width: 90%;
+    height: 2px;
+    border-radius: 1px;
+    transition: all .2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+    background-color: #ffffff4c;
+    margin-top: 2rem;
+    margin-left: 5%;
+}
+
+#test {
+    color: #ffffff;
+    margin-block: 2rem;
 }
