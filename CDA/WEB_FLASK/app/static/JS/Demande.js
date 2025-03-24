@@ -155,14 +155,17 @@ const suiteDiv = document.querySelector(".Deuxeme_partie");
 
 buttons2.forEach(button => {
     button.addEventListener("click", () => {
-        // Désactive tous les boutons
-        buttons2.forEach(btn => btn.classList.remove("active"));
-        
-        // Active le bouton cliqué
-        button.classList.add("active");
-        
+
+        // Si le bouton est déjà actif, on le désactive
+        if (button.classList.contains("active")) {
+            button.classList.remove("active");
+        } else {
+            // Sinon, on l'active
+            button.classList.add("active");
+        }
+
         // Affiche ou masque la div .Deuxeme_partie
-        if (suiteDiv.style.display === "none") {
+        if (suiteDiv.style.display === "none" || suiteDiv.style.display === "") {
             suiteDiv.style.display = "block"; // Affiche
             // Faire défiler jusqu'à la div .Deuxeme_partie
             suiteDiv.scrollIntoView({
