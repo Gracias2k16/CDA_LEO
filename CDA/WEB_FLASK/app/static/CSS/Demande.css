@@ -203,7 +203,7 @@ p {
     flex-direction: column;
 }
 
-#Corp{
+#Première_partie{
     width: 100%;
     justify-content: space-around;
     align-items: center;
@@ -651,7 +651,7 @@ button.active {
     display: none;
 }
 
-.SUITE{
+.Deuxeme_partie{
     align-items: center;
 }
 

@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 const buttons2 = document.querySelectorAll(".Continuer");
-const suiteDiv = document.querySelector(".SUITE");
+const suiteDiv = document.querySelector(".Deuxeme_partie");
 
 buttons2.forEach(button => {
     button.addEventListener("click", () => {
@@ -161,10 +161,10 @@ buttons2.forEach(button => {
         // Active le bouton cliqué
         button.classList.add("active");
         
-        // Affiche ou masque la div .SUITE
+        // Affiche ou masque la div .Deuxeme_partie
         if (suiteDiv.style.display === "none") {
             suiteDiv.style.display = "block"; // Affiche
-            // Faire défiler jusqu'à la div .SUITE
+            // Faire défiler jusqu'à la div .Deuxeme_partie
             suiteDiv.scrollIntoView({
                 behavior: 'smooth', // Défilement en douceur
                 block: 'start' // Le haut de l'élément sera aligné en haut de la fenêtre
