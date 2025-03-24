@@ -608,7 +608,7 @@ input[type="range"]:focus {
     width: 100%;
 }
 
-button {
+.Choix_Presta button {
     width: 90%;
     padding: 10px;
     font-size: 25px;
