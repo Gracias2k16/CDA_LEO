@@ -151,16 +151,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 const buttons2 = document.querySelectorAll(".Continuer");
-    const suiteDiv = document.querySelector(".SUITE");
+const suiteDiv = document.querySelector(".SUITE");
 
-    buttons2.forEach(button => {
-        button.addEventListener("click", () => {
-
-            // Affiche ou masque la div .SUITE
-            if (suiteDiv.style.display === "none") {
-                suiteDiv.style.display = "block"; // Affiche
-            } else {
-                suiteDiv.style.display = "none"; // Masque
-            }
-        });
+buttons2.forEach(button => {
+    button.addEventListener("click", () => {
+        // Désactive tous les boutons
+        buttons2.forEach(btn => btn.classList.remove("active"));
+        
+        // Active le bouton cliqué
+        button.classList.add("active");
+        
+        // Affiche ou masque la div .SUITE
+        if (suiteDiv.style.display === "none") {
+            suiteDiv.style.display = "block"; // Affiche
+            // Faire défiler jusqu'à la div .SUITE
+            suiteDiv.scrollIntoView({
+                behavior: 'smooth', // Défilement en douceur
+                block: 'start' // Le haut de l'élément sera aligné en haut de la fenêtre
+            });
+        } else {
+            suiteDiv.style.display = "none"; // Masque
+        }
     });
+});
