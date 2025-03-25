@@ -155,7 +155,6 @@ def Connexion_utilisateur():
             session['user_id'] = user['id_Utilisateur']
             session['email'] = user['id_Mail']
             session['role'] = user['id_Type']
-            flash(f"Bienvenue, {user['id_Mail']} !", 'success')
             return redirect(url_for('home'))
         else:
             flash("Identifiant ou mot de passe incorrect.", 'danger')
