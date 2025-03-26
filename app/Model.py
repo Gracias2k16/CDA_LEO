@@ -4,10 +4,7 @@ from app.__init__ import connexion_à_BDD
 import smtplib
 from email.message import EmailMessage
 from flask import request, flash, redirect, url_for, render_template, session
-from flask_bcrypt import Bcrypt
-import bcrypt
-
-bcrypt = Bcrypt()
+from __init__ import bcrypt
 
 #===================================================================================================
 
@@ -191,7 +188,7 @@ def Création_Compte():
             return redirect(url_for('Creation_compte_route'))
 
 
-    hashed_password = bcrypt.generate_password_hash(mot_de_passe + bcrypt.gensalt(4)).decode('utf-8')
+    hashed_password = bcrypt.generate_password_hash(mot_de_passe).decode('utf-8')
 
     conn, cur = connexion_à_BDD()  # Connexion à la BDD
     if conn is None or cur is None:
