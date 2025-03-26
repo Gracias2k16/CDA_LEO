@@ -59,31 +59,31 @@
             <div id="Bloc_milieu">
                 <div id="Bloc_milieu_texte">
                     <form action="/Creation_compte" method="POST">
-                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}" />
-
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                    
                         <label id='Nom_texte' for="Nom">Nom* :</label><br>
-                        <input type="text" id="Nom_champ" name="Nom" required><br><br>
-
+                        <input type="text" id="Nom_champ" name="Nom" value="{{ request.form['Nom'] | e if request.form.get('Nom') else '' }}" required><br><br>
+                    
                         <label id='Prenom_texte' for="Prenom">Prenom :</label><br>
-                        <input type="text" id="Prenom_champ" name="Prenom"><br><br>
-
+                        <input type="text" id="Prenom_champ" name="Prenom" value="{{ request.form['Prenom'] | e if request.form.get('Prenom') else '' }}"><br><br>
+                    
                         <label id='Sociétée_texte' for="Sociétée">Sociétée :</label><br>
-                        <input type="text" id="Sociétée_champ" name="Sociétée"><br><br>
-
+                        <input type="text" id="Sociétée_champ" name="Sociétée" value="{{ request.form['Sociétée'] | e if request.form.get('Sociétée') else '' }}"><br><br>
+                    
                         <label id='Mail_texte' for="Mail">Mail* :</label><br>
-                        <input type="text" id="Mail_champ" name="Mail" required><br><br>
-
-                        <label id='Mdp_texte' for="Mdp">Mot de passse* :</label><br>
+                        <input type="text" id="Mail_champ" name="Mail" value="{{ request.form['Mail'] | e if request.form.get('Mail') else '' }}" required><br><br>
+                    
+                        <label id='Mdp_texte' for="Mdp">Mot de passe* :</label><br>
                         <input type="password" id="Mdp_champ" name="Mdp" required><br><br> 
-
-                        <label id='Mdp_texte_2' for="Mdp">Confirmer mot de passse* :</label><br>
+                    
+                        <label id='Mdp_texte_2' for="Mdp">Confirmer mot de passe* :</label><br>
                         <input type="password" id="Mdp_2" name="Mdp_2" required><br><br> 
-
+                    
                         <label id='Num' for="Num">Numéro de téléphone* :</label><br>
-                        <input type="text" id="Num" name="Num" required><br><br> 
-
+                        <input type="text" id="Num" name="Num" value="{{ request.form['Num'] | e if request.form.get('Num') else '' }}" required><br><br> 
+                    
                         <input id="Creation" type="submit" value="Créer compte">
-                        <h5>* : Champs obligatoirs</h5>
+                        <h5>* : Champs obligatoires</h5>
                     </form>
                 </div>
             </div>
