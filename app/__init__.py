@@ -6,7 +6,7 @@ from app.Setting import DB_DATABASE, DB_HOST, DB_PASSWORD, DB_USERNAME
 import mysql.connector
 from flask_bcrypt import Bcrypt
 
-bcrypt = Bcrypt(app)
+bcrypt = Bcrypt()
 app = Flask(__name__)
 csrf = CSRFProtect(app)
 mail = Mail(app)

@@ -4,7 +4,7 @@ from app.__init__ import connexion_à_BDD
 import smtplib
 from email.message import EmailMessage
 from flask import request, flash, redirect, url_for, render_template, session
-from __init__ import bcrypt
+from app import bcrypt
 
 #===================================================================================================
 
