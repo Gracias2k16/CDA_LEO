@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_bcrypt import Bcrypt
 import os
 from flask_mail import Mail
 from flask_wtf import CSRFProtect
@@ -7,7 +6,6 @@ from app.Setting import DB_DATABASE, DB_HOST, DB_PASSWORD, DB_USERNAME
 import mysql.connector
 
 app = Flask(__name__)
-bcrypt = Bcrypt(app)
 csrf = CSRFProtect(app)
 mail = Mail(app)
 
