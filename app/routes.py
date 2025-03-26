@@ -2,7 +2,10 @@ from flask import render_template, flash, redirect, url_for, session
 from app import app
 from app.Model import gerer_comptes_Fonction, Connexion_utilisateur, Création_Compte, acces_comptes
 from flask import jsonify
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
+limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
 
 #===================================================================================================
 
@@ -25,6 +28,7 @@ def Demande():
 #===================================================================================================
 
 @app.route('/Creation_compte', methods=['GET', 'POST'])
+@limiter.limit("5 per minute")
 def Creation_compte_route():
     return Création_Compte()
     

@@ -149,7 +149,7 @@ def Connexion_utilisateur():
         email = request.form['identifiant']
         password = request.form['password']
 
-        user = Recupération_des_utilisateurs(email)  # Récupère l'utilisateur en BDD
+        user = Recupération_des_utilisateurs(email)  # Récupère l'utilisateur dans BDD
 
         if user and bcrypt.check_password_hash(user['id_Mdp'], password):  # Vérifie le mot de passe
             session['user_id'] = user['id_Utilisateur']
@@ -196,17 +196,24 @@ def Création_Compte():
         return redirect(url_for('Creation_compte_route'))
     
     try:
-        cur.execute("SELECT * FROM Compte WHERE id_Mail = %s", (mail,))# Vérifier si l'email existe déjà
+    # Vérifier si l'email existe déjà 
+        cur.execute("SELECT * FROM Compte WHERE id_Mail = %s", (mail,))
         if cur.fetchone():
             flash("Cet email est déjà utilisé.", 'danger')
             return redirect(url_for('Creation_compte_route'))
 
-        sql = "INSERT INTO Compte (id_Nom, id_Prenom, id_Nom_societee, id_Mail, id_Mdp, Num_tel, id_Type) VALUES (%s, %s, %s, %s, %s, %s, %s)" #requete sql pour inseré le compte
+        sql = """
+        INSERT INTO Compte (id_Nom, id_Prenom, id_Nom_societee, id_Mail, id_Mdp, Num_tel, id_Type)
+        VALUES (%s, %s, %s, %s, %s, %s, %s)
+        """
         cur.execute(sql, (nom, prenom, societe, mail, hashed_password, num, 'USER'))
         conn.commit()
 
         flash("Compte créé avec succès !", 'success')
-        Envoie_mail_confirmation(mail) #ENVOIE D'EMAIL AU COMPTE CEE
+    
+        # Envoyer l'email de confirmation
+        Envoie_mail_confirmation(mail)
+
         return redirect(url_for('Creation_compte_route'))
 
     except mysql.connector.Error as e:
