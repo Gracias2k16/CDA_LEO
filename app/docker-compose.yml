@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    container_name: mysql
+    restart: always
+    environment:
+      Mysql_DATABASE : CDA_Léo_import
+      MYSQL_ROOT_PASSWORD: root
+
+adminer:
+  image: adminer
+  container name: adminer
+  restart: always
+  ports:
+    8080:8080
+volumes:  
+  mysql-volume: bdd_leo_mysql-volume
