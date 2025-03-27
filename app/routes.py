@@ -57,3 +57,21 @@ def Comptes():
 @app.route('/gerer_comptes', methods=['POST'])
 def gestion_compte():
     return gerer_comptes_Fonction()
+
+#===================================================================================================
+
+@app.after_request
+def add_security_headers(response):
+    response.headers["Content-Security-Policy"] = (
+        "default-src 'self'; "
+        "script-src 'self'; "
+        "style-src 'self'; "
+        "img-src 'self' data:; "
+        "font-src 'self' https://fonts.gstatic.com; "
+        "object-src 'none'; "
+        "base-uri 'self'; "
+        "frame-ancestors 'none'; "
+        "connect-src 'self'; "
+        "form-action 'self';"
+    )
+    return response
