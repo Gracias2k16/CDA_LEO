@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Demande.css') }}">
     <title>PBimportation</title>
-
 </head>
 
 <body>
@@ -47,148 +46,154 @@
                 {% endif %}
             </ul>
         </div>
-        <div id="Première_partie">
-            <div id="Premiere_etape">
-            <div id="Caracéritsiques">
-                <div id="Marque">
-                    <label for="item"> MARQUE </label>
-                </div>
+        <form action="/Demande" method="POST" >
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
-                <div id="Serie">
-                    <label for="item"> SERIE</label>
-                </div>
+            <div id="Première_partie">
+                <div id="Premiere_etape">
+                    <div id="Caracéritsiques">
+                        <div id="Marque">
+                            <label for="item"> MARQUE </label>
+                        </div>
 
-                <div id="Moteur">
-                    <label for="item"> MOTEUR</label>
-                </div>
+                        <div id="Serie">
+                            <label for="item"> SERIE</label>
+                        </div>
 
-                <div id="Boite">
-                    <label for="item"> BOITE</label>
-                </div>
-            </div>
+                        <div id="Moteur">
+                            <label for="item"> MOTEUR</label>
+                        </div>
 
-            <div id="Caracéritsiques_choix">
-                    <div id="Choix_Marque">
-                        <input id="Choix_Marque_input" placeholder="BMW">
+                        <div id="Boite">
+                            <label for="item"> BOITE</label>
+                        </div>
                     </div>
 
-                    <div id="Choix_Serie">
-                        <input id="Choix_Serie_input" placeholder=" SERIE 1">
-                    </div>
+                    <div id="Caracéritsiques_choix">
+                        <div id="Choix_Marque">
+                            <input id="Choix_Marque_input" placeholder="BMW" required><br><br>
+                        </div>
 
-                    <div id="Choix_Moteur">
-                        <div class="Choix_Moteur_Selection" data-value="Essence">Essence</div>
-                        <div class="Choix_Moteur_Selection" data-value="Diesel">Diesel</div>
-                        <div class="Choix_Moteur_Selection" data-value="Hybride">Hybride</div>
-                        <div class="Choix_Moteur_Selection" data-value="Electrique">Electrique</div>
-                    </div>
+                        <div id="Choix_Serie">
+                            <input id="Choix_Serie_input" placeholder=" SERIE 1" required><br><br>
+                        </div>
+
+                        <div id="Choix_Moteur">
+                            <div class="Choix_Moteur_Selection" data-value="Essence">Essence</div>
+                            <div class="Choix_Moteur_Selection" data-value="Diesel">Diesel</div>
+                            <div class="Choix_Moteur_Selection" data-value="Hybride">Hybride</div>
+                            <div class="Choix_Moteur_Selection" data-value="Electrique">Electrique</div>
+                        </div>
                     
-                    <div id="Choix_Boite">
-                        <div class="Choix_Boite_Selection" data-value="Manuel">Manuel</div>
-                        <div class="Choix_Boite_Selection" data-value="Automatique">Automatique</div>
+                        <div id="Choix_Boite">
+                            <div class="Choix_Boite_Selection" data-value="Manuel">Manuel</div>
+                            <div class="Choix_Boite_Selection" data-value="Automatique">Automatique</div>
+                        </div>
+                
                     </div>
-            </div>
 
-            <div id="Caracéritsiques_2">
-                <div id="Annee">
-                    <label for="item"> Annee </label>
-                </div>
+                    <div id="Caracéritsiques_2">
+                        <div id="Annee">
+                            <label for="item"> Annee </label>
+                        </div>
 
-                <div id="Budget">
-                    <label for="item"> Budget MAX </label>
-                </div>
+                        <div id="Budget">
+                            <label for="item"> Budget MAX </label>
+                        </div>
 
-                <div id="KM_max">
-                    <label for="item"> KM MAX </label>
-                </div>
+                        <div id="KM_max">
+                            <label for="item"> KM MAX </label>
+                        </div>
 
-                <div id="Puissance">
-                    <label for="item">Puissance</label>
-                </div>
-            </div>
-
-            <div id="Caracéritsiques_choix_2">
-                <div id="Choix_Annee">
-                    <input id="Choix_Annee_input" placeholder="2006-2012">
-                </div>
-
-                <div id="Choix_Budget">
-                    <input id="Choix_Budget_input" placeholder="20 000€">
-                </div>
-
-                <div id="Choix_KM">
-                    <input type="range" id="curseur_KM" min="1" max="200000" value="1" step="1">
-                    <span id="valeur-affichee_KM">Valeur : 1</span>
-                </div>
-
-                <div id="Choix_Puissance">
-                    <div class="range-container">
-                        <!-- Premier curseur (min) -->
-                        <input type="range" id="minRange" min="1" max="1000" value="250" step="1">
-                        <!-- Deuxième curseur (max) -->
-                        <input type="range" id="maxRange" min="1" max="1000" value="750" step="1">
+                        <div id="Puissance">
+                            <label for="item">Puissance</label>
+                        </div>
                     </div>
-                    <p id="range-values">Min : 250 | Max : 750</p>
+
+                    <div id="Caracéritsiques_choix_2">
+                        <div id="Choix_Annee">
+                            <input id="Choix_Annee_input" placeholder="2006-2012">
+                        </div>
+
+                        <div id="Choix_Budget">
+                            <input id="Choix_Budget_input" placeholder="20 000€">
+                        </div>
+
+                        <div id="Choix_KM">
+                            <input type="range" id="curseur_KM" min="1" max="200000" value="1" step="1">
+                            <span id="valeur-affichee_KM">Valeur : 1</span>
+                        </div>
+
+                        <div id="Choix_Puissance">
+                            <div class="range-container">
+                                <!-- Premier curseur (min) -->
+                                <input type="range" id="minRange" min="1" max="1000" value="250" step="1">
+                                <!-- Deuxième curseur (max) -->
+                                <input type="range" id="maxRange" min="1" max="1000" value="750" step="1">
+                            </div>
+                            <p id="range-values">Min : 250 | Max : 750</p>
+                        </div>
+                    </div>
+
+                    <div id="Caracéritsiques_3">
+                        <div id="Options">
+                            <label for="item"> Options </label>
+                        </div>
+                    </div>
+
+                    <div id="Caracéritsiques_choix_3">
+                        <div id="Options_choix">
+                            <input id="Options_choix_input" placeholder="Décrire les options importantes">
+                        </div>
+                    </div>
+
+                    <div id="Caracéritsiques_3">
+                        <div id="Divers">
+                            <label for="item"> Divers </label>
+                        </div>
+                    </div>
+
+                    <div id="Caracéritsiques_choix_3">
+                        <div id="Description_choix">
+                            <input id="Description_Choix_input" placeholder="Décrire informations diverses">
+                        </div>
+                    </div>
+                    <p id="Aide"> *Si vous n'avez pas d'idée spécifique en tête, vous pouvez laisser les valeurs vides.</p>
+                </div>
+
+                <div id="Deuxieme_etape">
+                    <div id="Choix_offre">
+                        <label for="item">Choissifez votre offre</label>
+                    </div>
+                    <div class="Choix_Presta">
+                        <button class="selection-btn" data-id="1" id="Offre_WW">Offre WW provisoire</button>
+                            <p class="Offre_WW_texte" data-id="1" style="display: none;">
+                                Nos experts vous accompagnent dans votre achat, et vous récupérez le véhicule vous-même au garage en Allemagne (livraison non incluse).
+                            </p>
+
+                        <button class="selection-btn" data-id="2" id="Offre_WW_CG">Offre gestion administrative</button>
+                            <p class="Offre_WW_texte" data-id="2" style="display: none;">
+                                Nous nous occupons de toute la partie administrative pour faciliter votre acquisition.
+                            </p>
+
+                        <button class="selection-btn" data-id="3" id="Offre_complete">Offre gestion complète</button>
+                            <p class="Offre_WW_texte" data-id="3" style="display: none;">
+                                Un accompagnement total : achat, transport et immatriculation en France.
+                            </p>
+
+                        <button class="Continuer" >Continuer</button>
+                    </div>
                 </div>
             </div>
-
-            <div id="Caracéritsiques_3">
-                <div id="Options">
-                    <label for="item"> Options </label>
-                </div>
-            </div>
-
-            <div id="Caracéritsiques_choix_3">
-                <div id="Options_choix">
-                    <input id="Options_choix_input" placeholder="Décrire les options importantes">
-                </div>
-            </div>
-
-            <div id="Caracéritsiques_3">
-                <div id="Divers">
-                    <label for="item"> Divers </label>
-                </div>
-            </div>
-
-            <div id="Caracéritsiques_choix_3">
-                <div id="Description_choix">
-                    <input id="Description_Choix_input" placeholder="Décrire informations diverses">
-                </div>
-            </div>
-
-
-            <p id="Aide"> *Si vous n'avez pas d'idée spécifique en tête, vous pouvez laisser les valeurs vides.</p>
-            </div>
-
-            <div id="Deuxieme_etape">
-                <div id="Choix_offre">
-                    <label for="item">Choissifez votre offre</label>
-                </div>
-                <div class="Choix_Presta">
-                    <button class="selection-btn" data-id="1" id="Offre_WW">Offre WW provisoire</button>
-                        <p class="Offre_WW_texte" data-id="1" style="display: none;">
-                            Nos experts vous accompagnent dans votre achat, et vous récupérez le véhicule vous-même au garage en Allemagne (livraison non incluse).
-                        </p>
-
-                    <button class="selection-btn" data-id="2" id="Offre_WW_CG">Offre gestion administrative</button>
-                        <p class="Offre_WW_texte" data-id="2" style="display: none;">
-                            Nous nous occupons de toute la partie administrative pour faciliter votre acquisition.
-                        </p>
-
-                    <button class="selection-btn" data-id="3" id="Offre_complete">Offre gestion complète</button>
-                        <p class="Offre_WW_texte" data-id="3" style="display: none;">
-                            Un accompagnement total : achat, transport et immatriculation en France.
-                        </p>
-
-                    <button class="Continuer" >Continuer</button>
-                </div>
-            </div>
-        </div>
         
-        <div CLASS="Deuxeme_partie" style="display: none;"> 
-            <span></span>
-            <p id="test"> TEST</p>
-        </div>
+            <div id="Deuxeme_partie" style="display: none;"> 
+                <span></span>
+                <p id="test"> Informations de facturation :</p>
+                    <div>
+                        
+                    </div>
+            </div>
+        </form>
     </main>
 
     <script src="{{ url_for('static', filename='JS/Demande.js') }}"></script>

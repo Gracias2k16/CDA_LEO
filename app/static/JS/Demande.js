@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 const buttons2 = document.querySelectorAll(".Continuer");
-const suiteDiv = document.querySelector(".Deuxeme_partie");
+const suiteDiv = document.querySelector("#Deuxeme_partie");
 
 buttons2.forEach(button => {
     button.addEventListener("click", () => {

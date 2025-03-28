@@ -572,7 +572,7 @@ body {
 /*//////////////////////////////////////////////////////////////////////
 /////////////////////////    Troisième partie     //////////////////////
 //////////////////////////////////////////////////////////////////////*/
-@media screen and (max-width: 1300px) {
+
     #homepage_troisieme_partie {
         width: 100vw;
         height: auto;
@@ -581,7 +581,6 @@ body {
         margin-top: 10rem;
         position: relative;
         }
-    }
     
     #homepage_troisieme_partie div h2 {
         font-family: "GT-Flexa-Standard-Light";
@@ -598,7 +597,6 @@ body {
         margin: auto;
     }
 
-@media screen and (max-width: 1300px) {
     #Slide_contenu_droit {
         width: 50%;
         height: 250px;
@@ -681,8 +679,6 @@ body {
         margin-top: 10px;
         margin-bottom: 10px;
     }
-
-}
 
     #Slide_contenu_gauche{
         width: 50%;
