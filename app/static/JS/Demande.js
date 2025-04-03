@@ -153,13 +153,17 @@ document.addEventListener("DOMContentLoaded", function () {
 const buttons2 = document.querySelectorAll(".Continuer");
 const suiteDiv = document.querySelector("#Deuxeme_partie");
 
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("#Deuxeme_partie").style.display = "none";
+});
+
 buttons2.forEach(button => {
     button.addEventListener("click", () => {
 
         // Si le bouton est déjà actif, on le désactive
         if (button.classList.contains("active")) {
             button.classList.remove("active");
-        } else {
+            } else {
             // Sinon, on l'active
             button.classList.add("active");
         }
