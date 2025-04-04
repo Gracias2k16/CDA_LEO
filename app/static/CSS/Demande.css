@@ -651,8 +651,11 @@ button.active {
     display: none;
 }
 
+/*//////////////////////////////////////////////////////////////////////
+////////////////////////    Deuxieme partie    ////////////////////////
+//////////////////////////////////////////////////////////////////////*/
 
-span {
+#Span_deuxième_partie {
     position: relative;
     display: block;
     width: 90%;
@@ -664,7 +667,34 @@ span {
     margin-left: 5%;
 }
 
-#test {
-    color: #ffffff;
+#Informations_facturation {
+    color: white;
+    font-family: "WorkSans-Light";
+    font-size:  35px;
+    text-align: center;
+    height: 70px;
+    align-content: center;
+    font-weight: bold;
     margin-block: 2rem;
+}
+
+#Champs_de_facturation{
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 80%;
+    display: flex;
+}
+#Champs_de_facturation label {
+    display: block;
+    margin-top: 10px;
+}
+#Champs_de_facturation input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }

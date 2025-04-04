@@ -187,12 +187,26 @@
             </div>
         
             <div id="Deuxeme_partie" style="display:none"> 
-                <span></span>
-                <p id="test"> Informations de facturation :</p>
-                    <div>
-                        
+                <span id="Span_deuxième_partie"></span>
+                <p id="Informations_facturation"> Informations de facturation :</p>
+                    <div id="Champs_de_facturation">
+                        <label for="id_CP">Code Postal :</label>
+                        <input type="number" id="id_CP" name="id_CP" required>
+
+                        <label for="id_N_Rue">Numéro de Rue :</label>
+                        <input type="number" id="id_N_Rue" name="id_N_Rue" required>
+
+                        <label for="id_cmplt_rue">Complément d'Adresse :</label>
+                        <input type="text" id="id_cmplt_rue" name="id_cmplt_rue" maxlength="50">
+
+                        <label for="id_Nom_rue">Nom de la Rue :</label>
+                        <input type="text" id="id_Nom_rue" name="id_Nom_rue" maxlength="50" required>
+
+                        <label for="id_Ville">Ville :</label>
+                        <input type="text" id="id_Ville" name="id_Ville" required>
                     </div>
             </div>
+            <button type="submit">Valider</button>
         </form>
     </main>
 
