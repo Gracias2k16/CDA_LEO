@@ -685,8 +685,9 @@ button.active {
     border-radius: 5px;
     background-color: #f9f9f9;
     width: 80%;
-    display: flex;
+    margin-inline: 10%;
 }
+
 #Champs_de_facturation label {
     display: block;
     margin-top: 10px;
