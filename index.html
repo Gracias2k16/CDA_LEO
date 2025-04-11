@@ -1,0 +1,300 @@
+<!doctype html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/main.css') }}">
+    <title>PBimportation</title>
+
+</head>
+
+<body>
+    <header>
+        <div class="Bandeau haut">
+            <div id="Bandeau_haut_gauche">
+                <div class="Bandeau_ecriture">
+                    <a href="/">
+                        <img src="{{url_for('static', filename='Logo.PNG')}}" alt="Logo">
+                    </a>
+                </div>
+            </div>
+            <div id="Bandeau_haut_droit">
+                <div id="Bandeau_haut_droit_premier">
+                    <button id="Txt_menu">Menu ☰</button>
+                </div>
+                <div id="Bandeau_haut_droit_second">
+                    <a id="Faire_demande" href="Demande"> Faire une demande</a>
+                </div>
+            </div>
+        </div>
+        
+    </header>
+    <main class="homepage">
+        <div id="menuOverlay">
+            <button id="closeMenu">Fermer ✖</button>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="/Demande">Faire une demande</a></li>
+                {% if 'user_id' not in session %}
+                    <li><a href="/Connexion">Connexion</a></li>
+                {% else %}
+                    <li><a href="/logout" id="logoutButton">Déconnexion</a></li>
+                    {% if session.get('role') == 'ADMIN' %}
+                        <li><a href="/Comptes">Comptes</a></li>
+                    {% endif %}
+                {% endif %}
+            </ul>
+        </div>
+        <div class="homepage_premiere_partie">
+            <img src="{{url_for('static', filename='Bmw_fond.png')}}" alt="Bmw_fond" class="Image_fond">
+            <div class="homepage_premiere_partie_gauche">
+                <div class="homepage_premiere_partie_gauche_contenu">
+                    <p> Élevez votre expérience </p>
+                    <p>Profitez de l'occasion pour vous offrir l'unique et l'exceptionnel, sans efforts ni compromis. Transformez votre expérience d'achat en un moment privilégié</p>
+                    <p>Explorez l'importation automobile pour vivre une expérience unique avec des options exclusives qui font la différence</p>
+                    <p>
+                        <a href="Demande"> Faire une demande
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="homepage_text_anime">
+            <div>
+                <h1>
+                    Spécialiste importation véhicules Allemagne, Belgique, Pays-bas, Autriche, Espagne – Occasion & Neuf – Basé France –
+                </h1>
+            </div>
+            <div>
+                <h1>
+                    Spécialiste importation véhicules Allemagne, Belgique, Pays-bas, Autriche, Espagne – Occasion & Neuf – Basé France –
+                </h1>
+            </div>
+        </div>
+        <div id="homepage_deuxieme_partie">
+            <div id="homepage_deuxieme_partie_gauche">
+                <div id="homepage_deuxieme_partie_gauche_contenu">
+                    <h2>Importer votre véhicule d'Europe </h2>
+                    <p>Nous importons des véhicules de toutes marques et de tous modèles en provenance d'Allemagne et d'Europe (Pays-Bas, Belgique, Suède, Autriche, Espagne) : voitures, motos, camping-cars, utilitaires. Trouvez votre véhicule en moins de 15 jours en réalisant jusqu'à 40% d'économies en toute sécurité.</p>
+                    <p>Parce que l'exigence ne doit pas être une option, nous ne travaillons qu'avec des concessions certifiées et des particuliers sélectionnés avec soin. Retrouvez nos véhicules d'occasion venus d'Allemagne, mais aussi de Belgique, d'Autriche, des Pays-Bas ou encore d'Espagne, pour un parc automobile trois fois plus grand et encore plus d'options disponibles ! De la recherche de votre véhicule à sa livraison et son immatriculation définitive, nous vous accompagnons à chaque étape.</p>
+                    <div>
+                        <a href="Demande"> Faire une demande
+                        </a>
+                    </div>
+                    <span></span>
+                </div>
+            </div>
+            <div id="homepage_deuxieme_partie_droite">
+                <div id="homepage_deuxieme_partie_droite_texte"> 
+                    <div>   
+                        <!-- Texte n°1-->
+                        <h3 id="Recherche_véhicule">
+                            Recherche de votre véhicule
+                        </h3>
+                        <p class="Recherche_véhicule_texte" style="display: none;">Vous pouvez effectuer votre demande de véhicules d'occasion ou neufs via notre formulaire de demande ou en contactant notre équipe d'experts par téléphone. Nous répondons à votre demande sous 24h !</p>
+                        <ul id="Dynamic_list" style="display: none;">
+                        <li>
+                            Notre équipe étudie vos attentes
+                        </li>
+                        <li>
+                            Nos conseillers affinent avec vous vos critères de recherche
+                        </li>
+                        <li>
+                            Nous déterminons ensemble les annonces à contacter
+                        </li>
+                        <li>
+                            Nous prenons contact avec le vendeur et revenons vers vous avec tous les détails du véhicule (historique, état, garanties)
+                        </li>
+                        </ul>
+                        <p class="Recherche_véhicule_texte_2" style="display: none;">La recherche de votre véhicule est entièrement gratuite, nous ne facturons notre prestation de conseil qu'au moment de l'achat.</p>
+                    </div>
+
+                    <span></span>
+
+                    <div id="Texte_n°2">
+                        <h3 id="controle_rapport">
+                            Contrôle et rapport détaillé
+                        </h3>
+                        <p class="controle_rapport_texte" style="display: none;">
+                            Suite à la sélection de votre véhicule, notre équipe d'experts reviendra vers vous avec tous les détails nécessaires : historique d’entretien du véhicule, antériorité de ses propriétaires, état intérieur et extérieur, état des consommables (pneus et freins), garanties proposées, négociations obtenues, éventuels défauts constatés. Un rapport détaillé vous sera remis. Au final, nos conseillers automobile vous donneront leur conseil : faut-il acheter ce véhicule ou non ?
+                        </p>
+                    </div>
+
+                    <span></span>
+
+                    <div id="Texte_n°3">
+                        <h3 id="Commande_paiement">
+                            Commande et paiement
+                        </h3>
+                        <p class="Commande_paiement_texte" style="display: none;">
+                            Pour conclure l'importation de votre véhicule d'Allemagne ou d'Europe, vous sélectionnez votre prestation dans nos offres et packs, avec ou sans livraison. Nous avons également besoin de votre carte d’identité ou de votre passeport, ainsi qu’un justificatif de domicile. <br>
+                            Nous vous transmettrons alors le bon de commande du garage qui vous est traduit en français par nos soins.<br>
+                            Ensuite, vous n'avez plus qu'à régler l'achat de votre véhicule auprès du vendeur et notre prestation séparément.
+                        </p>
+                    </div>
+
+                    <span></span>
+
+                    <div id="Texte_n°4">
+                        <h3 id="Formalités">
+                            Formalités administratives et immatriculation provisoire
+                        </h3>
+                        <p class="Formalités_texte" style="display: none;">
+                            Parce que les formalités administratives ne doivent pas être un frein à l'achat du véhicule de vos rêves, nous nous occupons des démarches. Votre véhicule recevra une immatriculation provisoire en France, valable 4 mois. Nous déterminerons ensemble la date de livraison ou de récupération du véhicule importé depuis l'Allemagne ou l'Europe.
+                        </p>
+                    </div>
+
+                    <span></span>
+
+                    <div id="Texte_n°5">
+                        <h3 id="Livraison">
+                            Livraison à la frontière ou à votre domicile
+                        </h3>
+                        <p class="Livraison_texte" style="display: none;">
+                            Selon votre choix, votre véhicule est livré à la frontière ou directement à votre domicile avec son immatriculation provisoire, en provenance de son pays d'origine.
+                        </p>
+                    </div>
+
+                    <span></span>
+
+                </div>
+            </div>
+        </div>
+        <div id="homepage_troisieme_partie">
+            <div id="Carte_interractive">
+
+            </div>
+            <div>
+                <h2>Nos derniers véhicules improtés</h2>
+            </div>
+            <div id="Vitrine">
+                <div class="Slide" id="Slide_1" >
+                    <img src="{{url_for('static', filename='125I_Leo_Fond.png')}}" alt="125I">
+                    <div id="Slide_contenu">
+                        <div id="Slide_contenu_gauche">
+                            <div id="Navigation">
+                                <button aria-label="Bouton vers la gauche" class="Bt_gauche" >
+                                    <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Ligne principale -->
+                                        <line x1="80" y1="25" x2="30" y2="25" stroke="white" stroke-width="2" />
+                                        <!-- Petite diagonale en haut -->
+                                        <line x1="30" y1="25" x2="50" y2="10" stroke="white" stroke-width="2" />
+                                        <!-- Petite diagonale en bas -->
+                                        <line x1="30" y1="25" x2="50" y2="40" stroke="white" stroke-width="2" />
+                                      </svg>
+                                </button>
+                                <div class="PageNo">1</div>
+                                <hr>
+                                <div class="PageNo">3</div>
+                                <button aria-label="Bouton vers la gauche" class="Bt_droit" >
+                                    <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Ligne principale -->
+                                        <line x1="20" y1="25" x2="70" y2="25" stroke="white" stroke-width="2" />
+                                        <!-- Petite diagonale en haut -->
+                                        <line x1="70" y1="25" x2="50" y2="10" stroke="white" stroke-width="2" />
+                                        <!-- Petite diagonale en bas -->
+                                        <line x1="70" y1="25" x2="50" y2="40" stroke="white" stroke-width="2" />
+                                      </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="Slide_contenu_droit">
+                            <div id=" Slide_contenu_droit_info1">
+                                <div id="Slide_contenu_droit_info1_fond">
+                                    <h3 id="Slide_contenu_droit_info1_titre">BMW 125i E82</h3>
+                                    <p id="Slide_contenu_droit_info1_SOUStitre"></p>
+                                    <p id="Slide_contenu_droit_info1_contenu">
+                                        6 Cylindres, 3Litres essence, atmosphérique, la bmw 125i dernier moteur atmo de chez BMW : un futur collector
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="Slide_contenu_droit_info2">
+                                <div id="Slide_contenu_droit_info2_fond">
+                                    <div>
+                                        <p class="Slide_contenu_droit_info2_texte">% économisé contre modèle similaire en France</p>
+                                        <p class="Slide_contenu_droit_info2_percent"> 20%</p>
+                                        <hr>
+                                    </div>
+                                    <div>
+                                        <p class="Slide_contenu_droit_info2_texte">Temps écoulé entre la commande et la livraison</p>
+                                        <p class="Slide_contenu_droit_info2_percent"> 20 jours</p>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Slide" id="Slide_2">
+                    <img src="{{url_for('static', filename='125I_Hugues_Fond.png')}}" alt="125I" >
+                    <div id="Slide_contenu">
+                        <div id="Slide_contenu_gauche">
+                            <div id="Navigation">
+                                <button aria-label="Bouton vers la gauche" class="Bt_gauche" >
+                                    <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Ligne principale -->
+                                        <line x1="80" y1="25" x2="30" y2="25" stroke="white" stroke-width="2" />
+                                        <!-- Petite diagonale en haut -->
+                                        <line x1="30" y1="25" x2="50" y2="10" stroke="white" stroke-width="2" />
+                                        <!-- Petite diagonale en bas -->
+                                        <line x1="30" y1="25" x2="50" y2="40" stroke="white" stroke-width="2" />
+                                      </svg>
+                                </button>
+                                <div class="PageNo">2</div>
+                                <hr>
+                                <div class="PageNo">3</div>
+                                <button aria-label="Bouton vers la gauche" class="Bt_droit">
+                                    <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Ligne principale -->
+                                        <line x1="20" y1="25" x2="70" y2="25" stroke="white" stroke-width="2" />
+                                        <!-- Petite diagonale en haut -->
+                                        <line x1="70" y1="25" x2="50" y2="10" stroke="white" stroke-width="2" />
+                                        <!-- Petite diagonale en bas -->
+                                        <line x1="70" y1="25" x2="50" y2="40" stroke="white" stroke-width="2" />
+                                      </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="Slide_contenu_droit">
+                            <div id=" Slide_contenu_droit_info1">
+                                <div id="Slide_contenu_droit_info1_fond">
+                                    <h3 id="Slide_contenu_droit_info1_titre">BMW 125i E82</h3>
+                                    <p id="Slide_contenu_droit_info1_SOUStitre"></p>
+                                    <p id="Slide_contenu_droit_info1_contenu">
+                                        6 Cylindres, 3Litres essence, atmosphérique, la bmw 125i dernier moteur atmo de chez BMW : un futur collector
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="Slide_contenu_droit_info2">
+                                <div id="Slide_contenu_droit_info2_fond">
+                                    <div>
+                                        <p class="Slide_contenu_droit_info2_texte">% économisé contre modèle similaire en France</p>
+                                        <p class="Slide_contenu_droit_info2_percent"> 20%</p>
+                                        <hr>
+                                    </div>
+                                    <div>
+                                        <p class="Slide_contenu_droit_info2_texte">Temps écoulé entre la commande et la livraison</p>
+                                        <p class="Slide_contenu_droit_info2_percent"> 20 jours</p>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <div id="Fin_de_page">
+            
+        </div>
+    </footer>
+<script src="{{ url_for('static', filename='JS/Home.js') }}"></script>
+</body>
+
+</html>
