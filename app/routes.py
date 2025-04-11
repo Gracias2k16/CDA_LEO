@@ -79,5 +79,5 @@ def gestion_compte():
 #===================================================================================================
 
 @app.route('/index')
-def home():
+def home_2():
     return render_template('home.html')
