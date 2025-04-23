@@ -77,13 +77,13 @@
                         <tbody>
                             {% for user in users %}
                             <tr>
-                                <td>CDA_Léo_import<input type="checkbox" name="selected_users" value="{{ user[0] }}"></td>
+                                <td><input type="checkbox" name="selected_users" value="{{ user[0] }}"></td>
                                 <td>{{ user[0] }}</td>
                                 <td>{{ user[1] }}</td>
                                 <td>
                                     <select name="new_role_{{ user[0] }}" required>
-                                        <option value="USER" {% if user[1] == 'USER' %}selected{% endif %}>Utilisateur</option>
-                                        <option value="EMPLOYEE" {% if user[1] == 'EMPLOYEE' %}selected{% endif %}>Employé</option>
+                                        <option value="UTILISATEUR" {% if user[1] == 'UTILISATEUR' %}selected{% endif %}>Utilisateur</option>
+                                        <option value="EMPLOYE" {% if user[1] == 'EMPLOYE' %}selected{% endif %}>Employé</option>
                                         <option value="ADMIN" {% if user[1] == 'ADMIN' %}selected{% endif %}>Admin</option>
                                     </select>
                                 </td>
