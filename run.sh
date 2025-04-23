@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 
 # Active environnement virtuel
 echo "Activation de l'environnement virtuel..."
-source ../.venv/bin/activate
+source .venv/bin/activate
 
 # libére le port 5000 si déjà utilisé
 PORT=5000
@@ -14,4 +14,4 @@ if lsof -i :$PORT >/dev/null; then
 fi
 
 echo "Lancement de Flask..."
-python ../serverWEB.py
+python serverWEB.py
