@@ -1,12 +1,23 @@
 version: '3.1'
 
 services:
+  web:
+    build:
+      context: .
+    container_name: PB_Import_mysql
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app:/app
+    depends_on:
+      - db
+
   db:
     image: mysql
     container_name: mysql
     restart: always
     environment:
-      MYSQL_DATABASE: CDA_Léo_import
+      MYSQL_DATABASE: PB_Import_mysql
       MYSQL_ROOT_PASSWORD: root
     ports:
       - "3306:3306"
