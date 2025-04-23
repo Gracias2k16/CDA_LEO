@@ -29,7 +29,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/user/Documents/CDA_LEO/CDA_LEO-1/.venv
+set -gx VIRTUAL_ENV /home/user/Documents/PB.Importation/PB.Importation/.venv
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

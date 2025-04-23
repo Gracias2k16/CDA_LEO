@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV=/home/user/Documents/CDA_LEO/CDA_LEO-1/.venv
+VIRTUAL_ENV=/home/user/Documents/PB.Importation/PB.Importation/.venv
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
