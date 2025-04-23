@@ -252,7 +252,7 @@ th, td {
     z-index: 2;
 }
 
-button {
+.action {
     width: auto; 
     height: 50px; 
     font-size: 18px; 
@@ -266,6 +266,6 @@ button {
     margin-bottom: 10px;
 }
 
-button:hover {
+.action:hover {
     background-color: #0056b3; /* Changement de couleur au survol */
 }

@@ -28,8 +28,9 @@
 ////////////////////    Fonction Selection moteur  //////////////////////
 //////////////////////////////////////////////////////////////////////*/
 
-let valeurMoteur = 0;
+let valeurMoteur = "";
     const boutons = document.querySelectorAll(".Choix_Moteur_Selection");
+    const hiddenInput = document.getElementById("hidden_moteur");
 
     boutons.forEach(bouton => {
         bouton.addEventListener("click", function() {
@@ -41,6 +42,7 @@ let valeurMoteur = 0;
 
             // Mettre à jour la variable valeur
             valeurMoteur = this.getAttribute("data-value");
+            hiddenInput.value = valeurMoteur;
             console.log("Valeur sélectionnée =", valeurMoteur);
         });
     });
@@ -51,6 +53,7 @@ let valeurMoteur = 0;
 
 let valeurBoite = 0;
     const boutonsBoite = document.querySelectorAll(".Choix_Boite_Selection");
+    const hiddenInputBoite = document.getElementById("hidden_boite");
 
     boutonsBoite.forEach(bouton => {
         bouton.addEventListener("click", function() {
@@ -61,7 +64,9 @@ let valeurBoite = 0;
             this.classList.add("selected2");
 
             // Mettre à jour la variable valeur
+            
             valeurBoite = this.getAttribute("data-value");
+            hiddenInputBoite.value = valeurBoite;
             console.log("Valeur sélectionnée =", valeurBoite);
         });
     });

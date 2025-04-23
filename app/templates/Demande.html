@@ -71,14 +71,15 @@
 
                     <div id="Caracéritsiques_choix">
                         <div id="Choix_Marque">
-                            <input id="Choix_Marque_input" placeholder="BMW" required><br><br>
+                            <input id="Choix_Marque_input" name="marque" placeholder="BMW" required><br><br>
                         </div>
-
+        
                         <div id="Choix_Serie">
-                            <input id="Choix_Serie_input" placeholder=" SERIE 1" required><br><br>
+                            <input id="Choix_Serie_input" name="serie" placeholder="SERIE 1" required><br><br>
                         </div>
 
                         <div id="Choix_Moteur">
+                            <input type="hidden" name="moteur" id="hidden_moteur">
                             <div class="Choix_Moteur_Selection" data-value="Essence">Essence</div>
                             <div class="Choix_Moteur_Selection" data-value="Diesel">Diesel</div>
                             <div class="Choix_Moteur_Selection" data-value="Hybride">Hybride</div>
@@ -86,6 +87,7 @@
                         </div>
                     
                         <div id="Choix_Boite">
+                            <input type="hidden" name="boite" id="hidden_boite">
                             <div class="Choix_Boite_Selection" data-value="Manuel">Manuel</div>
                             <div class="Choix_Boite_Selection" data-value="Automatique">Automatique</div>
                         </div>
@@ -213,8 +215,8 @@
                 </div>
             
                 <div id="Boutonnerie">
-                    <button id="BP"t ype="submit">Valider</button>
-                    <button id="BP" type="submit">Retour</button>
+                    <button id="btnValider" type="submit">Valider</button>
+                    <button id="btnRetour" type="button" onclick="window.history.back()">Retour</button>
                 </div>
             </div>
         </form>

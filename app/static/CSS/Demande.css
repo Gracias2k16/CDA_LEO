@@ -710,7 +710,7 @@ button.active {
 }
 
 
-#BP {
+#btnValider {
     width: 200px; 
     height: 50px; 
     font-size: 18px; 
@@ -722,7 +722,23 @@ button.active {
     cursor: pointer; /* Curseur interactif */
 }
 
-#BP:hover {
+#btnValider:hover {
+    background-color: #0056b3; /* Changement de couleur au survol */
+}
+
+#btnRetour {
+    width: 200px; 
+    height: 50px; 
+    font-size: 18px; 
+    padding: 10px; /* Espacement interne */
+    border-radius: 8px; /* Coins arrondis */
+    background-color: #007BFF;
+    color: white; 
+    border: none; /* Supprime la bordure */
+    cursor: pointer; /* Curseur interactif */
+}
+
+#btnRetour:hover {
     background-color: #0056b3; /* Changement de couleur au survol */
 }
 

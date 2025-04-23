@@ -87,23 +87,6 @@ def Envoie_mail_confirmation (mail):
 
 #===================================================================================================
 
-def Recuperation_tous_utilisateurs():
-    conn, cur = connexion_à_BDD() 
-    if conn is None or cur is None:
-        return None  
-
-    try:
-        cursor.execute("SELECT id_Mail, id_Type FROM  Compte")
-        cursor = conn.cursor(mysql.cursors.DictCursor)
-        users = cursor.fetchall()
-        return users
-    
-    except mysql.connector.Error as err:
-        print(f"Erreur lors de la récupération : {err}")
-        return None
-
-#===================================================================================================
-
 def gerer_comptes_Fonction():
     conn, cur = connexion_à_BDD()
 
@@ -203,10 +186,10 @@ def Création_Compte():
             return redirect(url_for('Creation_compte_route'))
 
         sql = """
-        INSERT INTO Compte (id_Nom, id_Prenom, id_Nom_societee, id_Mail, id_Mdp, Num_tel, id_Type)
+        INSERT INTO Compte (id_Mail, Num_tel, id_Nom, id_Prenom, id_Nom_societee, id_Mdp, id_Type)
         VALUES (%s, %s, %s, %s, %s, %s, %s)
         """
-        cur.execute(sql, (nom, prenom, societe, mail, hashed_password, num, 'USER'))
+        cur.execute(sql, (mail, num, nom, prenom, societe, hashed_password, 'UTILISATEUR'))
         conn.commit()
 
         flash("Compte créé avec succès !", 'success')
@@ -244,3 +227,42 @@ def acces_comptes():
     except mysql.connector.Error as err:
         print(f"Erreur lors de la récupération : {err}")
         return render_template('Comptes.html', users=[])
+
+#===================================================================================================
+
+def Envoie_demadne():
+    if request.method == 'GET':
+        return render_template('Creation_compte.html')  # Affiche la page HTML avec le formulaire
+
+    elif request.method == 'POST':
+        data = request.form  # Récupère les données envoyées par le formulaire
+
+        required_fields = ["marque", "serie", "moteur", "boite"]
+        if not all(field in data and data[field].strip() for field in required_fields):
+            flash("Certains champs obligatoires sont manquants.", 'danger')
+    
+    # Récupération des données
+        marque = data["marque"]
+        serie = data["serie"]
+        moteur = data["moteur"]
+        boite = data["boite"]
+    
+    # Connexion à la base de données
+        conn, cur = connexion_à_BDD()
+        if conn is None or cur is None:
+            flash("Impossible de se connecter à la base de données.", 'danger')
+    
+    try:
+            # Insertion des données dans la table
+            sql = """
+            INSERT INTO Demande (id_Marque, id_Serie, id_Moteur, id_Boite)
+            VALUES (%s, %s, %s, %s)
+            """
+            cur.execute(sql, (marque, serie, moteur, boite))
+            conn.commit()
+
+            flash("Demande enregistrée avec succès !", 'success')
+
+    except mysql.connector.Error as e:
+            conn.rollback()
+            flash(f"Erreur lors de l'enregistrement : {str(e)}", 'danger')
