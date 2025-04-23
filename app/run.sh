@@ -13,4 +13,4 @@ if lsof -i :$PORT >/dev/null; then
 fi
 
 echo "Lancement de Flask..."
-python serverWEB.py
+python /home/user/Documents/CDA_LEO/CDA_LEO-1/serverWEB.py
