@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, session
 from app import app
-from app.Model import gerer_comptes_Fonction, Connexion_utilisateur, Création_Compte, acces_comptes
+from app.Model import gerer_comptes_Fonction, Connexion_utilisateur, Création_Compte, acces_comptes,Envoie_demande,Envoie_Adresse
 from flask import jsonify
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -40,7 +40,7 @@ def home():
 
 @app.route('/Demande',methods=['GET', 'POST'])
 def Demande_route():
-    return render_template('Demande.html')
+    return Envoie_demande() and Envoie_Adresse()
 
 #===================================================================================================
 

@@ -227,9 +227,9 @@ def acces_comptes():
 
 #===================================================================================================
 
-def Envoie_demadne():
+def Envoie_demande():
     if request.method == 'GET':
-        return render_template('Creation_compte.html')  # Affiche la page HTML avec le formulaire
+        return render_template('Demande.html')  # Affiche la page HTML avec le formulaire
 
     elif request.method == 'POST':
         data = request.form  # Récupère les données envoyées par le formulaire
@@ -237,29 +237,112 @@ def Envoie_demadne():
         required_fields = ["marque", "serie", "moteur", "boite"]
         if not all(field in data and data[field].strip() for field in required_fields):
             flash("Certains champs obligatoires sont manquants.", 'danger')
+            return redirect(request.url)
     
     # Récupération des données
         marque = data["marque"]
         serie = data["serie"]
         moteur = data["moteur"]
         boite = data["boite"]
+
+    # Récupérer les valeurs des champs non obligatoires, avec des valeurs par défaut si non renseignées
+        id_puissance = data.get("range-values", None)  # None si non renseigné
+        id_budget = data.get("Choix_Budget_input", None)
+        id_annee = data.get("Choix_Annee_input", None)
+        id_options = data.get("Options_choix_input", None)
+        id_description = data.get("Description_Choix_input", None)
+
+    # Gestion du type de prestation
+        id_type ="Importation_complète"
+
+    # Mise en attente de la demande
+        id_etat = "En_attente"
+
+    # Récupérer l'id utilisateur depuis la session
+        id_utilisateur = session.get("user_id")
+
+        if not id_utilisateur:
+            flash("Vous devez être connecté pour faire une demande.", 'danger')
+            return redirect('/Connexion')
     
-    # Connexion à la base de données
         conn, cur = connexion_à_BDD()
         if conn is None or cur is None:
             flash("Impossible de se connecter à la base de données.", 'danger')
-    
+            return redirect(request.url)
+        
+        # Vérification de l'existence de id_Type dans la table id_Prestation
+        cur.execute("SELECT id_Type FROM id_Prestation WHERE id_Type = %s", (id_type,))
+        result = cur.fetchone()
+        if not result:
+            flash(f"Le type de prestation '{id_type}' est invalide.", 'danger')
+            return redirect(request.url)
+
+        # Vérification de l'existence de id_Etat dans la table id_Status
+        cur.execute("SELECT id_Etat FROM id_Status WHERE id_Etat = %s", (id_etat,))
+        result = cur.fetchone()
+        if not result:
+            flash(f"L'état '{id_etat}' est invalide.", 'danger')
+            return redirect(request.url)
+        
     try:
-            # Insertion des données dans la table
+            # Insertion des données dans la table Demande
             sql = """
-            INSERT INTO Demande (id_Marque, id_Serie, id_Moteur, id_Boite)
-            VALUES (%s, %s, %s, %s)
+            INSERT INTO Demande (id_Marque, id_Serie, id_Moteur, id_Boite, id_Utilisateur, id_Type, id_Etat, 
+                                 id_Puissance, id_Budget, id_Annee, id_Options, id_Description)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """
-            cur.execute(sql, (marque, serie, moteur, boite))
+            params = (marque, serie, moteur, boite, id_utilisateur, id_type, id_etat, 
+                      id_puissance, id_budget, id_annee, id_options, id_description)
+            cur.execute(sql, params)
             conn.commit()
 
             flash("Demande enregistrée avec succès !", 'success')
-
+            return redirect(request.url)
     except mysql.connector.Error as e:
             conn.rollback()
             flash(f"Erreur lors de l'enregistrement : {str(e)}", 'danger')
+            return redirect(request.url)
+    
+#===================================================================================================
+
+def Envoie_Adresse():
+    if request.method == 'GET':
+        return render_template('Demande.html')  # Affiche la page HTML avec le formulaire
+
+    elif request.method == 'POST':
+        data = request.form  # Récupère les données envoyées par le formulaire
+
+        required_fields = ["id_N_Batiment, id_CP, id_Ville, id_cmplt_rue, id_Nom_rue"]
+        if not all(field in data and data[field].strip() for field in required_fields):
+            flash("Certains champs obligatoires sont manquants.", 'danger')
+            return redirect(request.url)
+    
+    # Récupération des données
+        N_BAtiment = data["id_N_Batiment"]
+        CP = data["id_CP"]
+        Ville = data["id_Ville"]
+        Cmplt_rue = data["id_cmplt_rue", None]
+        Nom_rue = data["id_Nom_rue"]
+    
+    # Récupérer l'id utilisateur depuis la session
+        id_utilisateur = session.get("user_id")
+
+        conn, cur = connexion_à_BDD()
+
+        try:
+            # Insertion des données dans la table Demande
+            sql = """
+            INSERT INTO Adresse(id_N_Batiment, id_CP, id_id_cmplt_rue, id_Ville, id_Nom_rue, id_Utilisateur)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """
+            params = (N_BAtiment, CP, Ville, Cmplt_rue, Nom_rue, id_utilisateur)
+            cur.execute(sql, params)
+            conn.commit()
+
+            flash("Adresse enregistrée avec succès !", 'success')
+            return redirect(request.url)
+        except mysql.connector.Error as e:
+            conn.rollback()
+            flash(f"Erreur lors de l'enregistrement : {str(e)}", 'danger')
+            return redirect(request.url)
+    

@@ -179,6 +179,33 @@ div {
 }
 
 /*//////////////////////////////////////////////////////////////////////
+///////////////////////    Flash messages     //////////////////////////
+//////////////////////////////////////////////////////////////////////*/
+
+
+.flash_message .danger{
+    list-style-type: none;
+    padding: 10px;
+    background-color: #f8d7da; /* Couleur de fond pour les messages d'erreur */
+    color: #721c24; /* Couleur du texte */
+    border: 1px solid #f5c6cb; /* Bordure */
+    margin-top: 100px;
+    text-align: center;
+    z-index: 2;
+}
+
+.flash_message .success {
+    background-color: #bce4c5; /* Couleur de fond verte claire */
+    color: #155724; /* Couleur du texte verte */
+    border: 1px solid #c3e6cb; /* Bordure verte */
+    padding: 10px;
+    border-radius: 5px; /* Coins arrondis */
+    margin-top: 100px;
+    text-align: center;
+    z-index: 2;
+}
+
+/*//////////////////////////////////////////////////////////////////////
 /////////////////////////////    Corp     //////////////////////////////
 //////////////////////////////////////////////////////////////////////*/
 
@@ -270,26 +297,4 @@ div {
 #Creation_compte {
     font-family: "WorkSans-Light";
     font-size: 15px;
-}
-
-.flash_message .danger{
-    list-style-type: none;
-    padding: 10px;
-    background-color: #f8d7da; /* Couleur de fond pour les messages d'erreur */
-    color: #721c24; /* Couleur du texte */
-    border: 1px solid #f5c6cb; /* Bordure */
-    margin-top: 100px;
-    text-align: center;
-    z-index: 2;
-}
-
-.flash_message .success {
-    background-color: #bce4c5; /* Couleur de fond verte claire */
-    color: #155724; /* Couleur du texte verte */
-    border: 1px solid #c3e6cb; /* Bordure verte */
-    padding: 10px;
-    border-radius: 5px; /* Coins arrondis */
-    margin-top: 100px;
-    text-align: center;
-    z-index: 2;
 }

@@ -11,13 +11,13 @@
 <body>
     <!--Permet d'afficher les messages flash (début)-->
     {% with messages = get_flashed_messages(with_categories=True) %}
-    {% if messages %}
-        <ul class="flash_message">
-        {% for category, message in messages %}
-            <li class="{{ category }}">{{ message }}</li>
-        {% endfor %}
-        </ul>
-    {% endif %}
+        {% if messages %}
+            <ul class="flash_message">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     {% endwith %}
     <!--Permet d'afficher les messages flash (fin)-->
     <header>
@@ -57,7 +57,7 @@
                 {% endif %}
             </ul>
         </div>
-        <form action="/Demande" method="POST" >
+        <form method="POST" action="">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
             <div id="Première_partie">
@@ -213,8 +213,8 @@
                     </div>
 
                     <div id="champ_rue">
-                        <label for="id_N_Rue">Numéro de batiment* :</label>
-                        <input type="number" id="id_N_Rue" name="id_N_Rue" required>
+                        <label for="id_N_Batiment">Numéro de batiment* :</label>
+                        <input type="number" id="id_N_Batiment" name="id_N_Batiment" required>
 
                         <label for="id_cmplt_rue">Complément d'Adresse :</label>
                         <input type="text" id="id_cmplt_rue" name="id_cmplt_rue" maxlength="50">
