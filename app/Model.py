@@ -234,7 +234,7 @@ def Envoie_demande():
     elif request.method == 'POST':
         data = request.form  # Récupère les données envoyées par le formulaire
 
-        required_fields = ["marque", "serie", "moteur", "boite"]
+        required_fields = ["marque", "serie", "moteur", "boite","id_N_Batiment, id_CP, id_Ville, id_Nom_rue"]
         if not all(field in data and data[field].strip() for field in required_fields):
             flash("Certains champs obligatoires sont manquants.", 'danger')
             return redirect(request.url)
@@ -257,6 +257,14 @@ def Envoie_demande():
 
     # Mise en attente de la demande
         id_etat = "En_attente"
+
+    # Récupération des données
+        N_Batiment = data["id_N_Batiment"]
+        CP = data["id_CP"]
+        Ville = data["id_Ville"]
+        Cmplt_rue = data.get("id_cmplt_rue", None)
+        Nom_rue = data["id_Nom_rue"]
+    
 
     # Récupérer l'id utilisateur depuis la session
         id_utilisateur = session.get("user_id")
@@ -296,7 +304,17 @@ def Envoie_demande():
             cur.execute(sql, params)
             conn.commit()
 
+            # Insertion des données dans la table Adresse
+            sql = """
+            INSERT INTO Adresse(id_N_Batiment, id_CP, id_cmplt_rue, id_Ville, id_Nom_rue, id_Utilisateur)
+            VALUES (%s, %s, %s, %s, %s, %s)
+            """
+            params = (N_Batiment, CP, Cmplt_rue, Ville, Nom_rue, id_utilisateur)
+            cur.execute(sql, params)
+            conn.commit()
+
             flash("Demande enregistrée avec succès !", 'success')
+            print(N_Batiment, CP, Ville, Cmplt_rue, Nom_rue, id_utilisateur)
             return redirect(request.url)
     except mysql.connector.Error as e:
             conn.rollback()
@@ -304,45 +322,3 @@ def Envoie_demande():
             return redirect(request.url)
     
 #===================================================================================================
-
-def Envoie_Adresse():
-    if request.method == 'GET':
-        return render_template('Demande.html')  # Affiche la page HTML avec le formulaire
-
-    elif request.method == 'POST':
-        data = request.form  # Récupère les données envoyées par le formulaire
-
-        required_fields = ["id_N_Batiment, id_CP, id_Ville, id_cmplt_rue, id_Nom_rue"]
-        if not all(field in data and data[field].strip() for field in required_fields):
-            flash("Certains champs obligatoires sont manquants.", 'danger')
-            return redirect(request.url)
-    
-    # Récupération des données
-        N_BAtiment = data["id_N_Batiment"]
-        CP = data["id_CP"]
-        Ville = data["id_Ville"]
-        Cmplt_rue = data["id_cmplt_rue", None]
-        Nom_rue = data["id_Nom_rue"]
-    
-    # Récupérer l'id utilisateur depuis la session
-        id_utilisateur = session.get("user_id")
-
-        conn, cur = connexion_à_BDD()
-
-        try:
-            # Insertion des données dans la table Demande
-            sql = """
-            INSERT INTO Adresse(id_N_Batiment, id_CP, id_id_cmplt_rue, id_Ville, id_Nom_rue, id_Utilisateur)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-            """
-            params = (N_BAtiment, CP, Ville, Cmplt_rue, Nom_rue, id_utilisateur)
-            cur.execute(sql, params)
-            conn.commit()
-
-            flash("Adresse enregistrée avec succès !", 'success')
-            return redirect(request.url)
-        except mysql.connector.Error as e:
-            conn.rollback()
-            flash(f"Erreur lors de l'enregistrement : {str(e)}", 'danger')
-            return redirect(request.url)
-    
