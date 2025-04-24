@@ -9,6 +9,17 @@
 </head>
 
 <body>
+    <!--Permet d'afficher les messages flash (début)-->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        <ul class="flash_message">
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+    <!--Permet d'afficher les messages flash (fin)-->
     <header>
         <div class="Bandeau haut">
             <div id="Bandeau_haut_gauche">
@@ -168,27 +179,27 @@
                         <label for="item">Choissifez votre offre</label>
                     </div>
                     <div class="Choix_Presta">
-                        <button class="selection-btn" data-id="1" id="Offre_WW">Offre WW provisoire</button>
+                        <button type="button" class="selection-btn" data-id="1" id="Offre_WW">Offre WW provisoire</button>
                             <p class="Offre_WW_texte" data-id="1" style="display: none;">
                                 Nos experts vous accompagnent dans votre achat, et vous récupérez le véhicule vous-même au garage en Allemagne (livraison non incluse).
                             </p>
 
-                        <button class="selection-btn" data-id="2" id="Offre_WW_CG">Offre gestion administrative</button>
+                        <button type="button" class="selection-btn" data-id="2" id="Offre_WW_CG">Offre gestion administrative</button>
                             <p class="Offre_WW_texte" data-id="2" style="display: none;">
                                 Nous nous occupons de toute la partie administrative pour faciliter votre acquisition.
                             </p>
 
-                        <button class="selection-btn" data-id="3" id="Offre_complete">Offre gestion complète</button>
+                        <button type="button" class="selection-btn" data-id="3" id="Offre_complete">Offre gestion complète</button>
                             <p class="Offre_WW_texte" data-id="3" style="display: none;">
                                 Un accompagnement total : achat, transport et immatriculation en France.
                             </p>
 
-                        <button class="Continuer" >Continuer</button>
+                        <button type="button" class="Continuer" >Continuer</button>
                     </div>
                 </div>
             </div>
         
-            <div id="Deuxeme_partie" style="display:none"> 
+            <div id="Deuxeme_partie"> 
                 <span id="Span_deuxième_partie"></span>
                 <p id="Informations_facturation"> Informations de facturation :</p>
 
@@ -202,7 +213,7 @@
                     </div>
 
                     <div id="champ_rue">
-                        <label for="id_N_Rue">Numéro de Rue* :</label>
+                        <label for="id_N_Rue">Numéro de batiment* :</label>
                         <input type="number" id="id_N_Rue" name="id_N_Rue" required>
 
                         <label for="id_cmplt_rue">Complément d'Adresse :</label>

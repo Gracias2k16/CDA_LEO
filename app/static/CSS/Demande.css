@@ -655,6 +655,10 @@ button.active {
 ////////////////////////    Deuxieme partie    ////////////////////////
 //////////////////////////////////////////////////////////////////////*/
 
+#Deuxeme_partie {
+    display : none;
+}
+
 #Span_deuxième_partie {
     position: relative;
     display: block;

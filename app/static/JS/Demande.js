@@ -173,13 +173,19 @@ buttons2.forEach(button => {
             button.classList.add("active");
         }
 
-        // Affiche ou masque la div .Deuxeme_partie
         if (suiteDiv.style.display === "none" || suiteDiv.style.display === "") {
             suiteDiv.style.display = "block"; // Affiche
-            // Faire défiler jusqu'à la div .Deuxeme_partie
+        
+            // Mettre le focus sur le champ après affichage
+            const champNomRue = document.querySelector("[name='id_Nom_rue']");
+            if (champNomRue) {
+                champNomRue.focus();
+            }
+        
+            // Scroll vers la div
             suiteDiv.scrollIntoView({
-                behavior: 'smooth', // Défilement en douceur
-                block: 'start' // Le haut de l'élément sera aligné en haut de la fenêtre
+                behavior: 'smooth',
+                block: 'start'
             });
         } else {
             suiteDiv.style.display = "none"; // Masque

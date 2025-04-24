@@ -12,9 +12,6 @@ limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
 @app.after_request
 def add_security_headers(response):
     response.headers["Content-Security-Policy"] = (
-        "default-src 'self'; "
-        "script-src 'self'; "
-        "style-src 'self'; "
         "img-src 'self' data:; "
         "font-src 'self' https://fonts.gstatic.com; "
         "object-src 'none'; "

@@ -34,10 +34,7 @@ def Recupération_des_utilisateurs(email):
 def Ecriture_adresse():
     conn, cur = connexion_à_BDD()
     try:
-        conn, cur = connexion_à_BDD()
-        if conn is None or cur is None:
-            return
-    
+        
         sql = """INSERT INTO Adresse (id_N_Rue, id_CP, id_Cmplt_rue, id_Ville, id_Nom_rue)
                  VALUES (%s, %s, %s, %s, %s)"""
         
