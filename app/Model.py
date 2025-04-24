@@ -234,7 +234,7 @@ def Envoie_demande():
     elif request.method == 'POST':
         data = request.form  # Récupère les données envoyées par le formulaire
 
-        required_fields = ["marque", "serie", "moteur", "boite","id_N_Batiment, id_CP, id_Ville, id_Nom_rue"]
+        required_fields = ["marque", "serie", "moteur", "boite","id_N_Batiment", "id_CP", "id_Ville", "id_Nom_rue"]
         if not all(field in data and data[field].strip() for field in required_fields):
             flash("Certains champs obligatoires sont manquants.", 'danger')
             return redirect(request.url)

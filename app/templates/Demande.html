@@ -125,15 +125,15 @@
 
                     <div id="Caracéritsiques_choix_2">
                         <div id="Choix_Annee">
-                            <input id="Choix_Annee_input" placeholder="2006-2012">
+                            <input name="Choix_Annee_input" id="Choix_Annee_input" placeholder="2006-2012" type="text">
                         </div>
 
                         <div id="Choix_Budget">
-                            <input id="Choix_Budget_input" placeholder="20 000€">
+                            <input name="Choix_Budget_input" id="Choix_Budget_input" placeholder="20 000€" type="text">
                         </div>
 
                         <div id="Choix_KM">
-                            <input type="range" id="curseur_KM" min="1" max="200000" value="1" step="1">
+                            <input type="range" id="curseur_KM" min="1" max="200000" value="1" step="1000">
                             <span id="valeur-affichee_KM">Valeur : 1</span>
                         </div>
 
@@ -144,7 +144,7 @@
                                 <!-- Deuxième curseur (max) -->
                                 <input type="range" id="maxRange" min="1" max="1000" value="750" step="1">
                             </div>
-                            <p id="range-values">Min : 250 | Max : 750</p>
+                            <p name="range-values" id="range-values">Min : 250 | Max : 750</p>
                         </div>
                     </div>
 
@@ -156,7 +156,7 @@
 
                     <div id="Caracéritsiques_choix_3">
                         <div id="Options_choix">
-                            <input id="Options_choix_input" placeholder="Décrire les options importantes">
+                            <input id="Options_choix_input" name="Options_choix_input" placeholder="Décrire les options importantes">
                         </div>
                     </div>
 
@@ -168,7 +168,7 @@
 
                     <div id="Caracéritsiques_choix_3">
                         <div id="Description_choix">
-                            <input id="Description_Choix_input" placeholder="Décrire informations diverses">
+                            <input id="Description_Choix_input" name="Description_Choix_input" placeholder="Décrire informations diverses">
                         </div>
                     </div>
                     <p id="Aide"> *Si vous n'avez pas d'idée spécifique en tête, vous pouvez laisser les valeurs vides.</p>
