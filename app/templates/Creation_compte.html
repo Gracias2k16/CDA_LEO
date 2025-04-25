@@ -41,8 +41,8 @@
     </header>
     <main>
         <div id="menuOverlay">
-             <button id="closeMenu">Fermer ✖</button>
-             <ul>
+            <button id="closeMenu">Fermer ✖</button>
+            <ul>
                 <li><a href="/">Accueil</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Contact</a></li>
@@ -51,6 +51,12 @@
                     <li><a href="/Connexion">Connexion</a></li>
                 {% else %}
                     <li><a href="/logout" id="logoutButton">Déconnexion</a></li>
+                    {% if session.get('id_Type') == 'ADMIN' %}
+                        <li><a href="/Comptes">Comptes</a></li>
+                    {% endif %}
+                    {% if session.get('id_Type') == 'ADMIN','EMPLOYE' %}
+                        <li><a href="/Gestion_demandes">Gestion des demandes</a></li>
+                    {% endif %}
                 {% endif %}
             </ul>
         </div>

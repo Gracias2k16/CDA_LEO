@@ -55,9 +55,12 @@
                     {% if session.get('id_Type') == 'ADMIN' %}
                         <li><a href="/Comptes">Comptes</a></li>
                     {% endif %}
+                    {% if session.get('id_Type') == 'ADMIN','EMPLOYE' %}
+                        <li><a href="/Gestion_demandes">Gestion des demandes</a></li>
+                    {% endif %}
                 {% endif %}
             </ul>
-       </div>
+        </div>
        <div id="Bloc_Comptes">
             <div id="Bloc_Droite"></div>
             <div id="Bloc_milieu">

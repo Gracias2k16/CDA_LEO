@@ -54,6 +54,9 @@
                     {% if session.get('id_Type') == 'ADMIN' %}
                         <li><a href="/Comptes">Comptes</a></li>
                     {% endif %}
+                    {% if session.get('id_Type') == 'ADMIN','EMPLOYE' %}
+                        <li><a href="/Gestion_demandes">Gestion des demandes</a></li>
+                    {% endif %}
                 {% endif %}
             </ul>
         </div>
@@ -133,18 +136,19 @@
                         </div>
 
                         <div id="Choix_KM">
-                            <input type="range" id="curseur_KM" min="1" max="200000" value="1" step="1000">
+                            <input type="range" id="curseur_KM" min="1000" max="300000" value="1" step="1000">
                             <span id="valeur-affichee_KM">Valeur : 1</span>
+
+                            <input type="hidden" name="KM_max" id="km_max">
                         </div>
 
                         <div id="Choix_Puissance">
                             <div class="range-container">
-                                <!-- Premier curseur (min) -->
-                                <input type="range" id="minRange" min="1" max="1000" value="250" step="1">
-                                <!-- Deuxième curseur (max) -->
-                                <input type="range" id="maxRange" min="1" max="1000" value="750" step="1">
+                                <input type="range" id="maxRange" name="slider_puissance" min="50" max="1000" value="500" step="10">
+                                <p id="range-values">Max : 750</p>
+
+                                <input type="hidden" name="puissance_max" id="puissance_max">
                             </div>
-                            <p name="range-values" id="range-values">Min : 250 | Max : 750</p>
                         </div>
                     </div>
 
@@ -194,7 +198,8 @@
                                 Un accompagnement total : achat, transport et immatriculation en France.
                             </p>
 
-                        <button type="button" class="Continuer" >Continuer</button>
+                        <button type="button" class="Continuer" disabled>Continuer</button>
+                        <input type="hidden" name="type_prestation" id="type_prestation">
                     </div>
                 </div>
             </div>
@@ -206,21 +211,21 @@
                 <div id="Champs_de_facturation">
                     <div id="Camp_ville">
                         <label for="id_CP">Code Postal* :</label>
-                        <input type="number" id="id_CP" name="id_CP" required>
+                        <input type="number" id="id_CP" name="id_CP" value="{{ adresse[0] if adresse else '' }}" required>
+                
                         <label for="id_Ville">Ville* :</label>
-                        <input type="text" id="id_Ville" name="id_Ville" required>
-
+                        <input type="text" id="id_Ville" name="id_Ville" value="{{ adresse[1] if adresse else '' }}" required>
                     </div>
-
+                
                     <div id="champ_rue">
                         <label for="id_N_Batiment">Numéro de batiment* :</label>
-                        <input type="number" id="id_N_Batiment" name="id_N_Batiment" required>
-
+                        <input type="number" id="id_N_Batiment" name="id_N_Batiment" value="{{ adresse[2] if adresse else '' }}" required>
+                
                         <label for="id_cmplt_rue">Complément d'Adresse :</label>
-                        <input type="text" id="id_cmplt_rue" name="id_cmplt_rue" maxlength="50">
-
+                        <input type="text" id="id_cmplt_rue" name="id_cmplt_rue" value="{{ adresse[3] if adresse else '' }}" maxlength="50">
+                
                         <label for="id_Nom_rue">Nom de la Rue* :</label>
-                        <input type="text" id="id_Nom_rue" name="id_Nom_rue" maxlength="50" required>
+                        <input type="text" id="id_Nom_rue" name="id_Nom_rue" value="{{ adresse[4] if adresse else '' }}" maxlength="50" required>
                     </div>
                     <h5>* : Champs obligatoires</h5>
                 </div>

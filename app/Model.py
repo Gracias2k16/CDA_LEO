@@ -229,7 +229,19 @@ def acces_comptes():
 
 def Envoie_demande():
     if request.method == 'GET':
-        return render_template('Demande.html')  # Affiche la page HTML avec le formulaire
+        user_id = session.get('user_id')
+        adresse_utilisateur = None
+
+        if user_id:
+            conn, cur = connexion_à_BDD()
+            cur.execute("""
+                SELECT id_CP, id_Ville, id_N_Batiment, id_cmplt_rue, id_Nom_rue
+                FROM Adresse
+                WHERE id_Utilisateur = %s
+                LIMIT 1
+            """, (user_id,))
+            adresse_utilisateur = cur.fetchone()
+        return render_template('Demande.html',adresse=adresse_utilisateur)  # Affiche la page HTML avec le formulaire
 
     elif request.method == 'POST':
         data = request.form  # Récupère les données envoyées par le formulaire
@@ -246,14 +258,15 @@ def Envoie_demande():
         boite = data["boite"]
 
     # Récupérer les valeurs des champs non obligatoires, avec des valeurs par défaut si non renseignées
-        id_puissance = data.get("range-values", None)  # None si non renseigné
+        id_puissance = data.get("puissance_max", None)  # None si non renseigné
+        id_KM_max =data.get("KM_max", None)
         id_budget = data.get("Choix_Budget_input", None)
         id_annee = data.get("Choix_Annee_input", None)
         id_options = data.get("Options_choix_input", None)
         id_description = data.get("Description_Choix_input", None)
 
     # Gestion du type de prestation
-        id_type ="Importation_complète"
+        id_type =data.get("type_prestation")
 
     # Mise en attente de la demande
         id_etat = "En_attente"
@@ -296,11 +309,11 @@ def Envoie_demande():
             # Insertion des données dans la table Demande
             sql = """
             INSERT INTO Demande (id_Marque, id_Serie, id_Moteur, id_Boite, id_Utilisateur, id_Type, id_Etat, 
-                                 id_Puissance, id_Budget, id_Annee, id_Options, id_Description)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                                 id_Puissance, id_KM_max, id_Budget, id_Annee, id_Options, id_Description)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """
             params = (marque, serie, moteur, boite, id_utilisateur, id_type, id_etat, 
-                      id_puissance, id_budget, id_annee, id_options, id_description)
+                      id_puissance, id_KM_max, id_budget, id_annee, id_options, id_description)
             cur.execute(sql, params)
             conn.commit()
 

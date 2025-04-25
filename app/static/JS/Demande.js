@@ -93,36 +93,31 @@ let valeurBoite = 0;
 let valeurKM = 1; // Variable qui stocke la valeur du curseur
     const curseur = document.getElementById("curseur_KM");
     const affichage_KM = document.getElementById("valeur-affichee_KM");
+    const champCacheKM = document.getElementById("km_max");
 
     curseur.addEventListener("input", function() {
         valeurKM = this.value; // Met à jour la variable avec la valeur du curseur
         affichage_KM.textContent = "Valeur : " + valeurKM; // Affiche la valeur en temps réel
-        console.log("Valeur sélectionnée_KM =", valeurKM); // Affiche la valeur dans la console
+        champCacheKM.value = valeurKM;
     });
 
 ////////////////////  Curseur PUSSIANCE //////////////////////
 
-const minRange = document.getElementById("minRange");
+
 const maxRange = document.getElementById("maxRange");
+const puissanceMax = document.getElementById("puissance_max");
 const rangeValues = document.getElementById("range-values");
 
-minRange.addEventListener("input", updateRange);
-maxRange.addEventListener("input", updateRange);
-
-function updateRange() {
-    let minValue = parseInt(minRange.value);
-    let maxValue = parseInt(maxRange.value);
-
-    // Empêcher min d'aller au-dessus de max et vice versa
-    if (minValue >= maxValue) {
-        minRange.value = maxValue - 1;
-    }
-    if (maxValue <= minValue) {
-        maxRange.value = minValue + 1;
+    function updateRange() {
+        const maxValue = parseInt(maxRange.value);
+        puissanceMax.value = maxValue;
+        rangeValues.textContent = `Max : ${maxValue}`;
     }
 
-    rangeValues.textContent = `Min : ${minRange.value} | Max : ${maxRange.value}`;
-}
+    maxRange.addEventListener("input", updateRange);
+
+    // Initialisation
+    updateRange();
 
 /*//////////////////////////////////////////////////////////////////////
 ////////////////////    Fonction selection presta //////////////////////
@@ -145,12 +140,15 @@ const buttons = document.querySelectorAll(".selection-btn");
 
 document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll('.selection-btn');
+    const champType = document.getElementById("type_prestation");
     let dernierAffiche = null;
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             const id = button.getAttribute("data-id");
             const pElement = document.querySelector(`.Offre_WW_texte[data-id="${id}"]`);
+
+            champType.value = id;
 
             if (dernierAffiche && dernierAffiche !== pElement) {
                 dernierAffiche.style.display = 'none'; // Cache l'ancien texte
@@ -168,40 +166,41 @@ document.addEventListener("DOMContentLoaded", function () {
 //////////////////////////////////////////////////////////////////////*/
 
 
-const buttons2 = document.querySelectorAll(".Continuer");
-const suiteDiv = document.querySelector("#Deuxeme_partie");
-
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector("#Deuxeme_partie").style.display = "none";
-});
+    const buttonContinuer = document.querySelector(".Continuer");
+    const suiteDiv = document.querySelector("#Deuxeme_partie");
+    const inputPrestation = document.querySelector("#type_prestation");
 
-buttons2.forEach(button => {
-    button.addEventListener("click", () => {
+    buttonContinuer.disabled = true; // Désactivé par défaut
+    suiteDiv.style.display = "none";
 
-        // Si le bouton est déjà actif, on le désactive
-        if (button.classList.contains("active")) {
-            button.classList.remove("active");
-            } else {
-            // Sinon, on l'active
-            button.classList.add("active");
+    // Observer le champ caché pour activer le bouton
+    const observer = new MutationObserver(() => {
+        if (inputPrestation.value !== "") {
+            buttonContinuer.disabled = false;
         }
+    });
 
-        if (suiteDiv.style.display === "none" || suiteDiv.style.display === "") {
-            suiteDiv.style.display = "block"; // Affiche
-        
-            // Mettre le focus sur le champ après affichage
+    observer.observe(inputPrestation, {
+        attributes: true,
+        attributeFilter: ['value']
+    });
+
+    buttonContinuer.addEventListener("click", () => {
+        buttonContinuer.classList.toggle("active");
+
+        suiteDiv.style.display = (suiteDiv.style.display === "none" || suiteDiv.style.display === "")
+            ? "block"
+            : "none";
+
+        if (suiteDiv.style.display === "block") {
             const champNomRue = document.querySelector("[name='id_Nom_rue']");
-            if (champNomRue) {
-                champNomRue.focus();
-            }
-        
-            // Scroll vers la div
+            if (champNomRue) champNomRue.focus();
+
             suiteDiv.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
-        } else {
-            suiteDiv.style.display = "none"; // Masque
         }
     });
 });
