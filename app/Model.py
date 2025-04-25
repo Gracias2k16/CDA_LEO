@@ -313,10 +313,15 @@ def Gestion_demande():
         flash("Vous devez être connecté pour accéder à cette page.", "warning")
         return redirect(url_for('Connexion'))
 
-    if session.get('role') != 'ADMIN':  # Vérifier si l'utilisateur est ADMIN
+    if session.get('role') not in ['ADMIN', 'EMPLOYE']: # Vérifier si l'utilisateur est ADMIN
         flash("Accès refusé : Vous n'avez pas les droits d'administration.", "danger")
         return redirect(url_for('home'))
 
     conn, cur = connexion_à_BDD() 
     if conn is None or cur is None:
         return render_template('Gestion_demandes.html', users=[])
+    
+    cur.execute("SELECT * FROM Demande")
+    demandes = cur.fetchall()
+
+    return render_template('Gestion_demandes.html', demandes=demandes)

@@ -77,5 +77,5 @@ def gestion_compte():
 #===================================================================================================
 
 @app.route('/Gestion_demandes')
-def gestion_deamndes():
+def gestion_deamndes_route():
     return Gestion_demande()
