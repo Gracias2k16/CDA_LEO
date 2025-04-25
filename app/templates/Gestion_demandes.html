@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Gestion_demandes.css') }}">
+        <title>PBimportation</title>
+
+    </head>
+
+    <body>
+        <header>
+            <div class="Bandeau haut">
+                <div id="Bandeau_haut_gauche">
+                    <div class="Bandeau_ecriture">
+                        <a href="/">
+                            <img src="{{url_for('static', filename='Logo.PNG')}}" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div id="Bandeau_haut_droit">
+                    <div id="Bandeau_haut_droit_premier">
+                        <button id="Txt_menu">Menu ☰</button>
+                    </div>
+                    <div id="Bandeau_haut_droit_second">
+                        <a id="Faire_demande" href="Demande"> Faire une demande</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="homepage">
+            <div id="menuOverlay">
+                <button id="closeMenu">Fermer ✖</button>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="/Demande">Faire une demande</a></li>
+
+                        {% if session.get('role') == 'ADMIN','EMPLOYE' %}
+                            <li><a href="/Gestion_demandes">Gestion des demandes</a></li>
+                        {% endif %}
+
+                        {% if session.get('role') == 'ADMIN' %}
+                            <li><a href="/Comptes">Comptes</a></li>
+                        {% endif %}
+
+                    {% if 'user_id' not in session %}
+                        <li><a href="/Connexion">Connexion</a></li>
+                    {% else %}
+                        <li><a href="/logout" id="logoutButton">Déconnexion</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <div id="Fin_de_page">
+                
+            </div>
+        </footer>
+        <script src="{{ url_for('static', filename='JS/Gestion_demandes.js') }}"></script>
+    </body>
+</html>
+    
