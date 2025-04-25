@@ -31,34 +31,6 @@ def Recupération_des_utilisateurs(email):
 
 #===================================================================================================
 
-def Ecriture_adresse():
-    conn, cur = connexion_à_BDD()
-    try:
-        
-        sql = """INSERT INTO Adresse (id_N_Rue, id_CP, id_Cmplt_rue, id_Ville, id_Nom_rue)
-                 VALUES (%s, %s, %s, %s, %s)"""
-        
-        # Valeurs à insérer
-        values = (50, 35000, '', 'RENNES', 'Rue des Résistants')
-
-        # Exécution de la requête
-        cur.execute(sql, values)
-        conn.commit()
-
-        print(f"{cur.rowcount} enregistrement inséré.")
-
-    except mysql.connector.Error as err:
-        print(f"Erreur lors de l'insertion : {err}")
-
-    finally:
-        # Fermeture du curseur et de la connexion
-        if cur is not None:
-            cur.close()
-        if conn is not None:
-            conn.close()
-
-#===================================================================================================
-
 def Envoie_mail_confirmation (mail):
     try:
 
