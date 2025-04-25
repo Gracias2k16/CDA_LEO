@@ -676,7 +676,9 @@ button.active {
     font-family: "WorkSans-Light";
     height: auto;
     display: none;
+    transition: max-height 1s ease, opacity 1s ease;
 }
+
 
 
 /*//////////////////////////////////////////////////////////////////////
