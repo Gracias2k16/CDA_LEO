@@ -39,13 +39,13 @@
                 <li><a href="#">Contact</a></li>
                 <li><a href="/Demande">Faire une demande</a></li>
 
-                    {% if session.get('role') == 'ADMIN','EMPLOYE' %}
-                        <li><a href="/Gestion_demandes">Gestion des demandes</a></li>
-                    {% endif %}
+                {% if session.get('role') in ['ADMIN', 'EMPLOYE'] %}
+                    <li><a href="/Gestion_demandes">Gestion des demandes</a></li>
+                {% endif %}
 
-                    {% if session.get('role') == 'ADMIN' %}
-                        <li><a href="/Comptes">Comptes</a></li>
-                    {% endif %}
+                {% if session.get('role') == 'ADMIN' %}
+                    <li><a href="/Comptes">Comptes</a></li>
+                {% endif %}
 
                 {% if 'user_id' not in session %}
                     <li><a href="/Connexion">Connexion</a></li>

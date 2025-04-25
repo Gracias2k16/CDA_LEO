@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, session
 from app import app
-from app.Model import gerer_comptes_Fonction, Connexion_utilisateur, Création_Compte, acces_comptes,Envoie_demande
+from app.Model import gerer_comptes_Fonction, Connexion_utilisateur, Création_Compte, acces_comptes,Envoie_demande,Gestion_demande
 from flask import jsonify
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -78,4 +78,4 @@ def gestion_compte():
 
 @app.route('/Gestion_demandes')
 def gestion_deamndes():
-    return render_template('Gestion_demandes.html')
+    return Gestion_demande()
