@@ -75,3 +75,7 @@ def gestion_compte():
     return gerer_comptes_Fonction()
 
 #===================================================================================================
+
+@app.route('/Gestion_demandes')
+def gestion_deamndes():
+    return render_template('Gestion_demandes.html')
