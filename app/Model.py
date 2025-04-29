@@ -291,9 +291,15 @@ def Envoie_demande():
 
             # Insertion des données dans la table Adresse
             sql = """
-            INSERT INTO Adresse(id_N_Batiment, id_CP, id_cmplt_rue, id_Ville, id_Nom_rue, id_Utilisateur)
-            VALUES (%s, %s, %s, %s, %s, %s)
-            """
+            UPDATE Adresse
+                SET id_N_Batiment = %s,
+                id_CP = %s,
+                id_cmplt_rue = %s,
+                id_Ville = %s,
+                id_Nom_rue = %s
+                WHERE id_Utilisateur = %s
+                """
+            
             params = (N_Batiment, CP, Cmplt_rue, Ville, Nom_rue, id_utilisateur)
             cur.execute(sql, params)
             conn.commit()
