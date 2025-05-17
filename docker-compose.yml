@@ -1,14 +1,13 @@
-version: '3.1'
-
 services:
   web:
+    tty: true
     build:
       context: .
     container_name: PB_Import_mysql
     ports:
       - "5000:5000"
     volumes:
-      - ./app:/app
+      - ./:/home/uimm/Documents/PB.Importation
     depends_on:
       - db
 
