@@ -1,10 +1,10 @@
 from flask import render_template, flash, redirect, url_for, session
 from app import app
 from app.Model import gerer_comptes_Fonction, Connexion_utilisateur, Création_Compte, acces_comptes,Envoie_demande,Gestion_demande
-from flask import jsonify, make_response
+from flask import jsonify
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-from flask_wtf.csrf import generate_csrf
+
 
 limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
 
@@ -27,9 +27,6 @@ def add_security_headers(response):
 
 @app.route('/Connexion', methods=["GET", "POST"])
 def Connexion():
-    response2 = make_response(render_template('Creation_compte.html'))
-    response2.set_cookie('csrf_token', generate_csrf())
-    print (response2)
     return Connexion_utilisateur()
 
 #===================================================================================================

@@ -25,10 +25,10 @@ app.secret_key = os.urandom(24)
 #Config CSRF
 app.config['WTF_CSRF_TIME_LIMIT'] = None
 app.config['WTF_CSRF_SSL_STRICT'] = False
-app.config['WTF_CSRF_ENABLED'] = False
+app.config['WTF_CSRF_ENABLED'] = True
 
 # Configuration des cookies de session
-app.config['SESSION_COOKIE_SAMESITE'] = 'None'  # ou 'Lax' ou 'Strict' selon vos besoins
+app.config['SESSION_COOKIE_SAMESITE'] = 'lax'  # ou 'Lax' ou 'Strict' selon vos besoins
 app.config['SESSION_COOKIE_SECURE'] = False  #a true uniquement si HTTPS
 
 # Importer les routes après la configuration
