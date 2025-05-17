@@ -25,7 +25,7 @@ app.secret_key = os.urandom(24)
 #Config CSRF
 app.config['WTF_CSRF_TIME_LIMIT'] = None
 app.config['WTF_CSRF_SSL_STRICT'] = False
-app.config['WTF_CSRF_ENABLED'] = True
+app.config['WTF_CSRF_ENABLED'] = False
 
 # Configuration des cookies de session
 app.config['SESSION_COOKIE_SAMESITE'] = 'None'  # ou 'Lax' ou 'Strict' selon vos besoins
