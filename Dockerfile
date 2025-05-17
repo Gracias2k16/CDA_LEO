@@ -6,6 +6,7 @@ WORKDIR /app
 COPY app/ .
 
 # Install des dépendances
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose le port Flask
