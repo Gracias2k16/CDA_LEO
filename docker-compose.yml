@@ -32,5 +32,28 @@ services:
     ports:
       - "8080:8080"
 
+  duckdns:
+    image: linuxserver/duckdns
+    container_name: duckdns
+    restart: always
+    environment:
+          - SUBDOMAINS=pbimportation
+          - TOKEN=70c67582-cf54-45b8-9aa6-0b4c4c3add85
+          - LOG_FILE=false
+    volumes:
+          - ./duckdns/config:/config
+    
+  nginx-proxy-manager:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: npm
+    restart: always
+    ports:
+          - "80:80"
+          - "443:443"
+          - "81:81"
+    volumes:
+          - ./data:/data
+          - ./letsencrypt:/etc/letsencrypt
+
 volumes:
   mysql-volume:
