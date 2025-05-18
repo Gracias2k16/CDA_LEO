@@ -41,7 +41,7 @@ services:
       - "443:443"
       - "81:81"
     volumes:
-      - ./:/PB.Importation/app/data
-      - ./:/PB.Importation/app/etc/letsencrypt
+      - ./:/app/data
+      - ./:app/etc/letsencrypt
 volumes:
   mysql-volume:
