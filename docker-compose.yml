@@ -18,6 +18,8 @@ services:
     environment:
       MYSQL_DATABASE: PB_Import_mysql
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: Léo
+      MYSQL_PASSWORD: Léo
     ports:
       - "3306:3306"
     volumes:
