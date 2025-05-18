@@ -42,6 +42,6 @@ services:
       - "81:81"
     volumes:
       - ./:/app/data
-      - ./:app/etc/letsencrypt
+      - ./app/letsencrypt:/etc/letsencrypt
 volumes:
   mysql-volume:
