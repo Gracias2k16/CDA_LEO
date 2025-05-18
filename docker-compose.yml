@@ -21,7 +21,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql-volume:/var/lib/bdd_PB_Import_mysql-volume
+      - mysql-volume:/var/lib/mysql
 
   adminer:
     image: adminer
