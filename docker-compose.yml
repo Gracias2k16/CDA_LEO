@@ -12,6 +12,7 @@ services:
       - db
     networks:
       - app_network
+      
   db:
     image: mysql
     container_name: mysql

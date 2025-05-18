@@ -13,17 +13,17 @@ fi
 echo "=== Préparation pour l'obtention des certificats SSL ==="
 
 # Mettre à jour la configuration Nginx avec le bon domaine
-sed -i "s/pbimportation.duckdns.org/$DOMAIN/g" nginx/conf/default.conf
+sed -i "s/pbimportation.duckdns.org/$DOMAIN/g" nginx/conf/app.conf
 
 # Redémarrer Nginx pour appliquer la configuration
 echo "Redémarrage de Nginx avec la nouvelle configuration..."
-docker-compose restart nginx
+docker compose restart nginx
 
 # Vérifier si Nginx a démarré correctement
 sleep 2
 if ! docker ps | grep -q nginx-web; then
   echo "ERREUR : Nginx n'a pas démarré correctement."
-  docker-compose logs nginx
+  docker compose logs nginx
   exit 1
 fi
 
@@ -32,7 +32,7 @@ echo "Domaine : $DOMAIN"
 echo "Email : $EMAIL"
 
 # Exécuter Certbot pour obtenir les certificats
-docker-compose run --rm certbot certbot certonly --webroot \
+docker compose run --rm certbot certonly --webroot \
   --webroot-path=/var/www/certbot \
   --email $EMAIL \
   --agree-tos \
