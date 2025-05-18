@@ -10,7 +10,8 @@ services:
       - ./:/home/uimm/Documents/PB.Importation
     depends_on:
       - db
-
+    networks:
+      - app_network
   db:
     image: mysql
     container_name: mysql
