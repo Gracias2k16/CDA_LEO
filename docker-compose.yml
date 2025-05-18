@@ -37,7 +37,7 @@ services:
     container_name: duckdns
     restart: always
     environment:
-          - SUBDOMAINS=pbimportation
+          - SUBDOMAINS=pbimportation.duckdns.org
           - TOKEN=70c67582-cf54-45b8-9aa6-0b4c4c3add85
           - LOG_FILE=false
     volumes:
