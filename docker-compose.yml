@@ -10,8 +10,6 @@ services:
       - ./:/home/uimm/Documents/PB.Importation
     depends_on:
       - db
-    networks:
-      - app_network
       
   db:
     image: mysql
@@ -34,43 +32,5 @@ services:
     ports:
       - "8080:8080"
 
-  duckdns:
-    image: linuxserver/duckdns
-    container_name: duckdns
-    restart: always
-    environment:
-          - SUBDOMAINS=pbimportation.duckdns.org
-          - TOKEN=70c67582-cf54-45b8-9aa6-0b4c4c3add85
-          - LOG_FILE=false
-    volumes:
-          - ./duckdns/config:/config
-    
-  nginx:
-    image: nginx:alpine
-    container_name: nginx-web
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/conf:/etc/nginx/conf.d
-      - ./nginx/html:/usr/share/nginx/html
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-    
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
-    restart: unless-stopped
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-  
 volumes:
   mysql-volume:
-
-networks:
-  app_network:
-   driver: bridge
