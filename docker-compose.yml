@@ -58,9 +58,8 @@ services:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
     networks:
-      - web-network
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-    
+      - app_network
+
   certbot:
     image: certbot/certbot
     container_name: certbot
@@ -69,7 +68,7 @@ services:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
     networks:
-      - web-network
+      - app_network
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
     
 
@@ -77,6 +76,5 @@ volumes:
   mysql-volume:
 
 networks:
-  web-network:
-    name: web-network
-    driver: bridge
+  app_network:
+   driver: bridge
