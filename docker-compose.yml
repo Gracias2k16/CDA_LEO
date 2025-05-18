@@ -41,7 +41,7 @@ services:
       - "443:443"
       - "81:81"
     volumes:
-      - ./data:/home/uimm/Documents/PB.Importation/app/data
-      - ./letsencrypt:/home/uimm/Documents/PB.Importation/app//etc/letsencrypt/
+      - ./:/PB.Importation/app/data
+      - ./:/PB.Importation/app/etc/letsencrypt
 volumes:
   mysql-volume:
