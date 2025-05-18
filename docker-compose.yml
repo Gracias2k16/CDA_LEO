@@ -74,3 +74,8 @@ services:
 
 volumes:
   mysql-volume:
+
+networks:
+  web-network:
+    name: web-network
+    driver: bridge
